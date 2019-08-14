@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Statsman</title>
+    {% load static %}
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <header>
+      <a href="/"><img class='logo' src="{% static 'images/icons/logo_icon.png' %}"></img></a>
+      <div class='search'>
+        <input type="text" class="search-box" placeholder="Search" />
+        <button class="search-btn"><i class="fa fa-search"></i></button>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/playersearch" class="players-text">Players</a></li>
+        <li><a href="/teams" class="teams-text">Teams</a></li>
+        <li><a href="/" class="players-text">Season Leaders</a></li>
+        <li><a href="/seasonstats" class="players-text">Season Stats</a></li>
+        <li><a href="/HOF" class="hof-text">HOF</a></li>
+      </ul>
+      <button class="sign-in" type="submit">MY CODE</button>
+    </header>
+    <div class='container'>
+      {% block content %}
+      {% endblock %}
+    </div>
+    <footer>
+      <h5>Copyright 2019</h5>
+      <li><a href="#" class="players-text">LinkedIn</a></li>
+      <li><a href="#" class="teams-text">Github</a></li>
+      <li><a href="#" class="players-text">Contact</a></li>
+    </footer>
+  </body>
+</html>

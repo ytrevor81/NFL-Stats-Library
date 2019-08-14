@@ -1,0 +1,177 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+
+<div class="players-query">
+  <div class="players-tools">
+    <h1>Players</h1>
+      <form action="." method="GET">
+          {{ team_menu }}
+          {{ position_menu }}
+          {{ status_menu }}
+          <input class="search-players" name="lookup" type="text" placeholder="Name..."/>
+          <button class="season-leaders-btn" type="submit">Search</button>
+      </form>
+  </div>
+</div>
+
+<div class="playersearch-container">
+{% if status_select == None or status_select == "Active" %}
+  {% for name, p in queries_names %}
+      <div class="playersearch-box">
+        {{ name }}
+        <div class="info-box">
+          {{ p.position }}
+          <a class="team-search-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a>
+          {% if p.position == "QB" %}
+            <div>
+              <p>{{ p.yards }} YDS</p>
+              <p>{{ p.td }} TD</p> <p>{{ p.ints }} INT</p>
+            </div>
+          {% elif p.position == "RB" %}
+            <div>
+              <p>{{ p.yards }} YDS</p>
+              <p>{{ p.att }} ATT</p> <p>{{ p.td }} TD</p>
+            </div>
+          {% elif p.position == "FB" %}
+            <div>
+              <p>{{ p.yards }} YDS</p>
+              <p>{{ p.att }} ATT</p> <p>{{ p.td }} TD</p>
+            </div>
+          {% elif p.position == "WR" %}
+            <div>
+              <p>{{ p.yards }} YDS</p>
+              <p>{{ p.rec }} REC</p> <p>{{ p.td }} TD</p>
+            </div>
+          {% elif p.position == "TE" %}
+            <div>
+              <p>{{ p.yards }} YDS</p>
+              <p>{{ p.rec }} REC</p> <p>{{ p.td }} TD</p>
+            </div>
+          {% elif p.position == "NT" %}
+            <div>
+              <p>{{ p.sck }} SCK</p>
+              <p>{{ p.total_tkl }} TKL</p> <p>{{ p.solo_tkl }} SOLO</p>
+            </div>
+          {% elif p.position == "DT" %}
+            <div>
+              <p>{{ p.sck }} SCK</p>
+              <p>{{ p.total_tkl }} TKL</p> <p>{{ p.solo_tkl }} SOLO</p>
+            </div>
+          {% elif p.position == "DE" %}
+            <div>
+              <p>{{ p.sck }} SCK</p>
+              <p>{{ p.total_tkl }} TKL</p> <p>{{ p.solo_tkl }} SOLO</p>
+            </div>
+          {% elif p.position == "OLB" %}
+            <div>
+              <p>{{ p.total_tkl }} TKL</p>
+              <p>{{ p.solo_tkl }} SOLO</p> <p>{{ p.sck }} SCK</p>
+            </div>
+          {% elif p.position == "ILB" %}
+            <div>
+              <p>{{ p.total_tkl }} TKL</p>
+              <p>{{ p.solo_tkl }} SOLO</p> <p>{{ p.sck }} SCK</p>
+            </div>
+          {% elif p.position == "MLB" %}
+            <div>
+              <p>{{ p.total_tkl }} TKL</p>
+              <p>{{ p.solo_tkl }} SOLO</p> <p>{{ p.sck }} SCK</p>
+            </div>
+          {% elif p.position == "LB" %}
+            <div>
+              <p>{{ p.total_tkl }} TKL</p>
+              <p>{{ p.solo_tkl }} SOLO</p> <p>{{ p.sck }} SCK</p>
+            </div>
+          {% elif p.position == "CB" %}
+            <div>
+              <p>{{ p.ints }} INT</p>
+              <p>{{ p.pass_def }} PDEF</p> <p>{{ p.total_tkl }} TCK</p>
+            </div>
+          {% elif p.position == "DB" %}
+            <div>
+              <p>{{ p.ints }} INT</p>
+              <p>{{ p.pass_def }} PDEF</p> <p>{{ p.total_tkl }} TCK</p>
+            </div>
+          {% elif p.position == "FS" %}
+            <div>
+              <p>{{ p.ints }} INT</p>
+              <p>{{ p.pass_def }} PDEF</p> <p>{{ p.total_tkl }} TCK</p>
+            </div>
+          {% elif p.position == "SS" %}
+            <div>
+              <p>{{ p.ints }} INT</p>
+              <p>{{ p.pass_def }} PDEF</p> <p>{{ p.total_tkl }} TCK</p>
+            </div>
+          {% elif p.position == "K" %}
+            <div>
+              <p>{{ p.fg }} FG</p>
+              <p>{{ p.fg_att }} ATT</p> <p>{{ p.fg_perc }} PCT</p>
+            </div>
+          {% elif p.position == "P" %}
+            <div>
+              <p>{{ p.p_yards }} YDS</p>
+              <p>{{ p.punts }} P</p> <p>{{ p.p_avg }} AVG</p>
+            </div>
+          {% endif %}
+          <a class="view-profile-link" href="/profile/?player={{ p.player_id }}">View Profile</a>
+        </div>
+      </div>
+  {% endfor %}
+
+{% elif status_select == "Retired" %}
+  {% for name, p in queries_names %}
+  <div class="playersearch-box">
+    {{ name }}
+    <div class="info-box">
+      <div>
+        <p class="exp">Experience:</p>
+        <p>{{ p.experience }}</p>
+      </div>
+      <a class="view-profile-link" href="/retiredprofile/?player={{ p.player_id }}">View Profile</a>
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}
+  <div class="pagination">
+    <span class="step-links">
+        <span class="current">
+          {% for pc in pagecount %}
+            {% if pc == queries.number %}
+              <span class="current-page">
+                {{ queries.number }}
+              </span>
+            {% else %}
+              {% if team_select == None and position_select == None and lookup == None and status_select == None %}
+                <a class="other-pages" href="?team=All+NFL&position=All&status=Active&lookup=&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif lookup != "" %}
+                <a class="other-pages" href="?team=All+NFL&position=All&status={{ status_select }}&lookup={{ lookup }}&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif team_select == "All NFL" and position_select == "All" and lookup == "" %}
+                <a class="other-pages" href="?team=All+NFL&position=All&status={{ status_select }}&lookup=&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif team_select == "All NFL" and position_select != "All" and lookup == "" %}
+                <a class="other-pages" href="?team=All+NFL&position={{ position_select }}&status={{ status_select }}&lookup=&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif team_select != "All NFL" and position_select != "All" and lookup == "" %}
+                <a class="other-pages" href="?team={{ team_select }}&position={{ position_select }}&status={{ status_select }}&lookup=&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif team_select != "All NFL" and position_select == "All" and lookup == "" %}
+                <a class="other-pages" href="?team={{ team_select }}&position=All&status={{ status_select }}&lookup=&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </span>
+        <span>Showing Page {{ queries.number }} of {{ queries.paginator.num_pages }}</span>
+    </span>
+  </div>
+</div>
+{% endblock %}

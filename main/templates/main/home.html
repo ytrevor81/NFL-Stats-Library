@@ -1,0 +1,286 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+<div class="season-leaders-query">
+  <div class="season-leaders-tools">
+    <h1>Season Leaders</h1>
+      <form action="/" method="GET">
+          {{ form }}
+          <button class="season-leaders-btn" type="submit">Search</button>
+      </form>
+  </div>
+</div>
+
+<div class="six-tables-container">
+  <div class="season-leaders-table-container">
+    <div class="season-leaders-titles"> <!--1-->
+      <h1>Passing</h1>
+      {% if year == None %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Passing&year=2018&status=All">More Stats</a></h5>
+      {% else %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Passing&year={{ year }}&status=All">More Stats</a></h5>
+      {% endif %}
+    </div>
+    <table class="season-leaders-table">
+      <thead class="season-leaders-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="stat">Yds</th>
+        </tr>
+      </thead>
+      <tbody class="season-leaders-body">
+      {% for name, query in passers %}
+        {% for passer in query %}
+        <tr>
+          <td class="rk">{{ c1 }}</td>
+          {% if passer.team_short == None %}
+            <td><a class="player-link" href="/retiredprofile/?player={{ passer.player_id }}">{{ name }}</a></td>
+          {% else %}
+            <td><a class="player-link" href="/profile/?player={{ passer.player_id }}">{{ name }}</a></td>
+          {% endif %}
+          {% if passer.team_short == "SD" %}
+            <td><a class="team-link" href="/teams/LAC">{{ passer.team_short }}</a></td>
+          {% elif passer.team_short == "STL" %}
+            <td><a class="team-link" href="/teams/LA">{{ passer.team_short }}</a></td>
+          {% elif passer.team_short == None %}
+            <td>Retired</td>
+          {% else %}
+            <td><a class="team-link" href="/teams/{{ passer.team_short }}">{{ passer.team_short }}</a></td>
+          {% endif %}
+          <td class="stat">{{ passer.yards }}</td>
+        </tr>
+        {% endfor %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="season-leaders-table-container">
+    <div class="season-leaders-titles"> <!--2-->
+      <h1>Rushing</h1>
+      {% if year == None %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Rushing&year=2018&status=All">More Stats</a></h5>
+      {% else %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Rushing&year={{ year }}&status=All">More Stats</a></h5>
+      {% endif %}
+    </div>
+    <table class="season-leaders-table">
+      <thead class="season-leaders-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="stat">Yds</th>
+        </tr>
+      </thead>
+      <tbody class="season-leaders-body">
+        {% for name, query in rushers %}
+          {% for rusher in query %}
+          <tr>
+            <td class="rk">{{ c2 }}</td>
+            {% if rusher.team_short == None %}
+              <td><a class="player-link" href="/retiredprofile/?player={{ rusher.player_id }}">{{ name }}</a></td>
+            {% else %}
+              <td><a class="player-link" href="/profile/?player={{ rusher.player_id }}">{{ name }}</a></td>
+            {% endif %}
+            {% if rusher.team_short == "SD" %}
+              <td><a class="team-link" href="/teams/LAC">{{ rusher.team_short }}</a></td>
+            {% elif rusher.team_short == "STL" %}
+              <td><a class="team-link" href="/teams/LA">{{ rusher.team_short }}</a></td>
+            {% elif rusher.team_short == None %}
+              <td>Retired</td>
+            {% else %}
+              <td><a class="team-link" href="/teams/{{ rusher.team_short }}">{{ rusher.team_short }}</a></td>
+            {% endif %}
+            <td class="stat">{{ rusher.yards }}</td>
+          </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="season-leaders-table-container">
+    <div class="season-leaders-titles"> <!--3-->
+      <h1>Receiving</h1>
+      {% if year == None %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Receiving&year=2018&status=All">More Stats</a></h5>
+      {% else %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Receiving&year={{ year }}&status=All">More Stats</a></h5>
+      {% endif %}
+    </div>
+    <table class="season-leaders-table">
+      <thead class="season-leaders-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="stat">Yds</th>
+        </tr>
+      </thead>
+      <tbody class="season-leaders-body">
+        {% for name, query in receivers %}
+          {% for receiver in query %}
+          <tr>
+            <td class="rk">{{ c3 }}</td>
+            {% if receiver.team_short == None %}
+              <td><a class="player-link" href="/retiredprofile/?player={{ receiver.player_id }}">{{ name }}</a></td>
+            {% else %}
+              <td><a class="player-link" href="/profile/?player={{ receiver.player_id }}">{{ name }}</a></td>
+            {% endif %}
+            {% if receiver.team_short == "SD" %}
+              <td><a class="team-link" href="/teams/LAC">{{ receiver.team_short }}</a></td>
+            {% elif receiver.team_short == "STL" %}
+              <td><a class="team-link" href="/teams/LA">{{ receiver.team_short }}</a></td>
+            {% elif receiver.team_short == None %}
+              <td>Retired</td>
+            {% else %}
+              <td><a class="team-link" href="/teams/{{ receiver.team_short }}">{{ receiver.team_short }}</a></td>
+            {% endif %}
+            <td class="stat">{{ receiver.yards }}</td>
+          </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="season-leaders-table-container">
+    <div class="season-leaders-titles"> <!--4-->
+      <h1>Tackles</h1>
+      {% if year == None %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Tackles&year=2018&status=All">More Stats</a></h5>
+      {% else %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Tackles&year={{ year }}&status=All">More Stats</a></h5>
+      {% endif %}
+    </div>
+    <table class="season-leaders-table">
+      <thead class="season-leaders-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="stat">Tkl</th>
+        </tr>
+      </thead>
+      <tbody class="season-leaders-body">
+        {% for name, query in tacklers %}
+          {% for tackler in query %}
+          <tr>
+            <td class="rk">{{ c4 }}</td>
+            {% if tackler.team_short == None %}
+              <td><a class="player-link" href="/retiredprofile/?player={{ tackler.player_id }}">{{ name }}</a></td>
+            {% else %}
+              <td><a class="player-link" href="/profile/?player={{ tackler.player_id }}">{{ name }}</a></td>
+            {% endif %}
+            {% if tackler.team_short == "SD" %}
+              <td><a class="team-link" href="/teams/LAC">{{ tackler.team_short }}</a></td>
+            {% elif tackler.team_short == "STL" %}
+              <td><a class="team-link" href="/teams/LA">{{ tackler.team_short }}</a></td>
+            {% elif tackler.team_short == None %}
+              <td>Retired</td>
+            {% else %}
+              <td><a class="team-link" href="/teams/{{ tackler.team_short }}">{{ tackler.team_short }}</a></td>
+            {% endif %}
+            <td class="stat">{{ tackler.total_tkl }}</td>
+          </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="season-leaders-table-container">
+    <div class="season-leaders-titles"> <!--5-->
+      <h1>Sacks</h1>
+      {% if year == None %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Sacks&year=2018&status=All">More Stats</a></h5>
+      {% else %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Sacks&year={{ year }}&status=All">More Stats</a></h5>
+      {% endif %}
+    </div>
+    <table class="season-leaders-table">
+      <thead class="season-leaders-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="stat">Sck</th>
+        </tr>
+      </thead>
+      <tbody class="season-leaders-body">
+        {% for name, query in sackers %}
+          {% for sacker in query %}
+          <tr>
+            <td class="rk">{{ c5 }}</td>
+            {% if sacker.team_short == None %}
+              <td><a class="player-link" href="/retiredprofile/?player={{ sacker.player_id }}">{{ name }}</a></td>
+            {% else %}
+              <td><a class="player-link" href="/profile/?player={{ sacker.player_id }}">{{ name }}</a></td>
+            {% endif %}
+            {% if sacker.team_short == "SD" %}
+              <td><a class="team-link" href="/teams/LAC">{{ sacker.team_short }}</a></td>
+            {% elif sacker.team_short == "STL" %}
+              <td><a class="team-link" href="/teams/LA">{{ sacker.team_short }}</a></td>
+            {% elif sacker.team_short == None %}
+              <td>Retired</td>
+            {% else %}
+              <td><a class="team-link" href="/teams/{{ sacker.team_short }}">{{ sacker.team_short }}</a></td>
+            {% endif %}
+            <td class="stat">{{ sacker.sck }}</td>
+          </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="season-leaders-table-container">
+    <div class="season-leaders-titles"> <!--6-->
+      <h1>Interceptions</h1>
+      {% if year == None %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Interceptions&year=2018&status=All">More Stats</a></h5>
+      {% else %}
+        <h5><a href="/seasonstats/?team=All+NFL&category=Interceptions&year={{ year }}&status=All">More Stats</a></h5>
+      {% endif %}
+    </div>
+    <table class="season-leaders-table">
+      <thead class="season-leaders-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="stat">Int</th>
+        </tr>
+      </thead>
+      <tbody class="season-leaders-body">
+        {% for name, query in interceptors %}
+          {% for interceptor in query %}
+            <tr>
+              <td class="rk">{{ c6 }}</td>
+              {% if interceptor.team_short == None %}
+                <td><a class="player-link" href="/retiredprofile/?player={{ interceptor.player_id }}">{{ name }}</a></td>
+              {% else %}
+                <td><a class="player-link" href="/profile/?player={{ interceptor.player_id }}">{{ name }}</a></td>
+              {% endif %}
+              {% if interceptor.team_short == "SD" %}
+                <td><a class="team-link" href="/teams/LAC">{{ interceptor.team_short }}</a></td>
+              {% elif interceptor.team_short == "STL" %}
+                <td><a class="team-link" href="/teams/LA">{{ interceptor.team_short }}</a></td>
+              {% elif interceptor.team_short == None %}
+                <td>Retired</td>
+              {% else %}
+                <td><a class="team-link" href="/teams/{{ interceptor.team_short }}">{{ interceptor.team_short }}</a></td>
+              {% endif %}
+              <td class="stat">{{ interceptor.ints }}</td>
+            </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+{% endblock %}

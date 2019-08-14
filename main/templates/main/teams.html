@@ -1,0 +1,275 @@
+{% extends "main/index.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="teams-page-container">
+  <div class="afc-container">
+    <img class="afc" src="{% static 'images/teams/AFC.png' %}"/>
+
+    <div class="division">
+      <h2>AFC East</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/BUF.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/BUF/">Buffalo Bills</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/MIA.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/MIA/">Miami Dolphins</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/NE.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/NE/">New England Patriots</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/NYJ.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/NYJ/">New York Jets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="division">
+      <h2>AFC North</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/BAL.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/BAL/">Baltimore Ravens</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/CIN.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/CIN/">Cincinnati Bengals</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/CLE.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/CLE/">Cleveland Browns</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/PIT.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/PIT/">Pittsburgh Steelers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="division">
+      <h2>AFC South</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/HOU.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/HOU/">Houston Texans</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/IND.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/IND/">Indianapolis Colts</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/JAX.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/JAX/">Jacksonville Jaguars</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/TEN.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/TEN/">Tennessee Titans</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="division">
+      <h2>AFC West</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/DEN.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/DEN/">Denver Broncos</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/KC.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/KC/">Kansas City Chiefs</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/LAC.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/LAC/">Los Angeles Chargers</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/OAK.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/OAK/">Oakland Raiders</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="teams-page-separator"></div>
+
+  <div class="nfc-container">
+    <img class="nfc" src="{% static 'images/teams/NFC.png' %}"/>
+
+    <div class="division">
+      <h2>NFC East</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/DAL.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/DAL/">Dallas Cowboys</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/NYG.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/NYG/">New York Giants</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/PHI.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/PHI/">Philadelphia Eagles</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/WAS.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/WAS/">Washington Redskins</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="division">
+      <h2>NFC North</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/CHI.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/CHI/">Chicago Bears</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/DET.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/DET/">Detroit Lions</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/GB.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/GB/">Green Bay Packers</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/MIN.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/MIN/">Minnesota Vikings</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="division">
+      <h2>NFC South</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/ATL.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/ATL/">Atlanta Falcons</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/CAR.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/CAR/">Carolina Panthers</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="less-width" src="{% static 'images/teams/NO.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/NO/">New Orleans Saints</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/TB.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/TB/">Tampa Bay Buccaneers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="division">
+      <h2>NFC West</h2>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/ARI.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/ARI/">Arizona Cardinals</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/LA.png' %}"/>
+          <div class="link-container">
+              <a class="teams-page-link" href="/teams/LA/">Los Angeles Rams</a>
+          </div>
+        </div>
+      </div>
+      <div class="two-team-division">
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/SF.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/SF/">San Francisco 49ers</a>
+          </div>
+        </div>
+        <div class="team-in-div">
+          <img class="normal" src="{% static 'images/teams/SEA.png' %}"/>
+          <div class="link-container">
+            <a class="teams-page-link" href="/teams/SEA/">Seattle Seahawks</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,446 @@
+{% extends "main/index.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="team-page-container">
+  <div class="team-page-trio">
+    <div class="team-page-img">
+      <img class="ARI-team" src="{% static 'images/teams/MIA.png' %}">
+    </div>
+    <div class="team-page-info">
+      <h2 class="team-name">Miami Dolphins</h2>
+      <h2 class="division-name">AFC East</h2>
+    </div>
+  </div>
+
+  <div class="team-table-container">
+    <div class="JAX-team-titles">
+      <h1>Offense</h1>
+    </div>
+    <table class="team-table" border="0">
+      <thead class="team-head">
+        <tr>
+          <th class="season">Name</th>
+          <th class="team">Num</th>
+          <th class="games">Pos</th>
+          <th class="comp">Age</th>
+          <th class="att">Ht</th>
+          <th class="att">Wt</th>
+          <th class="pct">Exp</th>
+          <th class="att-g">College</th>
+        </tr>
+      </thead>
+      <tbody class="team-body">
+        {% for name, o in qbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, o in rbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, o in fbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, o in wrs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, o in tes %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, o in ots %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" or o.age == "2019" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, o in ogs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, o in cs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ o.number }}</td>
+            <td class="comp">{{ o.position }}</td>
+            {% if o.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ o.age }}</td>
+            {% endif %}
+            <td class="pct">{{ o.height }} in</td>
+            <td class="att-g">{{ o.weight }} lbs</td>
+            <td class="pass-yds">{{ o.experience }}</td>
+            <td class="avg">{{ o.college }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Defense</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Name</th>
+          <th class="team">Num</th>
+          <th class="games">Pos</th>
+          <th class="comp">Age</th>
+          <th class="att">Ht</th>
+          <th class="att">Wt</th>
+          <th class="pct">Exp</th>
+          <th class="att-g">College</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for name, d in nts %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in dts %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in des %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in olbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in ilbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in mlbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in lbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in dbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in cbs %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in fss %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, d in sss %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ d.number }}</td>
+            <td class="comp">{{ d.position }}</td>
+            {% if d.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ d.age }}</td>
+            {% endif %}
+            <td class="pct">{{ d.height }} in</td>
+            <td class="att-g">{{ d.weight }} lbs</td>
+            <td class="pass-yds">{{ d.experience }}</td>
+            <td class="avg">{{ d.college }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Special Teams</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Name</th>
+          <th class="team">Num</th>
+          <th class="games">Pos</th>
+          <th class="comp">Age</th>
+          <th class="att">Ht</th>
+          <th class="att">Wt</th>
+          <th class="pct">Exp</th>
+          <th class="att-g">College</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for name, s in ks %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ s.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ s.number }}</td>
+            <td class="comp">{{ s.position }}</td>
+            {% if s.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ s.age }}</td>
+            {% endif %}
+            <td class="pct">{{ s.height }} in</td>
+            <td class="att-g">{{ s.weight }} lbs</td>
+            <td class="pass-yds">{{ s.experience }}</td>
+            <td class="avg">{{ s.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, s in ps %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ s.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ s.number }}</td>
+            <td class="comp">{{ s.position }}</td>
+            {% if s.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ s.age }}</td>
+            {% endif %}
+            <td class="pct">{{ s.height }} in</td>
+            <td class="att-g">{{ s.weight }} lbs</td>
+            <td class="pass-yds">{{ s.experience }}</td>
+            <td class="avg">{{ s.college }}</td>
+          </tr>
+        {% endfor %}
+        {% for name, s in lss %}
+          <tr>
+            <td><a class="team-link" href="/profile/?player={{ s.player_id }}">{{ name }}</a></td>
+            <td class="pass-pos">{{ s.number }}</td>
+            <td class="comp">{{ s.position }}</td>
+            {% if s.age == "" %}
+              <td class="att">--</td>
+            {% else %}
+              <td class="att">{{ s.age }}</td>
+            {% endif %}
+            <td class="pct">{{ s.height }} in</td>
+            <td class="att-g">{{ s.weight }} lbs</td>
+            <td class="pass-yds">{{ s.experience }}</td>
+            <td class="avg">{{ s.college }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+
+{% endblock %}

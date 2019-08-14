@@ -1,0 +1,738 @@
+{% extends "main/index.html" %}
+{% load static %}
+
+{% block content %}
+{% for player in profile %}
+<div class="profile-container">
+  <div class="profile-pic">
+    {% for p in pic %}
+      <img src="{{ p.urls }}"/>
+    {% endfor %}
+  </div>
+  <div class="id-info">
+      <div class="firstname">
+        {{ firstname }}
+      </div>
+      <div class="lastname">
+        {{ lastname }}
+      </div>
+      {% if hof != None %}
+        {% for player in hof %}
+          <div class="hof">
+            <img src="{% static 'images/icons/HOF.png'%}"/>
+            <h5>{{ player.year }}</h5>
+          </div>
+        {% endfor %}
+      {% endif %}
+  </div>
+  <div class="team-info">
+    {% for team in teams %}
+      <h5>{{ team }}</h5>
+    {% endfor %}
+  </div>
+  <div class="years-active">
+    <p class="title">Years Active:</p>
+    <p class="years">{{ start }} - {{ finished }}</p>
+  </div>
+  <span class="short-dotted-line"></span>
+  <div class="details">
+    <ul class="detail-titles">
+      <li>Height</li>
+      <li>Weight</li>
+      <li>DOB</li>
+      <li>College</li>
+      <li>Experience</li>
+    </ul>
+    <ul class="detail-info">
+      <li>{{ height }}</li>
+      <li>{{ player.weight }}</li>
+      <li>{{ player.birthday }}</li>
+      <li>{{ player.college }}</li>
+      <li>{{ player.experience }}</li>
+    </ul>
+  </div>
+  <div class="recent-season-box">
+    <h5>CAREER STATS</h5>
+    <div class="season-box-container">
+      {% if career == "passer" %}
+        <ul class="season-box-heads">
+          <li>TD</li>
+          <li>INT</li>
+          <li>YDS</li>
+          <li>RATE</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_pass_td }}</li>
+          <li class="pass-int">{{ car_pass_ints }}</li>
+          <li class="pass-yds">{{ car_pass_yards }}</li>
+          <li class="rate">{{ car_rating }}</li>
+        </ul>
+      {% elif career == "rusher" %}
+        <ul class="season-box-heads">
+          <li>ATT</li>
+          <li>YDS</li>
+          <li>AVG</li>
+          <li>TD</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_rush_att }}</li>
+          <li class="pass-int">{{ car_rush_yds }}</li>
+          <li class="pass-yds">{{ car_rush_avg }}</li>
+          <li class="rate">{{ car_rush_tds }}</li>
+        </ul>
+      {% elif career == "receiver" %}
+        <ul class="season-box-heads">
+          <li>REC</li>
+          <li>YDS</li>
+          <li>AVG</li>
+          <li>TD</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_recs }}</li>
+          <li class="pass-int">{{ car_rec_yds }}</li>
+          <li class="pass-yds">{{ car_rec_avg }}</li>
+          <li class="rate">{{ car_rec_td }}</li>
+        </ul>
+      {% elif career == "defender" %}
+        <ul class="season-box-heads">
+          <li>COMB</li>
+          <li>SOLO</li>
+          <li>SCK</li>
+          <li>INT</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_def_tot }}</li>
+          <li class="pass-int">{{ car_def_solo }}</li>
+          <li class="pass-yds">{{ car_def_sck }}</li>
+          <li class="rate">{{ car_def_ints }}</li>
+        </ul>
+      {% elif career == "kicker" %}
+        <ul class="season-box-heads">
+          <li>FG</li>
+          <li>ATT</li>
+          <li>PCT</li>
+          <li>LNG</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_k_fgs }}</li>
+          <li class="pass-int">{{ car_k_att }}</li>
+          <li class="pass-yds">{{ car_k_pct }}</li>
+          <li class="rate">{{ car_k_lng }}</li>
+        </ul>
+      {% elif career == "punter" %}
+        <ul class="season-box-heads">
+          <li>P</li>
+          <li>YDS</li>
+          <li>AVG</li>
+          <li>LNG</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_punt_punts }}</li>
+          <li class="pass-int">{{ car_punt_yds }}</li>
+          <li class="pass-yds">{{ car_punt_avg }}</li>
+          <li class="rate">{{ car_punt_lng }}</li>
+        </ul>
+      {% elif career == "kr" %}
+        <ul class="season-box-heads">
+          <li>KR</li>
+          <li>YDS</li>
+          <li>AVG</li>
+          <li>TD</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_kr_kr }}</li>
+          <li class="pass-int">{{ car_kr_yds }}</li>
+          <li class="pass-yds">{{ car_kr_avg }}</li>
+          <li class="rate">{{ car_kr_tds }}</li>
+        </ul>
+      {% elif career == "pr" %}
+        <ul class="season-box-heads">
+          <li>PR</li>
+          <li>YDS</li>
+          <li>AVG</li>
+          <li>TD</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">{{ car_pr_pr }}</li>
+          <li class="pass-int">{{ car_pr_yds }}</li>
+          <li class="pass-yds">{{ car_pr_avg }}</li>
+          <li class="rate">{{ car_pr_tds }}</li>
+        </ul>
+      {% else %}
+        <ul class="season-box-heads">
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+          <li>?</li>
+        </ul>
+        <ul class="season-box-data">
+          <li class="prof-pass-td">--</li>
+          <li class="pass-int">--</li>
+          <li class="pass-yds">--</li>
+          <li class="rate">--</li>
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<div class="profile-stats-table-container">
+  <div class="profile-stats-titles"> <!--1-->
+    <h1>Passing</h1>
+  </div>
+  <table class="profile-stats-table" border="0">
+    <thead class="profile-stats-head">
+      <tr>
+        <th class="season">Season</th>
+        <th class="team">Team</th>
+        <th class="games">G</th>
+        <th class="comp">Comp</th>
+        <th class="att">Att</th>
+        <th class="pct">Pct</th>
+        <th class="att-g">Att/G</th>
+        <th class="pass-yds">Yds</th>
+        <th class="avg">Avg</th>
+        <th class="pass-yds-g">Yds/G</th>
+        <th class="pass-tds">TD</th>
+        <th class="pass-ints">INT</th>
+        <th class="pass-lng">Lng</th>
+        <th class="pass-20">20+</th>
+        <th class="pass-40">40+</th>
+        <th class="qb-sck">Sck</th>
+        <th class="rate">Rate</th>
+      </tr>
+    </thead>
+    <tbody class="profile-stats-body">
+      {% for pass in passer %}
+      <tr>
+        <td class="year">{{ pass.year }}</td>
+        <td class="retired-team">{{ pass.team }}</td>
+        <td class="pass-pos">{{ pass.games }}</td>
+        <td class="comp">{{ pass.comp }}</td>
+        <td class="att">{{ pass.att }}</td>
+        <td class="pct">{{ pass.comp_pct }}</td>
+        <td class="att-g">{{ pass.att_g }}</td>
+        <td class="pass-yds">{{ pass.yards }}</td>
+        <td class="avg">{{ pass.yards_att }}</td>
+        <td class="yard-g">{{ pass.yards_g }}</td>
+        <td class="td">{{ pass.td }}</td>
+        <td class="int">{{ pass.ints }}</td>
+        <td class="lng">{{ pass.lng }}</td>
+        <td class="comp-20">{{ pass.comp_twenty_plus }}</td>
+        <td class="comp-40">{{ pass.comp_forty_plus }}</td>
+        <td class="qb-sck">{{ pass.sck }}</td>
+        <td class="rate">{{ pass.rating }}</td>
+      </tr>
+      {% endfor %}
+      <tr class="careers">
+        {% if car_game == "--" %}
+          <td>--</td>
+        {% else %}
+          <td class="career">Career</td>
+        {% endif %}
+        <td>--</td>
+        <td class="pass-pos">{{ car_game }}</td>
+        <td class="comp">{{ car_comp }}</td>
+        <td class="att">{{ car_pass_att }}</td>
+        <td class="pct">{{ car_comp_pct }}</td>
+        <td class="att-g">{{ car_pass_att_g }}</td>
+        <td class="pass-yds">{{ car_pass_yards }}</td>
+        <td class="avg">{{ car_pass_yards_att }}</td>
+        <td class="yard-g">{{ car_pass_yards_g }}</td>
+        <td class="td">{{ car_pass_td }}</td>
+        <td class="int">{{ car_pass_ints }}</td>
+        <td class="lng">{{ car_pass_lng }}</td>
+        <td class="comp-20">{{ car_comp_twenty_plus }}</td>
+        <td class="comp-40">{{ car_comp_forty_plus }}</td>
+        <td class="qb-sck">{{ car_pass_sck }}</td>
+        <td class="rate">{{ car_rating }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<br>
+<br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Rushing</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Season</th>
+          <th class="team">Team</th>
+          <th class="games">G</th>
+          <th class="comp">Att</th>
+          <th class="att">Att/G</th>
+          <th class="pct">Yds</th>
+          <th class="att-g">Avg</th>
+          <th class="pass-yds">Yds/G</th>
+          <th class="avg">TD</th>
+          <th class="pass-yds-g">Lng</th>
+          <th class="pass-tds">1st</th>
+          <th class="pass-ints">20+</th>
+          <th class="pass-lng">40+</th>
+          <th class="pass-20">FUM</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for rush in rusher %}
+        <tr>
+          <td class="year">{{ rush.year }}</td>
+          <td class="retired-team">{{ rush.team }}</td>
+          <td class="pass-pos">{{ rush.games }}</td>
+          <td class="comp">{{ rush.att }}</td>
+          <td class="att">{{ rush.att_g }}</td>
+          <td class="pct">{{ rush.yards }}</td>
+          <td class="att-g">{{ rush.yards_c }}</td>
+          <td class="pass-yds">{{ rush.yards_g }}</td>
+          <td class="avg">{{ rush.td }}</td>
+          <td class="yard-g">{{ rush.lng }}</td>
+          <td class="td">{{ rush.fd }}</td>
+          <td class="int">{{ rush.rush_twenty_plus }}</td>
+          <td class="lng">{{ rush.rush_forty_plus }}</td>
+          <td class="comp-20">{{ rush.fum }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="careers">
+          {% if car_rush_games == "--" %}
+            <td>--</td>
+          {% else %}
+            <td class="career">Career</td>
+          {% endif %}
+          <td>--</td>
+          <td class="pass-pos">{{ car_rush_games }}</td>
+          <td class="comp">{{ car_rush_att }}</td>
+          <td class="att">{{ car_rush_att_g }}</td>
+          <td class="pct">{{ car_rush_yds }}</td>
+          <td class="att-g">{{ car_rush_avg }}</td>
+          <td class="pass-yds">{{ car_rush_yds_g }}</td>
+          <td class="avg">{{ car_rush_tds }}</td>
+          <td class="yard-g">{{ car_rush_lng }}</td>
+          <td class="td">{{ car_rush_fds }}</td>
+          <td class="int">{{ car_rush_t_plus }}</td>
+          <td class="lng">{{ car_rush_f_plus }}</td>
+          <td class="comp-20">{{ car_rush_fums }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Receiving</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Season</th>
+          <th class="team">Team</th>
+          <th class="games">G</th>
+          <th class="comp">Rec</th>
+          <th class="att">Yds</th>
+          <th class="pct">Avg</th>
+          <th class="att-g">Yds/G</th>
+          <th class="pass-yds">Lng</th>
+          <th class="avg">TD</th>
+          <th class="pass-yds-g">1st</th>
+          <th class="pass-tds">20+</th>
+          <th class="pass-ints">40+</th>
+          <th class="pass-lng">FUM</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for rec in receiver %}
+        <tr>
+          <td class="year">{{ rec.year }}</td>
+          <td class="retired-team">{{ rec.team }}</td>
+          <td class="pass-pos">{{ rec.games }}</td>
+          <td class="comp">{{ rec.rec }}</td>
+          <td class="att">{{ rec.yards }}</td>
+          <td class="pct">{{ rec.yards_rec }}</td>
+          <td class="att-g">{{ rec.yards_g }}</td>
+          <td class="pass-yds">{{ rec.lng }}</td>
+          <td class="avg">{{ rec.td }}</td>
+          <td class="yard-g">{{ rec.fd }}</td>
+          <td class="td">{{ rec.rec_twenty_plus }}</td>
+          <td class="int">{{ rec.rec_forty_plus }}</td>
+          <td class="lng">{{ rec.fum }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="careers">
+          {% if car_rec_games == "--" %}
+            <td>--</td>
+          {% else %}
+            <td class="career">Career</td>
+          {% endif %}
+          <td>--</td>
+          <td class="pass-pos">{{ car_rec_games }}</td>
+          <td class="comp">{{ car_recs }}</td>
+          <td class="att">{{ car_rec_yds }}</td>
+          <td class="pct">{{ car_rec_avg }}</td>
+          <td class="pass-yds">{{ car_rec_yds_g }}</td>
+          <td class="avg">{{ car_rec_lng }}</td>
+          <td class="yard-g">{{ car_rec_td }}</td>
+          <td class="td">{{ car_rec_fds }}</td>
+          <td class="int">{{ car_rec_t_plus }}</td>
+          <td class="lng">{{ car_rec_f_plus }}</td>
+          <td class="comp-20">{{ car_rec_fums }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Defense</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Season</th>
+          <th class="team">Team</th>
+          <th class="games">G</th>
+          <th class="comp">Comb</th>
+          <th class="att">Solo</th>
+          <th class="pct">Ast</th>
+          <th class="att-g">Sck</th>
+          <th class="pass-yds">SFTY</th>
+          <th class="avg">PDef</th>
+          <th class="pass-yds-g">Int</th>
+          <th class="pass-tds">TD</th>
+          <th class="pass-ints">Int Yds</th>
+          <th class="pass-lng">Int Lng</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for def in defender %}
+        <tr>
+          <td class="year">{{ def.year }}</td>
+          <td class="retired-team">{{ def.team }}</td>
+          <td class="pass-pos">{{ def.games }}</td>
+          <td class="comp">{{ def.total_tkl }}</td>
+          <td class="att">{{ def.solo_tkl }}</td>
+          <td class="pct">{{ def.assisted_tkl }}</td>
+          <td class="att-g">{{ def.sck }}</td>
+          <td class="pass-yds">{{ def.safties }}</td>
+          <td class="avg">{{ def.pass_def }}</td>
+          <td class="yard-g">{{ def.ints }}</td>
+          <td class="td">{{ def.int_td }}</td>
+          <td class="int">{{ def.int_yards }}</td>
+          <td class="lng">{{ def.lng_int_return }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="careers">
+          {% if car_def_games == "--" %}
+            <td>--</td>
+          {% else %}
+            <td class="career">Career</td>
+          {% endif %}
+          <td>--</td>
+          <td class="pass-pos">{{ car_def_games }}</td>
+          <td class="comp">{{ car_def_tot }}</td>
+          <td class="att">{{ car_def_solo }}</td>
+          <td class="pct">{{ car_def_ass }}</td>
+          <td class="pass-yds">{{ car_def_sck }}</td>
+          <td class="avg">{{ car_def_saf }}</td>
+          <td class="yard-g">{{ car_def_passd }}</td>
+          <td class="td">{{ car_def_ints }}</td>
+          <td class="int">{{ car_def_int_td }}</td>
+          <td class="lng">{{ car_def_int_yds }}</td>
+          {% if car_def_lng == None %}
+            <td>--</td>
+          {% else %}
+            <td class="comp-20">{{ car_def_lng }}</td>
+          {% endif %}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Field Goals</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Season</th>
+          <th class="team">Team</th>
+          <th class="games">G</th>
+          <th class="comp">FG</th>
+          <th class="att">Att</th>
+          <th class="pct">Pct</th>
+          <th class="att-g">Blk</th>
+          <th class="pass-yds">LNG</th>
+          <th class="avg">20-29: FG-A-PCT</th>
+          <th class="pass-yds-g">30-39: FG-A-Pct</th>
+          <th class="pass-tds">40-49: FG-A-Pct</th>
+          <th class="pass-ints">50+: FG-A-PCT</th>
+          <th class="pass-lng">EX</th>
+          <th class="pass-lng">Att</th>
+          <th class="pass-lng">Pct</th>
+          <th class="pass-lng">Blk</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for kick in kicker %}
+        <tr>
+          <td class="year">{{ kick.year }}</td>
+          <td class="retired-team">{{ kick.team }}</td>
+          <td class="pass-pos">{{ kick.games }}</td>
+          <td class="comp">{{ kick.fg }}</td>
+          <td class="att">{{ kick.fg_att }}</td>
+          <td class="pct">{{ kick.fg_perc }}</td>
+          <td class="att-g">{{ kick.kb }}</td>
+          <td class="pass-yds">{{ kick.lng }}</td>
+          <td class="avg">{{ kick.fg_twenty }}-{{ kick.fg_twenty_att }}-{{ kick.fg_twenty_perc }}</td>
+          <td class="yard-g">{{ kick.fg_thirty }}-{{ kick.fg_thirty_att }}-{{ kick.fg_thirty_perc }}</td>
+          <td class="td">{{ kick.fg_forty }}-{{ kick.fg_forty_att }}-{{ kick.fg_forty_perc }}</td>
+          <td class="int">{{ kick.fg_fifty }}-{{ kick.fg_fifty_att }}-{{ kick.fg_fifty_perc }}</td>
+          <td class="lng">{{ kick.ex }}</td>
+          <td class="lng">{{ kick.ex_att }}</td>
+          <td class="lng">{{ kick.ex_perc }}</td>
+          <td class="lng">{{ kick.ex_b }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="careers">
+          {% if car_k_games == "--" %}
+            <td>--</td>
+          {% else %}
+            <td class="career">Career</td>
+          {% endif %}
+          <td>--</td>
+          <td class="pass-pos">{{ car_k_games }}</td>
+          <td class="comp">{{ car_k_fgs }}</td>
+          <td class="att">{{ car_k_att }}</td>
+          <td class="pct">{{ car_k_pct }}</td>
+          <td class="pass-yds">{{ car_k_kb }}</td>
+          <td class="avg">{{ car_k_lng }}</td>
+          <td class="yard-g">{{ car_k_fg_twenty }}-{{ car_k_fgtw_att }}-{{ car_k_fgtw_pct}}</td>
+          <td class="td">{{ car_k_fg_thirty }}-{{ car_k_fgth_att }}-{{ car_k_fgth_pct}}</td>
+          <td class="int">{{ car_k_fg_forty }}-{{ car_k_fgfo_att }}-{{ car_k_fgfo_pct}}</td>
+          <td class="lng">{{ car_k_fg_fifty }}-{{ car_k_fgfi_att }}-{{ car_k_fgfi_pct}}</td>
+          <td class="comp-20">{{ car_k_ex }}</td>
+          <td class="comp-20">{{ car_k_ex_att }}</td>
+          <td class="comp-20">{{ car_k_ex_pct }}</td>
+          <td class="comp-20">{{ car_k_ex_b }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Punting</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Season</th>
+          <th class="team">Team</th>
+          <th class="games">G</th>
+          <th class="comp">P</th>
+          <th class="att">Yds</th>
+          <th class="pct">Lng</th>
+          <th class="att-g">Avg</th>
+          <th class="pass-yds">Blk</th>
+          <th class="avg">Oob</th>
+          <th class="pass-yds-g">DP</th>
+          <th class="pass-tds">In 20</th>
+          <th class="pass-ints">TB</th>
+          <th class="pass-lng">FC</th>
+          <th class="pass-lng">P Ret</th>
+          <th class="pass-lng">Ret Yds</th>
+          <th class="pass-lng">Ret TD</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for punt in punter %}
+        <tr>
+          <td class="year">{{ punt.year }}</td>
+          <td class="retired-team">{{ punt.team }}</td>
+          <td class="pass-pos">{{ punt.games }}</td>
+          <td class="comp">{{ punt.punts }}</td>
+          <td class="att">{{ punt.p_yards }}</td>
+          <td class="pct">{{ punt.lng }}</td>
+          <td class="att-g">{{ punt.p_avg }}</td>
+          <td class="pass-yds">{{ punt.pb }}</td>
+          <td class="avg">{{ punt.obp }}</td>
+          <td class="yard-g">{{ punt.dp }}</td>
+          <td class="td">{{ punt.p_twenty }}</td>
+          <td class="int">{{ punt.tb }}</td>
+          <td class="lng">{{ punt.fc }}</td>
+          <td class="lng">{{ punt.p_ret }}</td>
+          <td class="lng">{{ punt.p_ret_yards }}</td>
+          <td class="lng">{{ punt.p_ret_td }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="careers">
+          {% if car_punt_games == "--" %}
+            <td>--</td>
+          {% else %}
+            <td class="career">Career</td>
+          {% endif %}
+          <td>--</td>
+          <td class="pass-pos">{{ car_punt_games }}</td>
+          <td class="comp">{{ car_punt_punts }}</td>
+          <td class="att">{{ car_punt_yds }}</td>
+          <td class="pct">{{ car_punt_lng }}</td>
+          <td class="pass-yds">{{ car_punt_avg }}</td>
+          <td class="avg">{{ car_punt_pb }}</td>
+          <td class="yard-g">{{ car_punt_oob }}</td>
+          <td class="td">{{ car_punt_dps }}</td>
+          <td class="int">{{ car_punt_p_twenty }}</td>
+          <td class="lng">{{ car_punt_tbs }}</td>
+          <td class="comp-20">{{ car_punt_fcs }}</td>
+          <td class="comp-20">{{ car_punt_p_ret }}</td>
+          <td class="comp-20">{{ car_punt_ret_yds }}</td>
+          <td class="comp-20">{{ car_punt_rettd }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Kick Returns</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Season</th>
+          <th class="team">Team</th>
+          <th class="games">G</th>
+          <th class="comp">KR</th>
+          <th class="att">Yds</th>
+          <th class="pct">Avg</th>
+          <th class="att-g">lng</th>
+          <th class="pass-yds">td</th>
+          <th class="avg">20+</th>
+          <th class="pass-yds-g">40+</th>
+          <th class="pass-tds">FC</th>
+          <th class="pass-ints">FUM</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for returner in k_returner %}
+        <tr>
+          <td class="year">{{ returner.year }}</td>
+          <td class="retired-team">{{ returner.team }}</td>
+          <td class="pass-pos">{{ returner.games }}</td>
+          <td class="comp">{{ returner.kr }}</td>
+          <td class="att">{{ returner.kr_yards }}</td>
+          <td class="pct">{{ returner.yards_kr }}</td>
+          <td class="att-g">{{ returner.lng }}</td>
+          <td class="pass-yds">{{ returner.td }}</td>
+          <td class="avg">{{ returner.kr_twenty_plus }}</td>
+          <td class="yard-g">{{ returner.kr_forty_plus }}</td>
+          <td class="td">{{ returner.fc }}</td>
+          <td class="int">{{ returner.fum }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="careers">
+          {% if car_kr_games == "--" %}
+            <td>--</td>
+          {% else %}
+            <td class="career">Career</td>
+          {% endif %}
+          <td>--</td>
+          <td class="pass-pos">{{ car_kr_games }}</td>
+          <td class="comp">{{ car_kr_kr }}</td>
+          <td class="att">{{ car_kr_yds }}</td>
+          <td class="pct">{{ car_kr_avg }}</td>
+          <td class="pass-yds">{{ car_kr_lng }}</td>
+          <td class="avg">{{ car_kr_tds }}</td>
+          <td class="yard-g">{{ car_kr_kr_twenty }}</td>
+          <td class="td">{{ car_kr_kr_forty }}</td>
+          <td class="int">{{ car_kr_fcs }}</td>
+          <td class="lng">{{ car_kr_fums }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="profile-stats-table-container">
+    <div class="profile-stats-titles"> <!--1-->
+      <h1>Punt Returns</h1>
+    </div>
+    <table class="profile-stats-table" border="0">
+      <thead class="profile-stats-head">
+        <tr>
+          <th class="season">Season</th>
+          <th class="team">Team</th>
+          <th class="games">G</th>
+          <th class="comp">PR</th>
+          <th class="att">Yds</th>
+          <th class="pct">Avg</th>
+          <th class="att-g">Lng</th>
+          <th class="pass-yds">TD</th>
+          <th class="avg">20+</th>
+          <th class="pass-yds-g">40+</th>
+          <th class="pass-tds">FC</th>
+          <th class="pass-ints">FUM</th>
+        </tr>
+      </thead>
+      <tbody class="profile-stats-body">
+        {% for returner in p_returner %}
+        <tr>
+          <td class="year">{{ returner.year }}</td>
+          <td class="retired-team">{{ returner.team }}</td>
+          <td class="pass-pos">{{ returner.games }}</td>
+          <td class="comp">{{ returner.pr }}</td>
+          <td class="att">{{ returner.pr_yards }}</td>
+          <td class="pct">{{ returner.yards_pr }}</td>
+          <td class="att-g">{{ returner.lng }}</td>
+          <td class="pass-yds">{{ returner.td }}</td>
+          <td class="avg">{{ returner.pr_twenty_plus }}</td>
+          <td class="yard-g">{{ returner.pr_forty_plus }}</td>
+          <td class="td">{{ returner.fc }}</td>
+          <td class="int">{{ returner.fum }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="careers">
+          {% if car_pr_games == "--" %}
+            <td>--</td>
+          {% else %}
+            <td class="career">Career</td>
+          {% endif %}
+          <td>--</td>
+          <td class="pass-pos">{{ car_pr_games }}</td>
+          <td class="comp">{{ car_pr_pr }}</td>
+          <td class="att">{{ car_pr_yds }}</td>
+          <td class="pct">{{ car_pr_avg }}</td>
+          <td class="pass-yds">{{ car_pr_lng }}</td>
+          <td class="avg">{{ car_pr_tds }}</td>
+          <td class="yard-g">{{ car_pr_pr_twenty }}</td>
+          <td class="td">{{ car_pr_forty }}</td>
+          <td class="int">{{ car_pr_fcs }}</td>
+          <td class="lng">{{ car_pr_fums }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+{% endfor %}
+{% endblock %}

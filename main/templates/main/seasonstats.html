@@ -1,0 +1,890 @@
+{% extends "main/index.html" %}
+
+{% block content %}
+
+<div class="seasons-query">
+  <div class="seasons-tools">
+    <h1>Season Stats</h1>
+      <form action="." method="GET">
+          {{ team_menu }}
+          {{ category_menu }}
+          {{ year_menu }}
+          {{ status_menu }}
+          <button class="season-leaders-btn" type="submit">Search</button>
+      </form>
+  </div>
+</div>
+
+{% if category == None %}
+  <div class="season-stats-table-container">
+    <div class="season-stats-titles"> <!--1-->
+      <h1>Passing</h1>
+    </div>
+    <table class="season-stats-table" border="0">
+      <thead class="season-stats-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="pos">Pos</th>
+          <th class="comp">Comp</th>
+          <th class="att">Att</th>
+          <th class="pct">Pct</th>
+          <th class="att-g">Att/G</th>
+          <th class="pass-yds">Yds</th>
+          <th class="avg">Avg</th>
+          <th class="pass-yds-g">Yds/G</th>
+          <th class="pass-tds">TD</th>
+          <th class="pass-ints">INT</th>
+          <th class="pass-lng">Lng</th>
+          <th class="pass-20">20+</th>
+          <th class="pass-40">40+</th>
+          <th class="qb-sck">Sck</th>
+          <th class="rate">Rate</th>
+        </tr>
+      </thead>
+      <tbody class="season-stats-body">
+      {% for name, rank, query in rank_players %}
+        {% for p in query %}
+        <tr>
+          <td class="rk">{{ rank }}</td>
+          {% if p.team_short == None %}
+            <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+          {% else %}
+            <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+          {% endif %}
+          {% if p.team_short == "SD" %}
+            <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+          {% elif p.team_short == "STL" %}
+            <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+          {% elif p.team_short == None %}
+            <td>Retired</td>
+          {% else %}
+            <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+          {% endif %}
+          {% if p.position == None %}
+            <td class="pass-pos">--</td>
+          {% else %}
+            <td class="pass-pos">{{ p.position }}</td>
+          {% endif %}
+          <td class="comp">{{ p.comp }}</td>
+          <td class="att">{{ p.att }}</td>
+          <td class="pct">{{ p.comp_pct }}</td>
+          <td class="att-g">{{ p.att_g }}</td>
+          <td class="pass-yds">{{ p.yards }}</td>
+          <td class="avg">{{ p.yards_att }}</td>
+          <td class="yard-g">{{ p.yards_g }}</td>
+          <td class="td">{{ p.td }}</td>
+          <td class="int">{{ p.ints }}</td>
+          <td class="lng">{{ p.lng }}</td>
+          <td class="comp-20">{{ p.comp_twenty_plus }}</td>
+          <td class="comp-40">{{ p.comp_forty_plus }}</td>
+          <td class="qb-sck">{{ p.sck }}</td>
+          <td class="rate">{{ p.rating }}</td>
+        </tr>
+        {% endfor %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <span class="step-links">
+        <span class="current">
+          {% for pc in pagecount %}
+            {% if pc == players.number %}
+              <span class="current-page">
+                {{ players.number }}
+              </span>
+            {% else %}
+              {% if category == None %}
+                <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif team == None and status == None %}
+                <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% else %}
+                <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </span>
+        <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+    </span>
+  </div>
+
+  {% elif category == "Passing" %}
+  <div class="season-stats-table-container">
+    <div class="season-stats-titles"> <!--1-->
+      <h1>Passing</h1>
+    </div>
+    <table class="season-stats-table" border="0">
+      <thead class="season-stats-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="pos">Pos</th>
+          <th class="comp">Comp</th>
+          <th class="att">Att</th>
+          <th class="pct">Pct</th>
+          <th class="att-g">Att/G</th>
+          <th class="pass-yds">Yds</th>
+          <th class="avg">Avg</th>
+          <th class="pass-yds-g">Yds/G</th>
+          <th class="pass-tds">TD</th>
+          <th class="pass-ints">INT</th>
+          <th class="pass-lng">Lng</th>
+          <th class="pass-20">20+</th>
+          <th class="pass-40">40+</th>
+          <th class="qb-sck">Sck</th>
+          <th class="rate">Rate</th>
+        </tr>
+      </thead>
+      <tbody class="season-stats-body">
+      {% for name, rank, query in rank_players %}
+        {% for p in query %}
+        <tr>
+          <td class="rk">{{ rank }}</td>
+          {% if p.team_short == None %}
+            <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+          {% else %}
+            <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+          {% endif %}
+          {% if p.team_short == "SD" %}
+            <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+          {% elif p.team_short == "STL" %}
+            <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+          {% elif p.team_short == None %}
+            <td>Retired</td>
+          {% else %}
+            <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+          {% endif %}
+          {% if p.position == None %}
+            <td class="pass-pos">--</td>
+          {% else %}
+            <td class="pass-pos">{{ p.position }}</td>
+          {% endif %}
+          <td class="comp">{{ p.comp }}</td>
+          <td class="att">{{ p.att }}</td>
+          <td class="pct">{{ p.comp_pct }}</td>
+          <td class="att-g">{{ p.att_g }}</td>
+          <td class="pass-yds">{{ p.yards }}</td>
+          <td class="avg">{{ p.yards_att }}</td>
+          <td class="yard-g">{{ p.yards_g }}</td>
+          <td class="td">{{ p.td }}</td>
+          <td class="int">{{ p.ints }}</td>
+          <td class="lng">{{ p.lng }}</td>
+          <td class="comp-20">{{ p.comp_twenty_plus }}</td>
+          <td class="comp-40">{{ p.comp_forty_plus }}</td>
+          <td class="qb-sck">{{ p.sck }}</td>
+          <td class="rate">{{ p.rating }}</td>
+        </tr>
+        {% endfor %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <span class="step-links">
+        <span class="current">
+          {% for pc in pagecount %}
+            {% if pc == players.number %}
+              <span class="current-page">
+                {{ players.number }}
+              </span>
+            {% else %}
+              {% if category == None %}
+                <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif team == None and status == None %}
+                <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% else %}
+                <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </span>
+        <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+    </span>
+  </div>
+
+{% elif category == "Rushing" %}
+  <div class="season-stats-table-container">
+    <div class="season-stats-titles"> <!--1-->
+      <h1>Rushing</h1>
+    </div>
+    <table class="season-stats-table" border="0">
+      <thead class="season-stats-head">
+        <tr>
+          <th class="rk">RK</th>
+          <th class="player">Player</th>
+          <th class="team">Team</th>
+          <th class="pos">Pos</th>
+          <th class="comp">Att</th>
+          <th class="att">Att/G</th>
+          <th class="pct">Yds</th>
+          <th class="att-g">Avg</th>
+          <th class="pass-yds">Yds/G</th>
+          <th class="avg">TD</th>
+          <th class="pass-yds-g">Lng</th>
+          <th class="pass-tds">1st</th>
+          <th class="pass-ints">20+</th>
+          <th class="pass-lng">40+</th>
+          <th class="pass-20">FUM</th>
+        </tr>
+      </thead>
+      <tbody class="season-stats-body">
+      {% for name, rank, query in rank_players %}
+        {% for p in query %}
+        <tr>
+          <td class="rk">{{ rank }}</td>
+          {% if p.team_short == None %}
+            <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+          {% else %}
+            <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+          {% endif %}
+          {% if p.team_short == "SD" %}
+            <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+          {% elif p.team_short == "STL" %}
+            <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+          {% elif p.team_short == None %}
+            <td>Retired</td>
+          {% else %}
+            <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+          {% endif %}
+          {% if p.position == None %}
+            <td class="pass-pos">--</td>
+          {% else %}
+            <td class="pass-pos">{{ p.position }}</td>
+          {% endif %}
+          <td class="comp">{{ p.att }}</td>
+          <td class="att">{{ p.att_g }}</td>
+          <td class="pct">{{ p.yards }}</td>
+          <td class="att-g">{{ p.yards_c }}</td>
+          <td class="pass-yds">{{ p.yards_g }}</td>
+          <td class="avg">{{ p.td }}</td>
+          <td class="yard-g">{{ p.lng }}</td>
+          <td class="td">{{ p.fd }}</td>
+          <td class="int">{{ p.rush_twenty_plus }}</td>
+          <td class="lng">{{ p.rush_forty_plus }}</td>
+          <td class="comp-20">{{ p.fum }}</td>
+        </tr>
+        {% endfor %}
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination">
+    <span class="step-links">
+        <span class="current">
+          {% for pc in pagecount %}
+            {% if pc == players.number %}
+              <span class="current-page">
+                {{ players.number }}
+              </span>
+            {% else %}
+              {% if category == None %}
+                <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% elif team == None and status == None %}
+                <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% else %}
+                <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                  {{ pc }}
+                </a>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        </span>
+        <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+    </span>
+  </div>
+
+  {% elif category == "Receiving" %}
+    <div class="season-stats-table-container">
+      <div class="season-stats-titles"> <!--1-->
+        <h1>Receiving</h1>
+      </div>
+      <table class="season-stats-table" border="0">
+        <thead class="season-stats-head">
+          <tr>
+            <th class="rk">RK</th>
+            <th class="player">Player</th>
+            <th class="team">Team</th>
+            <th class="pos">Pos</th>
+            <th class="comp">Rec</th>
+            <th class="att">Yds</th>
+            <th class="pct">Avg</th>
+            <th class="att-g">Yds/G</th>
+            <th class="pass-yds">Lng</th>
+            <th class="avg">TD</th>
+            <th class="pass-yds-g">1st</th>
+            <th class="pass-tds">20+</th>
+            <th class="pass-ints">40+</th>
+            <th class="pass-lng">FUM</th>
+          </tr>
+        </thead>
+        <tbody class="season-stats-body">
+        {% for name, rank, query in rank_players %}
+          {% for p in query %}
+          <tr>
+            <td class="rk">{{ rank }}</td>
+            {% if p.team_short == None %}
+              <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+            {% else %}
+              <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+            {% endif %}
+            {% if p.team_short == "SD" %}
+              <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+            {% elif p.team_short == "STL" %}
+              <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+            {% elif p.team_short == None %}
+              <td>Retired</td>
+            {% else %}
+              <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+            {% endif %}
+            {% if p.position == None %}
+              <td class="pass-pos">--</td>
+            {% else %}
+              <td class="pass-pos">{{ p.position }}</td>
+            {% endif %}
+            <td class="comp">{{ p.rec }}</td>
+            <td class="att">{{ p.yards }}</td>
+            <td class="pct">{{ p.yards_rec }}</td>
+            <td class="att-g">{{ p.yards_g }}</td>
+            <td class="pass-yds">{{ p.lng }}</td>
+            <td class="avg">{{ p.td }}</td>
+            <td class="yard-g">{{ p.fd }}</td>
+            <td class="td">{{ p.rec_twenty_plus }}</td>
+            <td class="int">{{ p.rec_forty_plus }}</td>
+            <td class="lng">{{ p.fum }}</td>
+          </tr>
+          {% endfor %}
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <span class="step-links">
+          <span class="current">
+            {% for pc in pagecount %}
+              {% if pc == players.number %}
+                <span class="current-page">
+                  {{ players.number }}
+                </span>
+              {% else %}
+                {% if category == None %}
+                  <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                    {{ pc }}
+                  </a>
+                {% elif team == None and status == None %}
+                  <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                    {{ pc }}
+                  </a>
+                {% else %}
+                  <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                    {{ pc }}
+                  </a>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </span>
+          <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+      </span>
+    </div>
+
+    {% elif category == "Tackles" or category == "Sacks" or category == "Interceptions" %}
+      <div class="season-stats-table-container">
+        <div class="season-stats-titles"> <!--1-->
+          <h1>Defense</h1>
+        </div>
+        <table class="season-stats-table" border="0">
+          <thead class="season-stats-head">
+            <tr>
+              <th class="rk">RK</th>
+              <th class="player">Player</th>
+              <th class="team">Team</th>
+              <th class="pos">Pos</th>
+              <th class="comp">Comb</th>
+              <th class="att">Solo</th>
+              <th class="pct">Ast</th>
+              <th class="att-g">Sck</th>
+              <th class="pass-yds">SFTY</th>
+              <th class="avg">PDef</th>
+              <th class="pass-yds-g">Int</th>
+              <th class="pass-tds">TD</th>
+              <th class="pass-ints">Int Yds</th>
+              <th class="pass-lng">Int Lng</th>
+            </tr>
+          </thead>
+          <tbody class="season-stats-body">
+          {% for name, rank, query in rank_players %}
+            {% for p in query %}
+            <tr>
+              <td class="rk">{{ rank }}</td>
+              {% if p.team_short == None %}
+                <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+              {% else %}
+                <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+              {% endif %}
+              {% if p.team_short == "SD" %}
+                <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+              {% elif p.team_short == "STL" %}
+                <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+              {% elif p.team_short == None %}
+                <td>Retired</td>
+              {% else %}
+                <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+              {% endif %}
+              {% if p.position == None %}
+                <td class="pass-pos">--</td>
+              {% else %}
+                <td class="pass-pos">{{ p.position }}</td>
+              {% endif %}
+              <td class="comp">{{ p.total_tkl }}</td>
+              <td class="att">{{ p.solo_tkl }}</td>
+              <td class="pct">{{ p.assisted_tkl }}</td>
+              <td class="att-g">{{ p.sck }}</td>
+              <td class="pass-yds">{{ p.safties }}</td>
+              <td class="avg">{{ p.pass_def }}</td>
+              <td class="yard-g">{{ p.ints }}</td>
+              <td class="td">{{ p.int_td }}</td>
+              <td class="int">{{ p.int_yards }}</td>
+              <td class="lng">{{ p.lng_int_return }}</td>
+            </tr>
+            {% endfor %}
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <span class="step-links">
+            <span class="current">
+              {% for pc in pagecount %}
+                {% if pc == players.number %}
+                  <span class="current-page">
+                    {{ players.number }}
+                  </span>
+                {% else %}
+                  {% if category == None %}
+                    <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                      {{ pc }}
+                    </a>
+                  {% elif team == None and status == None %}
+                    <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                      {{ pc }}
+                    </a>
+                  {% else %}
+                    <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                      {{ pc }}
+                    </a>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </span>
+            <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+        </span>
+      </div>
+
+      {% elif category == "Field Goals" %}
+        <div class="season-stats-table-container">
+          <div class="season-stats-titles"> <!--1-->
+            <h1>Field Goals</h1>
+          </div>
+          <table class="season-stats-table" border="0">
+            <thead class="season-stats-head">
+              <tr>
+                <th class="rk">RK</th>
+                <th class="player">Player</th>
+                <th class="team">Team</th>
+                <th class="pos">Pos</th>
+                <th class="comp">FG</th>
+                <th class="att">Att</th>
+                <th class="pct">Pct</th>
+                <th class="att-g">Blk</th>
+                <th class="pass-yds">LNG</th>
+                <th class="avg">20-29: FG-A-PCT</th>
+                <th class="pass-yds-g">30-39: FG-A-Pct</th>
+                <th class="pass-tds">40-49: FG-A-Pct</th>
+                <th class="pass-ints">50+: FG-A-PCT</th>
+                <th class="pass-lng">EX</th>
+                <th class="pass-lng">Att</th>
+                <th class="pass-lng">Pct</th>
+                <th class="pass-lng">Blk</th>
+              </tr>
+            </thead>
+            <tbody class="season-stats-body">
+            {% for name, rank, query in rank_players %}
+              {% for p in query %}
+              <tr>
+                <td class="rk">{{ rank }}</td>
+                {% if p.team_short == None %}
+                  <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+                {% else %}
+                  <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+                {% endif %}
+                {% if p.team_short == "SD" %}
+                  <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+                {% elif p.team_short == "STL" %}
+                  <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+                {% elif p.team_short == None %}
+                  <td>Retired</td>
+                {% else %}
+                  <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+                {% endif %}
+                {% if p.position == None %}
+                  <td class="pass-pos">--</td>
+                {% else %}
+                  <td class="pass-pos">{{ p.position }}</td>
+                {% endif %}
+                <td class="comp">{{ p.fg }}</td>
+                <td class="att">{{ p.fg_att }}</td>
+                <td class="pct">{{ p.fg_perc }}</td>
+                <td class="att-g">{{ p.kb }}</td>
+                <td class="pass-yds">{{ p.lng }}</td>
+                <td class="avg">{{ p.fg_twenty }}-{{ kicker.fg_twenty_att }}-{{ kicker.fg_twenty_perc }}</td>
+                <td class="yard-g">{{ p.fg_thirty }}-{{ kicker.fg_thirty_att }}-{{ kicker.fg_thirty_perc }}</td>
+                <td class="td">{{ p.fg_forty }}-{{ kicker.fg_forty_att }}-{{ kicker.fg_forty_perc }}</td>
+                <td class="int">{{ p.fg_fifty }}-{{ kicker.fg_fifty_att }}-{{ kicker.fg_fifty_perc }}</td>
+                <td class="lng">{{ p.ex }}</td>
+                <td class="lng">{{ p.ex_att }}</td>
+                <td class="lng">{{ p.ex_perc }}</td>
+                <td class="lng">{{ p.ex_b }}</td>
+              </tr>
+              {% endfor %}
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <span class="step-links">
+              <span class="current">
+                {% for pc in pagecount %}
+                  {% if pc == players.number %}
+                    <span class="current-page">
+                      {{ players.number }}
+                    </span>
+                  {% else %}
+                    {% if category == None %}
+                      <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                        {{ pc }}
+                      </a>
+                    {% elif team == None and status == None %}
+                      <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                        {{ pc }}
+                      </a>
+                    {% else %}
+                      <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                        {{ pc }}
+                      </a>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </span>
+              <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+          </span>
+        </div>
+
+        {% elif category == "Punting" %}
+          <div class="season-stats-table-container">
+            <div class="season-stats-titles"> <!--1-->
+              <h1>Punting</h1>
+            </div>
+            <table class="season-stats-table" border="0">
+              <thead class="season-stats-head">
+                <tr>
+                  <th class="rk">RK</th>
+                  <th class="player">Player</th>
+                  <th class="team">Team</th>
+                  <th class="pos">Pos</th>
+                  <th class="comp">P</th>
+                  <th class="att">Yds</th>
+                  <th class="pct">Lng</th>
+                  <th class="att-g">Avg</th>
+                  <th class="pass-yds">Blk</th>
+                  <th class="avg">Oob</th>
+                  <th class="pass-yds-g">DP</th>
+                  <th class="pass-tds">In 20</th>
+                  <th class="pass-ints">TB</th>
+                  <th class="pass-lng">FC</th>
+                  <th class="pass-lng">P Ret</th>
+                  <th class="pass-lng">Ret Yds</th>
+                  <th class="pass-lng">Ret TD</th>
+                </tr>
+              </thead>
+              <tbody class="season-stats-body">
+              {% for name, rank, query in rank_players %}
+                {% for p in query %}
+                <tr>
+                  <td class="rk">{{ rank }}</td>
+                  {% if p.team_short == None %}
+                    <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+                  {% else %}
+                    <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+                  {% endif %}
+                  {% if p.team_short == "SD" %}
+                    <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+                  {% elif p.team_short == "STL" %}
+                    <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+                  {% elif p.team_short == None %}
+                    <td>Retired</td>
+                  {% else %}
+                    <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+                  {% endif %}
+                  {% if p.position == None %}
+                    <td class="pass-pos">--</td>
+                  {% else %}
+                    <td class="pass-pos">{{ p.position }}</td>
+                  {% endif %}
+                  <td class="comp">{{ p.punts }}</td>
+                  <td class="att">{{ p.p_yards }}</td>
+                  <td class="pct">{{ p.lng }}</td>
+                  <td class="att-g">{{ p.p_avg }}</td>
+                  <td class="pass-yds">{{ p.pb }}</td>
+                  <td class="avg">{{ p.obp }}</td>
+                  <td class="yard-g">{{ p.dp }}</td>
+                  <td class="td">{{ p.p_twenty }}</td>
+                  <td class="int">{{ p.tb }}</td>
+                  <td class="lng">{{ p.fc }}</td>
+                  <td class="lng">{{ p.p_ret }}</td>
+                  <td class="lng">{{ p.p_ret_yards }}</td>
+                  <td class="lng">{{ p.p_ret_td }}</td>
+                </tr>
+                {% endfor %}
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination">
+            <span class="step-links">
+                <span class="current">
+                  {% for pc in pagecount %}
+                    {% if pc == players.number %}
+                      <span class="current-page">
+                        {{ players.number }}
+                      </span>
+                    {% else %}
+                      {% if category == None %}
+                        <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                          {{ pc }}
+                        </a>
+                      {% elif team == None and status == None %}
+                        <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                          {{ pc }}
+                        </a>
+                      {% else %}
+                        <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                          {{ pc }}
+                        </a>
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                </span>
+                <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+            </span>
+          </div>
+
+          {% elif category == "Kick Returns" %}
+            <div class="season-stats-table-container">
+              <div class="season-stats-titles"> <!--1-->
+                <h1>Kick Returns</h1>
+              </div>
+              <table class="season-stats-table" border="0">
+                <thead class="season-stats-head">
+                  <tr>
+                    <th class="rk">RK</th>
+                    <th class="player">Player</th>
+                    <th class="team">Team</th>
+                    <th class="pos">Pos</th>
+                    <th class="comp">KR</th>
+                    <th class="att">Yds</th>
+                    <th class="pct">Avg</th>
+                    <th class="att-g">lng</th>
+                    <th class="pass-yds">td</th>
+                    <th class="avg">20+</th>
+                    <th class="pass-yds-g">40+</th>
+                    <th class="pass-tds">FC</th>
+                    <th class="pass-ints">FUM</th>
+                  </tr>
+                </thead>
+                <tbody class="season-stats-body">
+                {% for name, rank, query in rank_players %}
+                  {% for p in query %}
+                  <tr>
+                    <td class="rk">{{ rank }}</td>
+                    {% if p.team_short == None %}
+                      <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+                    {% else %}
+                      <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+                    {% endif %}
+                    {% if p.team_short == "SD" %}
+                      <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+                    {% elif p.team_short == "STL" %}
+                      <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+                    {% elif p.team_short == None %}
+                      <td>Retired</td>
+                    {% else %}
+                      <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+                    {% endif %}
+                    {% if p.position == None %}
+                      <td class="pass-pos">--</td>
+                    {% else %}
+                      <td class="pass-pos">{{ p.position }}</td>
+                    {% endif %}
+                    <td class="comp">{{ p.kr }}</td>
+                    <td class="att">{{ p.kr_yards }}</td>
+                    <td class="pct">{{ p.yards_kr }}</td>
+                    <td class="att-g">{{ p.lng }}</td>
+                    <td class="pass-yds">{{ p.td }}</td>
+                    <td class="avg">{{ p.kr_twenty_plus }}</td>
+                    <td class="yard-g">{{ p.kr_forty_plus }}</td>
+                    <td class="td">{{ p.fc }}</td>
+                    <td class="int">{{ p.fum }}</td>
+                  </tr>
+                  {% endfor %}
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pagination">
+              <span class="step-links">
+                  <span class="current">
+                    {% for pc in pagecount %}
+                      {% if pc == players.number %}
+                        <span class="current-page">
+                          {{ players.number }}
+                        </span>
+                      {% else %}
+                        {% if category == None %}
+                          <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                            {{ pc }}
+                          </a>
+                        {% elif team == None and status == None %}
+                          <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                            {{ pc }}
+                          </a>
+                        {% else %}
+                          <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                            {{ pc }}
+                          </a>
+                        {% endif %}
+                      {% endif %}
+                    {% endfor %}
+                  </span>
+                  <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+              </span>
+            </div>
+
+            {% elif category == "Punt Returns" %}
+              <div class="season-stats-table-container">
+                <div class="season-stats-titles"> <!--1-->
+                  <h1>Punt Returns</h1>
+                </div>
+                <table class="season-stats-table" border="0">
+                  <thead class="season-stats-head">
+                    <tr>
+                      <th class="rk">RK</th>
+                      <th class="player">Player</th>
+                      <th class="team">Team</th>
+                      <th class="pos">Pos</th>
+                      <th class="comp">PR</th>
+                      <th class="att">Yds</th>
+                      <th class="pct">Avg</th>
+                      <th class="att-g">Lng</th>
+                      <th class="pass-yds">TD</th>
+                      <th class="avg">20+</th>
+                      <th class="pass-yds-g">40+</th>
+                      <th class="pass-tds">FC</th>
+                      <th class="pass-ints">FUM</th>
+                    </tr>
+                  </thead>
+                  <tbody class="season-stats-body">
+                  {% for name, rank, query in rank_players %}
+                    {% for p in query %}
+                    <tr>
+                      <td class="rk">{{ rank }}</td>
+                      {% if p.team_short == None %}
+                        <td><a class="player-link" href="/retiredprofile/?player={{ p.player_id }}">{{ name }}</a></td>
+                      {% else %}
+                        <td><a class="player-link" href="/profile/?player={{ p.player_id }}">{{ name }}</a></td>
+                      {% endif %}
+                      {% if p.team_short == "SD" %}
+                        <td><a class="team-link" href="/teams/LAC">{{ p.team_short }}</a></td>
+                      {% elif p.team_short == "STL" %}
+                        <td><a class="team-link" href="/teams/LA">{{ p.team_short }}</a></td>
+                      {% elif p.team_short == None %}
+                        <td>Retired</td>
+                      {% else %}
+                        <td><a class="team-link" href="/teams/{{ p.team_short }}">{{ p.team_short }}</a></td>
+                      {% endif %}
+                      {% if p.position == None %}
+                        <td class="pass-pos">--</td>
+                      {% else %}
+                        <td class="pass-pos">{{ p.position }}</td>
+                      {% endif %}
+                      <td class="comp">{{ p.pr }}</td>
+                      <td class="att">{{ p.pr_yards }}</td>
+                      <td class="pct">{{ p.yards_pr }}</td>
+                      <td class="att-g">{{ p.lng }}</td>
+                      <td class="pass-yds">{{ p.td }}</td>
+                      <td class="avg">{{ p.pr_twenty_plus }}</td>
+                      <td class="yard-g">{{ p.pr_forty_plus }}</td>
+                      <td class="td">{{ p.fc }}</td>
+                      <td class="int">{{ p.fum }}</td>
+                    </tr>
+                    {% endfor %}
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="pagination">
+                <span class="step-links">
+                    <span class="current">
+                      {% for pc in pagecount %}
+                        {% if pc == players.number %}
+                          <span class="current-page">
+                            {{ players.number }}
+                          </span>
+                        {% else %}
+                          {% if category == None %}
+                            <a class="other-pages" href="?team=All+NFL&category=Passing&year=2018&status=Active&page={{ pc }}">
+                              {{ pc }}
+                            </a>
+                          {% elif team == None and status == None %}
+                            <a class="other-pages" href="?team=All+NFL&category={{ category }}&year={{ year }}&status=Active&page={{ pc }}">
+                              {{ pc }}
+                            </a>
+                          {% else %}
+                            <a class="other-pages" href="?team={{ team }}&category={{ category }}&year={{ year }}&status={{ status }}&page={{ pc }}">
+                              {{ pc }}
+                            </a>
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+                    </span>
+                    <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
+                </span>
+              </div>
+{% endif %}
+{% endblock %}
