@@ -83,45 +83,25 @@ header ul li{
 }
 
 /*header ul li a*/
-.blog-text, .teams-text, .players-text, .hof-text {
+.nav-links li a {
   text-decoration: none;
   text-transform: uppercase;
   color: #F5F5F5;
   display: block;
   font-size: 20px;
   font-weight: bold;
+  padding-right: 3px;
+  padding-left: 3px;
 }
 
-.player-search-nav, .season-leaders-nav, .season-stats-nav {
-  display: inline-block;
-  text-transform: none;
-  font-size: 16px;
+.separator {
+  text-decoration: none;
   color: #F5F5F5;
+  font-size: 28px;
 }
 
-
-.blog-text::after {
-content: "|";
-font-size: 25px;
-padding-right: 10px;
-padding-left: 10px;
-color: #F5F5F5;
-}
-
-.teams-text::after {
-content: "|";
-font-size: 25px;
-padding-right: 10px;
-padding-left: 10px;
-color: #F5F5F5;
-}
-
-.players-text::after {
-content: "|";
-font-size: 25px;
-padding-right: 10px;
-padding-left: 10px;
-color: #F5F5F5;
+.nav-links li a:hover {
+  color: lightgrey;
 }
 
 .my-code {

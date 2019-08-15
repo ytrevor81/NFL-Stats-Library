@@ -4,28 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NFL Library</title>
     {% load static %}
+    <link rel="icon" href="{% static 'images/icons/favicon.ico'%}">
+    <title>NFL Stats Library</title>
     <link href="{% static 'style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <header>
       <a href="/"><img class='logo' src="{% static 'images/icons/logo_icon.png' %}"></img></a>
-      <div class='search'>
-        <input type="text" class="search-box" placeholder="Search" />
-        <button class="search-btn"><i class="fa fa-search"></i></button>
-      </div>
+      <form method="get" action="http://www.google.com/search" class='search'>
+        <input type="text" name="query" class="search-box" placeholder="Search" required autofocus/>
+        <button class="search-btn" type="submit" value="Google Search" ><i class="fa fa-search"></i></button>
+      </form>
       <ul class="nav-links">
         <li><a href="/playersearch" class="players-text">Players</a></li>
+        <li class="separator"> | </li>
         <li><a href="/teams" class="teams-text">Teams</a></li>
-        <li><a href="/" class="players-text">Season Leaders</a></li>
-        <li><a href="/seasonstats" class="players-text">Season Stats</a></li>
+        <li class="separator"> | </li>
+        <li><a href="/" class="home-text">Season Leaders</a></li>
+        <li class="separator"> | </li>
+        <li><a href="/seasonstats" class="seasonstats-text">Season Stats</a></li>
+        <li class="separator"> | </li>
         <li><a href="/HOF" class="hof-text">HOF</a></li>
       </ul>
       <button class="my-code" onclick="location.href='https://github.com/ytrevor81/NFL-Stats-Library'" type="button">
          MY CODE</button>
-    <!--  <a class="my-code" href="https://github.com/ytrevor81/NFL-Stats-Library">MY CODE</a> -->
     </header>
     <div class='container'>
       {% block content %}
