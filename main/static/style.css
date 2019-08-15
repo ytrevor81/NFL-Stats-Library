@@ -141,12 +141,25 @@ header ul li{
   box-shadow: 0 5px 15px rgba(0,0,0,.6);
 }
 
+/* Footer */
+
 footer {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 50px;
   width: 100%;
   padding: 30px 5%;
   background-color: #4B4B4B;
+}
+
+.contact-info {
+  list-style: none;
+  display: flex;
+}
+
+.github {
+  padding-left: 20%;
 }
 
 /* Home.html */
