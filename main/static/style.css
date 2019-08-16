@@ -104,21 +104,6 @@ header ul li{
   color: lightgrey;
 }
 
-.my-code {
-  margin-left: auto;
-  display: inline-block;
-  background: #C50505;
-  border-radius: 5px;
-  border: 1px solid gray;
-  color: #F5F5F5;
-  text-transform: uppercase;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  height: 35px;
-  width: 100px;
-}
-
 .sign-in {
   margin-left: auto;
   display: inline-block;
@@ -137,7 +122,7 @@ header ul li{
 .container {
   margin: 50px 5% 0 5%;
   background-color: white;
-  min-height: 1000px;
+  min-height: 825px;
   box-shadow: 0 5px 15px rgba(0,0,0,.6);
 }
 
@@ -166,12 +151,12 @@ footer {
 
 .season-leaders-query {
   background-image: linear-gradient(lightgrey, white);
-  height: 200px;
+  height: 185px;
 }
 
 .season-leaders-tools {
   display: inline-block;
-  margin: 3%;
+  margin: 6%;
   margin-top: 3%;
 }
 
@@ -219,9 +204,10 @@ footer {
 }
 
 .six-tables-container {
-  margin: 0 0 3% 3%;
+  margin: 0 3% 3% 6%;
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 30% 30% 30%;
+  grid-gap: 3%;
 }
 
 .season-leaders-table-container {
@@ -233,7 +219,7 @@ footer {
   color: #F5F5F5;
   background-color: #C50505;
   height: 35px;
-  width: 85%;
+  width: 100%;
 }
 
 .season-leaders-titles h1 {
@@ -263,25 +249,12 @@ footer {
 }
 
 .season-leaders-table {
-  width: 80%;
-  font-size: 21px;
+  width: 100%;
+  font-size: 22px;
 }
 
 .season-leaders-head {
   text-transform: uppercase;
-}
-
-
-.season-leaders-head tr th {
-  padding-top: 1%;
-}
-
-.season-leaders-head .team {
-  padding-left: 3%;
-}
-
-.season-leaders-head .stat {
-  padding-left: 10%;
 }
 
 .season-leaders-body tr:nth-child(even) {
@@ -292,18 +265,6 @@ footer {
   padding-top: 1%;
   padding-bottom: 1%;
   text-align: center;
-}
-
-.season-leaders-body .rk {
-  padding-right: 0.5%;
-}
-
-.season-leaders-body .team-link {
-  padding-left: 10%;
-}
-
-.season-leaders-body .stat {
-  padding-left: 9%;
 }
 
 /* Full Season stats */

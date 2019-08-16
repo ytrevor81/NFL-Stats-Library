@@ -761,29 +761,33 @@ def profile(request):
     return render(request, "main/profile.html", context)
 
 def homepage(request):
+    '''Extracts data from the MySQL datatbase for the top five-ranked players in six different statistical categories,
+    for both active and retired players. For each category, a zip() object is returned with the top five-ranked players: names and querysets.'''
 
     form = YearDropdown(request.GET or None)
     year_select = request.GET.get('year')
 
-    if year_select == None:
+    if year_select == None: #when the page opens without a GET request, the default year for query sets is "2018"
 
         passing = Passing.objects.filter(year="2018")
         yards_list = [player.yards for player in passing]
         int_list = StatOrder.greatest_least(yards_list)
-        yards = StatOrder.add_commas(int_list)
-        queries = []
+        yards = StatOrder.add_commas(int_list) #function in data_functions.py
+        queries = [] #used to hold queries
         for y in yards:
             obj = Passing.objects.filter(year="2018", yards=y)
             queries.append(obj)
         topfive_queries = queries[:5]
-        top_names = StatOrder.real_topfive(topfive_queries)
+        top_names = StatOrder.real_topfive(topfive_queries) #returns a list of player IDs via queryset...function in data_functions.py
         topfive = []
         for i in top_names:
             obj = Passing.objects.filter(year="2018", player_id=i)
             topfive.append(obj)
         players = topfive[:5]
-        names = ProfilePage.names_extraforloop(players)
-        passers = zip(names, players)
+        names = ProfilePage.names_extraforloop(players) #the names in the MySQL datatbase were inserted backwards (ex."Brady, Tom"). This returns the names in the normal way (ex."Tom Brady")...function in data_functions.py
+        passers = zip(names, players) #example: [("Tom Brady", <QuerySet....>), ()...]
+
+        #The same process is used to extract data for the other categories...
 
         rushing = Rushing.objects.filter(year="2018")
         yards_list = [player.yards for player in rushing]
@@ -876,7 +880,7 @@ def homepage(request):
 
     else:
 
-        passing = Passing.objects.filter(year=year_select)
+        passing = Passing.objects.filter(year=year_select) #Stats for active players and retired players are stored in separate SQL tables
         passingret = RetiredPassing.objects.filter(year=year_select)
         yards_list = [player.yards for player in passing] + [player.yards for player in passingret]
         int_list = StatOrder.greatest_least(yards_list)
@@ -984,7 +988,6 @@ def homepage(request):
                 if objret.exists():
                     queries.append(objret)
         topfive_queries = queries
-        print(topfive_queries)
         top_names = StatOrder.real_topfive(topfive_queries)
         topfive = []
         for i in top_names:
@@ -1013,7 +1016,6 @@ def homepage(request):
                 if objret.exists():
                     queries.append(objret)
         topfive_queries = queries
-        print(topfive_queries)
         top_names = StatOrder.real_topfive(topfive_queries)
         topfive = []
         for i in top_names:
@@ -1042,7 +1044,6 @@ def homepage(request):
                 if objret.exists():
                     queries.append(objret)
         topfive_queries = queries
-        print(topfive_queries)
         top_names = StatOrder.real_topfive(topfive_queries)
         topfive = []
         for i in top_names:
