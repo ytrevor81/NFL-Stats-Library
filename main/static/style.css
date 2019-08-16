@@ -119,6 +119,12 @@ header ul li{
   width: 100px;
 }
 
+.sign-in:hover {
+  background-color: #4B4B4B;
+  color: #F5F5F5;
+  transition: 0.5s ease;
+}
+
 .container {
   margin: 50px 5% 0 5%;
   background-color: white;
@@ -203,6 +209,12 @@ footer {
   cursor: pointer;
 }
 
+.season-leaders-btn:hover {
+  background-color: #4B4B4B;
+  color: #F5F5F5;
+  transition: 0.5s ease;
+}
+
 .six-tables-container {
   margin: 0 3% 3% 6%;
   display: grid;
@@ -232,7 +244,6 @@ footer {
   margin-left: 17%;
 }
 
-
 .season-leaders-titles h5 a {
   display: flex;
   margin-top: 13%;
@@ -246,6 +257,14 @@ footer {
   text-decoration: none;
   color: #1100F9;
   cursor: pointer;
+}
+
+.player-link:hover {
+  color: #C50505;
+}
+
+.team-link:hover {
+  color: #C50505;
 }
 
 .season-leaders-table {
@@ -271,12 +290,12 @@ footer {
 
 .seasons-query {
   background-image: linear-gradient(lightgrey, white);
-  height: 200px;
+  height: 185px;
 }
 
 .seasons-tools {
   display: inline-block;
-  margin: 3%;
+  margin: 6%;
   margin-top: 3%;
 }
 
@@ -294,10 +313,11 @@ footer {
 
 
 .season-stats-table-container {
-  width: 93.5%;
+  width: 88%;
   display: inline-block;
   box-sizing: border-box;
-  margin-left: 3%;
+  margin-left: 6%;
+  margin-right: 6%;
 }
 
 .season-stats-titles {
@@ -313,7 +333,7 @@ footer {
 
 .season-stats-table {
   width: 100%;
-  font-size: 23px;
+  font-size: 21px;
 }
 
 .season-stats-head {
@@ -338,10 +358,15 @@ footer {
   display: flex;
   justify-content: flex-end;
   text-align: center;
-  margin-right: 5%;
+  margin-right: 7%;
+  padding-top: 1%;
   padding-bottom: 3%;
   font-size: 23px;
   font-weight: bold;
+}
+
+.current {
+  display: flex;
 }
 
 .current a {
@@ -356,6 +381,12 @@ footer {
   padding-right: 10px;
   padding-left: 10px;
   margin-right: 2%;
+}
+
+.current a:hover {
+  background-color: #4B4B4B;
+  color: #F5F5F5;
+  transition: 0.5s ease;
 }
 
 .current-page {

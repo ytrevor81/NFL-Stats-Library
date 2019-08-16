@@ -113,7 +113,6 @@
             {% endif %}
           {% endfor %}
         </span>
-        <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
     </span>
   </div>
 
@@ -215,8 +214,7 @@
             {% endif %}
           {% endfor %}
         </span>
-        <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
-    </span>
+      </span>
   </div>
 
 {% elif category == "Rushing" %}
@@ -311,8 +309,7 @@
             {% endif %}
           {% endfor %}
         </span>
-        <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
-    </span>
+      </span>
   </div>
 
   {% elif category == "Receiving" %}
@@ -405,8 +402,7 @@
               {% endif %}
             {% endfor %}
           </span>
-          <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
-      </span>
+        </span>
     </div>
 
     {% elif category == "Tackles" or category == "Sacks" or category == "Interceptions" %}
@@ -499,8 +495,7 @@
                 {% endif %}
               {% endfor %}
             </span>
-            <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
-        </span>
+          </span>
       </div>
 
       {% elif category == "Field Goals" %}
@@ -599,8 +594,7 @@
                   {% endif %}
                 {% endfor %}
               </span>
-              <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
-          </span>
+            </span>
         </div>
 
         {% elif category == "Punting" %}
@@ -699,8 +693,7 @@
                     {% endif %}
                   {% endfor %}
                 </span>
-                <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
-            </span>
+              </span>
           </div>
 
           {% elif category == "Kick Returns" %}
@@ -791,7 +784,6 @@
                       {% endif %}
                     {% endfor %}
                   </span>
-                  <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
               </span>
             </div>
 
@@ -883,8 +875,9 @@
                         {% endif %}
                       {% endfor %}
                     </span>
-                    <span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>
                 </span>
               </div>
 {% endif %}
 {% endblock %}
+
+<!--<span>Showing Page {{ players.number }} of {{ players.paginator.num_pages }}</span>-->

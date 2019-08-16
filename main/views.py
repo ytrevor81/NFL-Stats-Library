@@ -1078,8 +1078,12 @@ def homepage(request):
 ##########Full Season Stats pages##########
 
 def seasonstats(request):
-    queries = []
-    ordered = []
+    '''Extracts data from the MySQL datatbases for a maximum of 150 players, ranked from greatest to least,
+    ofr each category. Each section returns a zip() object for names, rank, and paginated querysets.
+    Stats from active players and retired players are stored in separate SQL tables.'''
+
+    queries = [] #to hold raw querysets
+    ordered = [] #to hold ordered querysets
 
     team_menu = TeamDropdown(request.GET or None)
     year_menu = YearDropdown(request.GET or None)
@@ -1090,28 +1094,30 @@ def seasonstats(request):
     team_select = request.GET.get('team')
     category_select = request.GET.get('category')
     status_select = request.GET.get('status')
-    page = request.GET.get('page')
+    page = request.GET.get('page') #this is for pagination
 
-    if year_select == None and team_select == None and category_select == None and status_select == None:
+    if year_select == None and team_select == None and category_select == None and status_select == None: #when the page opens without a GET request
 
-        yards = SeasonStats.yards(Passing.objects.filter(year="2018"), RetiredPassing.objects.filter(year="2018"))
+        yards = SeasonStats.yards(Passing.objects.filter(year="2018"), RetiredPassing.objects.filter(year="2018")) #returns a list of yards from each queryset. function in data_functions.py
         for y in yards:
-            SeasonStats.act_ret_order(queries, Passing.objects.filter(year="2018", yards=y), RetiredPassing.objects.filter(year="2018", yards=y))
-        ids = StatOrder.real_topfive(queries)
+            SeasonStats.act_ret_order(queries, Passing.objects.filter(year="2018", yards=y), RetiredPassing.objects.filter(year="2018", yards=y)) #puts each queryset in order from greatest to least. function in data_functions.py
+        ids = StatOrder.real_topfive(queries) #extracts the player IDs from each queryset
         for i in ids:
             SeasonStats.act_ret_order(ordered, Passing.objects.filter(year="2018", player_id=i), RetiredPassing.objects.filter(year="2018", player_id=i))
-        final = SeasonStats.limit(ordered)
-        num = list(range(1, len(final)+1))
-        p2 = Paginator(num, 25)
-        rank = p2.get_page(page)
-        p = Paginator(ordered, 25)
+        final = SeasonStats.limit(ordered) #puts a limit on the number of queries processed. function in data_functions.py
+        num = list(range(1, len(final)+1)) #creating the 'ranks' by making a list of the number of items in the ordered list of querysets
+        p2 = Paginator(num, 25) #paginator object for player ranks
+        rank = p2.get_page(page) #can now iterate over the paginator object
+        p = Paginator(ordered, 25) #paginator object for ordered querysets
         players = p.get_page(page)
-        raw_names = ProfilePage.names_extraforloop(players)
-        names = PlayerSearch.no_duplicate(raw_names)
-        rank_players = zip(names,rank,players)
-        pagecount = StatOrder.pagecount(players)
+        raw_names = ProfilePage.names_extraforloop(players) #processes the names of each player correctly. function in data_functions.py
+        names = PlayerSearch.no_duplicate(raw_names) #returns another list with no duplicates. function in data_functions.py
+        rank_players = zip(names,rank,players) #ex.[("Tom Brady", 1, <QuerySet..>), ()...]
+        pagecount = StatOrder.pagecount(players) #insures accurate count of different pages in the paginator object. function in data_functions.py
 
     elif status_select == "All" and team_select == "All NFL":
+        '''A very simiar process occurs below for all scenarios presented
+        by the different GET requests.'''
 
         if category_select == "Passing":
             yards = SeasonStats.yards(Passing.objects.filter(year=year_select), RetiredPassing.objects.filter(year=year_select))
