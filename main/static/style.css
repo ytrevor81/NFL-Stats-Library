@@ -801,6 +801,34 @@ footer {
 
 /* Player search page */
 
+.players-tools {
+  display: inline-block;
+  margin-top: 3%;
+  margin-left: 6%;
+}
+
+.players-tools h1 {
+  font-size: 40px;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+
+.players-tools form {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-gap: 5%;
+}
+
+.search-players {
+  border: 1px solid grey;
+  font-size: 100%;
+  border-radius: 5px;
+  padding: 0.1em 0.5em;
+  background: lightgrey;
+  height: 35px;
+  width: 125px;
+}
+
 .playersearch-container {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
