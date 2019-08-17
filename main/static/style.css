@@ -840,11 +840,20 @@ footer {
 .playersearch-box {
   padding-bottom: 20%;
   display: inline-block;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 
-.player-search-pos::after {
+.playersearch-box h5 {
+  font-size: 21px;
+  margin-bottom: -2%;
+}
+
+.search-pos-team {
+  display: flex;
+  justify-content: center;
+}
+
+.playersearch-pos::after {
 content: "|";
 font-size: 30px;
 padding-right: 3px;
@@ -862,6 +871,17 @@ font-weight: lighter;
   text-decoration: none;
   color: #1100F9;
   cursor: pointer;
+  margin-top: 7px;
+}
+
+.search-stats-grid {
+  display: grid;
+  grid-template-columns: 27% 27%;
+  justify-content: center;
+}
+
+.search-stats-nogrid {
+  justify-content: center;
 }
 
 /* Teams search page */
