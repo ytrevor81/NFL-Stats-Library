@@ -983,12 +983,12 @@ font-weight: lighter;
 
 .teams-page-link {
   text-decoration: none;
-  color: #C50505;
+  color: #1100F9;
 }
 
 .teams-page-link:hover {
   text-decoration: none;
-  color: #1100F9;
+  color:#C50505;
 }
 
 .teams-page-separator {
@@ -1313,12 +1313,12 @@ font-weight: lighter;
 .hof-player a {
   text-decoration: none;
   font-size: 21px;
-  color: #C50505
+  color: #1100F9;
 }
 
 .hof-player a:hover{
   text-decoration: none;
-  color: #1100F9;
+  color: #C50505;
 }
 
 
