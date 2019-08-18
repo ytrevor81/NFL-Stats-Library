@@ -806,7 +806,6 @@ class PlayerSearch(object):
         first = separate[0]
         last = separate[2]
         name = last + ", " + first
-        print(name)
         return name
 
     @classmethod
@@ -832,9 +831,27 @@ class PlayerSearch(object):
                 new_list.append(i)
         return new_list
 
+class NameFilter(object):
+    '''Only for the spaced_filter function in playersearch()'''
+
+    @classmethod
+    def spaced_filter(cls, lookup, all_names):
+        '''If the lookup has a space, this function processes the string into a vaild 'name'
+        that the QuerySet object can read'''
+        spaced_lookup = False
+        for string in lookup:
+            if " " in string:
+                spaced_lookup = True
+        if spaced_lookup == True:
+            new_lookup = PlayerSearch.get_filter_name(lookup)
+            names = PlayerSearch.search_results(new_lookup, all_names)
+            return names
+        else:
+            names = PlayerSearch.search_results(lookup, all_names)
+            return names
+
 
 class SeasonStats(object):
-
     '''These are the main functions for the Season Stats view'''
 
     @classmethod

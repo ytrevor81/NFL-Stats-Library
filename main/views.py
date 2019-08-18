@@ -259,7 +259,7 @@ def HallOfFame(request):
     return render(request, "main/HOF.html", context)
 
 def playersearch(request):
-    queries = []
+    queries = [] #to hold querysets
 
     team_menu = TeamDropdown(request.GET or None)
     statussearch_menu = StatusSearchDropdown(request.GET or None)
@@ -271,7 +271,7 @@ def playersearch(request):
     position_select = request.GET.get('position')
     page = request.GET.get('page')
 
-    if team_select == None and position_select == None and status_select == None and lookup == None:
+    if team_select == None and position_select == None and status_select == None and lookup == None: #when the window opens with no GET requests
 
         passer = Passing.objects.filter(year="2018", position="QB")
         PlayerSearch.paginator_list(passer, queries)
@@ -285,10 +285,10 @@ def playersearch(request):
         PlayerSearch.paginator_list(kicker, queries)
         punter = Punting.objects.filter(year="2018",position="P")
         PlayerSearch.paginator_list(punter, queries)
-        limited_queries = queries[:200]
-        p = Paginator(limited_queries, 50)
-        players = p.get_page(page)
-        names = ProfilePage.names_list(players)
+        limited_queries = queries[:200] #creates a new data set with a 200 item limit
+        p = Paginator(limited_queries, 50) #creates a paginator object
+        players = p.get_page(page) #makes the paginator object iterable
+        names = ProfilePage.names_list(players) 
         q = zip(names, players)
         pagecount = StatOrder.pagecount(players)
 
@@ -514,12 +514,12 @@ def playersearch(request):
         all_kickers = [i.name for i in kicking]
         all_punters = [i.name for i in punting]
 
-        passers = PlayerSearch.search_results(lookup, all_passers)
-        rushers = PlayerSearch.search_results(lookup, all_rushers)
-        receivers = PlayerSearch.search_results(lookup, all_receivers)
-        defenders = PlayerSearch.search_results(lookup, all_defenders)
-        kickers = PlayerSearch.search_results(lookup, all_kickers)
-        punters = PlayerSearch.search_results(lookup, all_punters)
+        passers = NameFilter.spaced_filter(lookup, all_passers)
+        rushers = NameFilter.spaced_filter(lookup, all_rushers)
+        receivers = NameFilter.spaced_filter(lookup, all_receivers)
+        defenders = NameFilter.spaced_filter(lookup, all_defenders)
+        kickers = NameFilter.spaced_filter(lookup, all_kickers)
+        punters = NameFilter.spaced_filter(lookup, all_punters)
 
         passer = Passing.objects.filter(year="2018",name__in=passers,position="QB")
         PlayerSearch.paginator_list(passer, queries)
@@ -544,7 +544,7 @@ def playersearch(request):
 
         profiles = RetiredProfiles.objects.all()
         all_retired = [i.name for i in profiles]
-        names = PlayerSearch.search_results(lookup, all_retired)
+        names = NameFilter.spaced_filter(lookup, all_retired)
         retired = RetiredProfiles.objects.filter(name__in=names)
         PlayerSearch.paginator_list(retired, queries)
         limited_queries = queries[:200]

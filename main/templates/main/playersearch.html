@@ -135,10 +135,14 @@
   </div>
   {% endfor %}
 {% endif %}
-  <div class="pagination">
-    <span class="step-links">
-        <span class="current">
-          {% for pc in pagecount %}
+</div>
+<div class="pagination-playersearch">
+  <span class="step-links">
+      <span class="current">
+        {% for pc in pagecount %}
+          {% if queries.paginator.num_pages == 1 %}
+            <!-- -->
+          {% else %}
             {% if pc == queries.number %}
               <span class="current-page">
                 {{ queries.number }}
@@ -170,10 +174,10 @@
                 </a>
               {% endif %}
             {% endif %}
-          {% endfor %}
-        </span>
-        <span>Showing Page {{ queries.number }} of {{ queries.paginator.num_pages }}</span>
-    </span>
-  </div>
+          {% endif %}
+        {% endfor %}
+      </span>
+  </span>
 </div>
 {% endblock %}
+<!--<span>Showing Page {{ queries.number }} of {{ queries.paginator.num_pages }}</span>-->
