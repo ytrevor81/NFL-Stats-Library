@@ -131,7 +131,11 @@
         {% for name, o in ogs %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
-            <td class="pass-pos">{{ o.number }}</td>
+            {% if o.number == "" %}
+              <td class="pass-pos">--</td>
+            {% else %}
+              <td class="pass-pos">{{ o.number }}</td>
+            {% endif %}
             <td class="comp">{{ o.position }}</td>
             {% if o.age == "" %}
               <td class="att">--</td>

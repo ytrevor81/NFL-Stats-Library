@@ -1279,26 +1279,46 @@ font-weight: lighter;
 /* HOF page */
 
 .hof-container {
-  display: inline-block;
-  margin: 6%;
+  display: grid;
+  margin: 3%;
   text-align: center;
   justify-content: center;
 }
 
+.image {
+  margin-top: 3%;
+}
+
 .hof-container img {
-  height: 250px;
+  height: 200px;
   width: 200px;
 }
 
 .class-container {
   display: inline-block;
-  text-align: center;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.class-container h5 {
+  font-size: 24px;
 }
 
 .hof-player {
   display: flex;
   justify-content: center;
-  padding: 25px;
+  padding: 15px 25px 15px 25px;
+}
+
+.hof-player a {
+  text-decoration: none;
+  font-size: 21px;
+  color: #C50505
+}
+
+.hof-player a:hover{
+  text-decoration: none;
+  color: #1100F9;
 }
 
 

@@ -115,7 +115,11 @@
         {% for name, o in ots %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
-            <td class="pass-pos">{{ o.number }}</td>
+            {% if o.number == "" %}
+              <td class="pass-pos">--</td>
+            {% else %}
+              <td class="pass-pos">{{ o.number }}</td>
+            {% endif %}
             <td class="comp">{{ o.position }}</td>
             {% if o.age == "" or o.age == "2019" %}
               <td class="att">--</td>
@@ -220,7 +224,11 @@
         {% for name, d in des %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
-            <td class="pass-pos">{{ d.number }}</td>
+            {% if d.number == "" %}
+              <td class="pass-pos">--</td>
+            {% else %}
+              <td class="pass-pos">{{ d.number }}</td>
+            {% endif %}
             <td class="comp">{{ d.position }}</td>
             {% if d.age == "" %}
               <td class="att">--</td>

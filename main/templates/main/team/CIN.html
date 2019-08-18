@@ -284,7 +284,11 @@
         {% for name, d in lbs %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
-            <td class="pass-pos">{{ d.number }}</td>
+            {% if d.number == "" %}
+              <td class="pass-pos">--</td>
+            {% else %}
+              <td class="pass-pos">{{ d.number }}</td>
+            {% endif %}
             <td class="comp">{{ d.position }}</td>
             {% if d.age == "" %}
               <td class="att">--</td>

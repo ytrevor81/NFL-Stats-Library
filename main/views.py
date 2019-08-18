@@ -12,10 +12,12 @@ player = ["tombrady/2504211"]
 ret_player = ["terrybradshaw/2510042"]
 
 def HallOfFame(request):
+    '''Extracts names from the querysets in the HOF SQL table.
+    Each section returns a zip() object containing the fullname and queryset of each HOF player.'''
 
-    sixtythree_players = HOF.objects.filter(year="1963")
-    sixtythree_names = ProfilePage.names_list(sixtythree_players)
-    sixtythree = zip(sixtythree_names, sixtythree_players)
+    sixtythree_players = HOF.objects.filter(year="1963") #QuerySet for each player in the specified year
+    sixtythree_names = ProfilePage.names_list(sixtythree_players) #processes the name of each player, returning normal fullname: ex. from "Manning, Peyton" to "Peyton Manning"...function in data_functions.py
+    sixtythree = zip(sixtythree_names, sixtythree_players) #ex. [("Peyton Manning", <QuerySet...>), ()...]
 
     sixtyfour_players = HOF.objects.filter(year="1964")
     sixtyfour_names = ProfilePage.names_list(sixtyfour_players)
@@ -246,13 +248,13 @@ def HallOfFame(request):
             "seventyone":seventyone, "seventytwo":seventytwo, "seventythree":seventythree, "seventyfour":seventyfour,
             "seventyfive":seventyfive, "seventysix":seventysix, "seventyseven":seventyseven, "seventyeight":seventyeight,
             "seventynine":seventynine, "eighty":eighty, "eightyone":eightyone, "eightytwo":eightytwo,
-            "eightythree":eightythree, "eightyfour":eightyfour, "eightfive":eightyfive, "eightysix":eightysix,
+            "eightythree":eightythree, "eightyfour":eightyfour, "eightyfive":eightyfive, "eightysix":eightysix,
             "eightyseven":eightyseven, "eightyeight":eightyeight, "eightynine":eightynine, "ninety":ninety,
             "ninetyone":ninetyone, "ninetytwo":ninetytwo, "ninetythree":ninetythree, "ninetyfour":ninetyfour,
             "ninetyfive":ninetyfive, "ninetysix":ninetysix, "ninetyseven":ninetyseven, "ninetyeight":ninetyeight,
             "ninetynine":ninetynine, "two":two, "twoone":twoone, "twotwo":twotwo, "twothree":twothree,
             "twofour":twofour, "twofive":twofive, "twosix":twosix, "twoseven":twoseven, "twoeight":twoeight,
-            "twonine":twonine, twoten:"twoten", "twoeleven":twoeleven, "twotwelve":twotwelve,
+            "twonine":twonine, "twoten":twoten, "twoeleven":twoeleven, "twotwelve":twotwelve,
             "twothirteen":twothirteen, "twofourteen":twofourteen, "twofifteen":twofifteen, "twosixteen":twosixteen,
             "twoseventeen":twoseventeen, "twoeighteen":twoeighteen, "twonineteen":twonineteen}
 
@@ -288,7 +290,7 @@ def playersearch(request):
         limited_queries = queries[:200] #creates a new data set with a 200 item limit
         p = Paginator(limited_queries, 50) #creates a paginator object
         players = p.get_page(page) #makes the paginator object iterable
-        names = ProfilePage.names_list(players) 
+        names = ProfilePage.names_list(players)
         q = zip(names, players)
         pagecount = StatOrder.pagecount(players)
 
@@ -2225,10 +2227,12 @@ def seasonstats(request):
     return render(request, "main/seasonstats.html", context)
 
 def teamARI(request):
+    '''Extracts data from each player on a specified team. The same process is done for each NFL team.
+    Each section returns a zip() object with fullname and queryset'''
 
-    qb = Profiles.objects.filter(position="QB",team="Arizona Cardinals")
-    names = ProfilePage.names_list(qb)
-    qbs = zip(names, qb)
+    qb = Profiles.objects.filter(position="QB",team="Arizona Cardinals") #queryset for each specified position on each team
+    names = ProfilePage.names_list(qb) #processes the fullname of each player...function in data_functions.py
+    qbs = zip(names, qb) #ex [("Larry Fitzgerald", <QuerySet...>), ()...]
     rb = Profiles.objects.filter(position="RB",team="Arizona Cardinals")
     names = ProfilePage.names_list(rb)
     rbs = zip(names, rb)
