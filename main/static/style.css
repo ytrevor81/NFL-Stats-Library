@@ -930,6 +930,7 @@ font-weight: lighter;
 .nfc-container {
   text-align: center;
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .afc {
@@ -953,13 +954,18 @@ font-weight: lighter;
 }
 
 .normal {
-  height: 80px;
-  width: 140px;
+  height: 90px;
+  width: 145px;
 }
 
 .less-width {
-  height: 80px;
-  width: 125px;
+  height: 90px;
+  width: 105px;
+}
+
+.short-wide {
+  height: 75px;
+  width: 150px;
 }
 
 .two-team-division {
@@ -980,11 +986,21 @@ font-weight: lighter;
   color: #C50505;
 }
 
+.teams-page-link:hover {
+  text-decoration: none;
+  color: #1100F9;
+}
+
 .teams-page-separator {
   display: flex;
   justify-content: center;
-  height: 90%;
-  width: 1px;
+  margin-top: 50%;
+  margin-bottom: 50%;
+  margin-right: 10%;
+}
+
+.teams-page-separator div {
+  height: 100%;
   border-right: 2px dotted lightgrey;
 }
 
