@@ -426,14 +426,14 @@ footer {
 }
 
 .profile-pic img {
-  height: 130px;
-  width: 130px;
+  height: 135px;
+  width: 135px;
 }
 
 .id-info {
   display: grid;
-  grid-template-columns: 50% 50%;
-  font-size: 24px;
+  grid-template-rows: 123%;
+  font-size: 27px;
 }
 
 .name-posnum {
@@ -467,13 +467,13 @@ footer {
 }
 
 .team-info {
-  margin-top: 13px;
+  margin-top: 20px;
+  margin-left: -30%;
+  display: grid;
+  grid-template-rows: 45% 35%;
+  align-items: center;
 }
 
-
-.team-info > * {
-  vertical-align: middle;
-}
 
 .team-info .ARI {
   height: 100px;
@@ -657,8 +657,8 @@ footer {
   display: grid;
   justify-content: center;
   border-left: 2px dotted lightgrey;
-  margin-top: 6%;
-  margin-bottom: 6%;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }
 
 .details-statsbox {
