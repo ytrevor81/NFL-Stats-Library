@@ -406,28 +406,39 @@ footer {
 
 .profile-container {
   display: grid;
-  grid-template-columns: 16% 16% 16% 16% 16% 16%;
-  margin: 5%;
+  grid-template-columns: 48% 2% 48%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
   padding-top: 5%;
   border-bottom: 1px solid lightgrey;
+
+}
+
+.pic-id-team {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
 }
 
 .profile-pic {
-  padding-left: 8%;
   padding-bottom: 3%;
 }
 
 .profile-pic img {
-  height: 150px;
-  width: 150px;
+  height: 130px;
+  width: 130px;
 }
 
 .id-info {
-  display: inline-block;
-  box-sizing: border-box;
-  font-size: 29px;
-  padding-left: 6%;
-  padding-top: 6%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  font-size: 24px;
+}
+
+.name-posnum {
+  display: grid;
+  grid-template-rows: 15% 10% 86%;
 }
 
 .firstname {
@@ -441,15 +452,12 @@ footer {
 
 .pos-num {
   display: flex;
-  padding-top: 10%;
+  align-items: center;
 }
 
 .pos-num .pos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 3px;
-  padding-left: 5px;
+  padding-top: 4px;
+  padding-left: 4px;
 }
 
 .id-info .num::after {
@@ -579,8 +587,8 @@ footer {
 }
 
 .team-info .NE {
-  height: 80px;
-  width: 130px;
+  height: 60px;
+  width: 115px;
 }
 
 .team-info .NO {
@@ -641,23 +649,29 @@ footer {
 }
 
 .team-info h5 {
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 
 .short-dotted-line {
+  display: grid;
+  justify-content: center;
   border-left: 2px dotted lightgrey;
   margin-top: 6%;
   margin-bottom: 6%;
-  margin-left: -10%;
+}
+
+.details-statsbox {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
 }
 
 .details {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: -390px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .details .detail-titles {
@@ -680,11 +694,9 @@ footer {
 
 .recent-season-box {
   display: block;
-  height: 110px;
-  width: 350px;
+  height: 95px;
+  width: 320px;
   border: 1px solid grey;
-  margin-left: -160px;
-  margin-top: 10%;
   border-radius: 2%;
   background-color: #F1F1F1;
   text-align: center;
@@ -695,7 +707,7 @@ footer {
 
 .recent-season-box h5 {
   padding-top: 5px;
-  font-size: 24px;
+  font-size: 21px;
 }
 
 .season-box-container {
@@ -720,7 +732,7 @@ footer {
 }
 
 .season-box-data {
-  font-size: 28px;
+  font-size: 23px;
 }
 
 .profile-options {

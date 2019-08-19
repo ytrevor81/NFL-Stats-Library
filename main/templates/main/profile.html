@@ -4,387 +4,392 @@
 {% block content %}
 {% for player in profile %}
 <div class="profile-container">
-  <div class="profile-pic">
-    {% for p in pic %}
-      <img src="{{ p.urls }}"/>
-    {% endfor %}
-  </div>
-  <div class="id-info">
-      <div class="firstname">
-        {{ firstname }}
-      </div>
-      <div class="lastname">
-        {{ lastname }}
-      </div>
-    <div class="pos-num">
-      <div class="num">
-        {{ player.number }}
-      </div>
-      <div class="pos">
-        {{ player.position }}
+  <div class="pic-id-team">
+    <div class="profile-pic">
+      {% for p in pic %}
+        <img src="{{ p.urls }}"/>
+      {% endfor %}
+    </div>
+    <div class="id-info">
+      <div class="name-posnum">
+        <div class="firstname">
+          {{ firstname }}
+        </div>
+        <div class="lastname">
+          {{ lastname }}
+        </div>
+        <div class="pos-num">
+          <div class="num">
+            {{ player.number }}
+          </div>
+          <div class="pos">
+            {{ player.position }}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="team-info">
-    {% if player.team == "Arizona Cardinals" %}
-      <img class="ARI" src="{% static 'images/teams/ARI.png' %}"/>
-    {% elif player.team == "Atlanta Falcons" %}
-      <img class="ATL" src="{% static 'images/teams/ATL.png' %}"/>
-    {% elif player.team == "Baltimore Ravens" %}
-      <img class="BAL" src="{% static 'images/teams/BAL.png' %}"/>
-    {% elif player.team == "Buffalo Bills" %}
-      <img class="BUF" src="{% static 'images/teams/BUF.png' %}"/>
-    {% elif player.team == "Carolina Panthers" %}
-      <img class="CAR" src="{% static 'images/teams/CAR.png' %}"/>
-    {% elif player.team == "Chicago Bears" %}
-      <img class="CHI" src="{% static 'images/teams/CHI.png' %}"/>
-    {% elif player.team == "Cincinnati Bengals" %}
-      <img class="CIN" src="{% static 'images/teams/CIN.png' %}"/>
-    {% elif player.team == "Cleveland Browns" %}
-      <img class="CLE" src="{% static 'images/teams/CLE.png' %}"/>
-    {% elif player.team == "Dallas Cowboys" %}
-      <img class="DAL" src="{% static 'images/teams/DAL.png' %}"/>
-    {% elif player.team == "Denver Broncos" %}
-      <img class="DEN" src="{% static 'images/teams/DEN.png' %}"/>
-    {% elif player.team == "Detroit Lions" %}
-      <img class="DET" src="{% static 'images/teams/DET.png' %}"/>
-    {% elif player.team == "Green Bay Packers" %}
-      <img class="GB" src="{% static 'images/teams/GB.png' %}"/>
-    {% elif player.team == "Houston Texans" %}
-      <img class="HOU" src="{% static 'images/teams/HOU.png' %}"/>
-    {% elif player.team == "Indianapolis Colts" %}
-      <img class="IND" src="{% static 'images/teams/IND.png' %}"/>
-    {% elif player.team == "Jacksonville Jaguars" %}
-      <img class="JAX" src="{% static 'images/teams/JAX.png' %}"/>
-    {% elif player.team == "Kansas City Chiefs" %}
-      <img class="KC" src="{% static 'images/teams/KC.png' %}"/>
-    {% elif player.team == "Los Angeles Rams" %}
-      <img class="LA" src="{% static 'images/teams/LA.png' %}"/>
-    {% elif player.team == "Los Angeles Chargers" %}
-      <img class="LAC" src="{% static 'images/teams/LAC.png' %}"/>
-    {% elif player.team == "Miami Dolphins" %}
-      <img class="MIA" src="{% static 'images/teams/MIA.png' %}"/>
-    {% elif player.team == "Minnesota Vikings" %}
-      <img class="MIN" src="{% static 'images/teams/MIN.png' %}"/>
-    {% elif player.team == "New England Patriots" %}
-      <img class="NE" src="{% static 'images/teams/NE.png' %}"/>
-    {% elif player.team == "New Orleans Saints" %}
-      <img class="NO" src="{% static 'images/teams/NO.png' %}"/>
-    {% elif player.team == "New York Giants" %}
-      <img class="NYG" src="{% static 'images/teams/NYG.png' %}"/>
-    {% elif player.team == "New York Jets" %}
-      <img class="NYJ" src="{% static 'images/teams/NYJ.png' %}"/>
-    {% elif player.team == "Oakland Raiders" %}
-      <img class="OAK" src="{% static 'images/teams/OAK.png' %}"/>
-    {% elif player.team == "Philadelphia Eagles" %}
-      <img class="PHI" src="{% static 'images/teams/PHI.png' %}"/>
-    {% elif player.team == "Pittsburgh Steelers" %}
-      <img class="PIT" src="{% static 'images/teams/PIT.png' %}"/>
-    {% elif player.team == "Seattle Seahawks" %}
-      <img class="SEA" src="{% static 'images/teams/SEA.png' %}"/>
-    {% elif player.team == "San Francisco 49ers" %}
-      <img class="SF" src="{% static 'images/teams/SF.png' %}"/>
-    {% elif player.team == "Tampa Bay Buccaneers" %}
-      <img class="TB" src="{% static 'images/teams/TB.png' %}"/>
-    {% elif player.team == "Tennessee Titans" %}
-      <img class="TEN" src="{% static 'images/teams/TEN.png' %}"/>
-    {% elif player.team == "Washington Redskins" %}
-      <img class="WAS" src="{% static 'images/teams/WAS.png' %}"/>
-    {% endif %}
-    <h5>{{ player.team }}</h5>
-  </div>
-  <div class="short-dotted-line">
-  </div>
-  <div class="details">
-    <ul class="detail-titles">
-      <li>Height</li>
-      <li>Weight</li>
-      <li>DOB</li>
-      <li>College</li>
-      <li>Experience</li>
-    </ul>
-    <ul class="detail-info">
-      <li>{{ height }}</li>
-      <li>{{ player.weight }}</li>
-      <li>{{ player.birthday }}</li>
-      <li>{{ player.college }}</li>
-      <li>{{ player.experience }}</li>
-    </ul>
-  </div>
-  <div class="recent-season-box">
-    <h5>2018 SEASON STATS</h5>
-    <div class="season-box-container">
-      {% if player.position == "QB" %}
-        <ul class="season-box-heads">
-          <li>TD</li>
-          <li>INT</li>
-          <li>YDS</li>
-          <li>RATE</li>
-        </ul>
-        {% for pass in passer_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ pass.td }}</li>
-            <li class="pass-int">{{ pass.ints }}</li>
-            <li class="pass-yds">{{ pass.yards }}</li>
-            <li class="rate">{{ pass.rating }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "RB" %}
-        <ul class="season-box-heads">
-          <li>ATT</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        {% for rush in rusher_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ rush.att }}</li>
-            <li class="pass-int">{{ rush.yards }}</li>
-            <li class="pass-yds">{{ rush.yards_c }}</li>
-            <li class="rate">{{ rush.td }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "FB" %}
-        <ul class="season-box-heads">
-          <li>ATT</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        {% for rush in rusher_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ rush.att }}</li>
-            <li class="pass-int">{{ rush.yards }}</li>
-            <li class="pass-yds">{{ rush.yards_c }}</li>
-            <li class="rate">{{ rush.td }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "WR" %}
-        <ul class="season-box-heads">
-          <li>REC</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        {% for r in receiver_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ r.rec }}</li>
-            <li class="pass-int">{{ r.yards }}</li>
-            <li class="pass-yds">{{ r.yards_rec }}</li>
-            <li class="rate">{{ r.td }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "TE" %}
-        <ul class="season-box-heads">
-          <li>REC</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        {% for r in receiver_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ r.rec }}</li>
-            <li class="pass-int">{{ r.yards }}</li>
-            <li class="pass-yds">{{ r.yards_rec }}</li>
-            <li class="rate">{{ r.td }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "DE" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "DT" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "NT" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "OLB" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "ILB" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "MLB" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "LB" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "CB" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "DB" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "FS" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "SS" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        {% for d in defender_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ d.total_tkl }}</li>
-            <li class="pass-int">{{ d.solo_tkl }}</li>
-            <li class="pass-yds">{{ d.sck }}</li>
-            <li class="rate">{{ d.ints }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "K" %}
-        <ul class="season-box-heads">
-          <li>FG</li>
-          <li>ATT</li>
-          <li>PCT</li>
-          <li>LNG</li>
-        </ul>
-        {% for k in kicker_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ k.fg }}</li>
-            <li class="pass-int">{{ k.fg_att }}</li>
-            <li class="pass-yds">{{ k.fg_perc }}</li>
-            <li class="rate">{{ k.lng }}</li>
-          </ul>
-        {% endfor %}
-      {% elif player.position == "P" %}
-        <ul class="season-box-heads">
-          <li>P</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>LNG</li>
-        </ul>
-        {% for p in punter_now %}
-          <ul class="season-box-data">
-            <li class="prof-pass-td">{{ p.punts }}</li>
-            <li class="pass-int">{{ p.p_yards }}</li>
-            <li class="pass-yds">{{ p.p_avg }}</li>
-            <li class="rate">{{ p.lng }}</li>
-          </ul>
-        {% endfor %}
+    <div class=team-info>
+      {% if player.team == "Arizona Cardinals" %}
+        <img class="ARI" src="{% static 'images/teams/ARI.png' %}"/>
+      {% elif player.team == "Atlanta Falcons" %}
+        <img class="ATL" src="{% static 'images/teams/ATL.png' %}"/>
+      {% elif player.team == "Baltimore Ravens" %}
+        <img class="BAL" src="{% static 'images/teams/BAL.png' %}"/>
+      {% elif player.team == "Buffalo Bills" %}
+        <img class="BUF" src="{% static 'images/teams/BUF.png' %}"/>
+      {% elif player.team == "Carolina Panthers" %}
+        <img class="CAR" src="{% static 'images/teams/CAR.png' %}"/>
+      {% elif player.team == "Chicago Bears" %}
+        <img class="CHI" src="{% static 'images/teams/CHI.png' %}"/>
+      {% elif player.team == "Cincinnati Bengals" %}
+        <img class="CIN" src="{% static 'images/teams/CIN.png' %}"/>
+      {% elif player.team == "Cleveland Browns" %}
+        <img class="CLE" src="{% static 'images/teams/CLE.png' %}"/>
+      {% elif player.team == "Dallas Cowboys" %}
+        <img class="DAL" src="{% static 'images/teams/DAL.png' %}"/>
+      {% elif player.team == "Denver Broncos" %}
+        <img class="DEN" src="{% static 'images/teams/DEN.png' %}"/>
+      {% elif player.team == "Detroit Lions" %}
+        <img class="DET" src="{% static 'images/teams/DET.png' %}"/>
+      {% elif player.team == "Green Bay Packers" %}
+        <img class="GB" src="{% static 'images/teams/GB.png' %}"/>
+      {% elif player.team == "Houston Texans" %}
+        <img class="HOU" src="{% static 'images/teams/HOU.png' %}"/>
+      {% elif player.team == "Indianapolis Colts" %}
+        <img class="IND" src="{% static 'images/teams/IND.png' %}"/>
+      {% elif player.team == "Jacksonville Jaguars" %}
+        <img class="JAX" src="{% static 'images/teams/JAX.png' %}"/>
+      {% elif player.team == "Kansas City Chiefs" %}
+        <img class="KC" src="{% static 'images/teams/KC.png' %}"/>
+      {% elif player.team == "Los Angeles Rams" %}
+        <img class="LA" src="{% static 'images/teams/LA.png' %}"/>
+      {% elif player.team == "Los Angeles Chargers" %}
+        <img class="LAC" src="{% static 'images/teams/LAC.png' %}"/>
+      {% elif player.team == "Miami Dolphins" %}
+        <img class="MIA" src="{% static 'images/teams/MIA.png' %}"/>
+      {% elif player.team == "Minnesota Vikings" %}
+        <img class="MIN" src="{% static 'images/teams/MIN.png' %}"/>
+      {% elif player.team == "New England Patriots" %}
+        <img class="NE" src="{% static 'images/teams/NE.png' %}"/>
+      {% elif player.team == "New Orleans Saints" %}
+        <img class="NO" src="{% static 'images/teams/NO.png' %}"/>
+      {% elif player.team == "New York Giants" %}
+        <img class="NYG" src="{% static 'images/teams/NYG.png' %}"/>
+      {% elif player.team == "New York Jets" %}
+        <img class="NYJ" src="{% static 'images/teams/NYJ.png' %}"/>
+      {% elif player.team == "Oakland Raiders" %}
+        <img class="OAK" src="{% static 'images/teams/OAK.png' %}"/>
+      {% elif player.team == "Philadelphia Eagles" %}
+        <img class="PHI" src="{% static 'images/teams/PHI.png' %}"/>
+      {% elif player.team == "Pittsburgh Steelers" %}
+        <img class="PIT" src="{% static 'images/teams/PIT.png' %}"/>
+      {% elif player.team == "Seattle Seahawks" %}
+        <img class="SEA" src="{% static 'images/teams/SEA.png' %}"/>
+      {% elif player.team == "San Francisco 49ers" %}
+        <img class="SF" src="{% static 'images/teams/SF.png' %}"/>
+      {% elif player.team == "Tampa Bay Buccaneers" %}
+        <img class="TB" src="{% static 'images/teams/TB.png' %}"/>
+      {% elif player.team == "Tennessee Titans" %}
+        <img class="TEN" src="{% static 'images/teams/TEN.png' %}"/>
+      {% elif player.team == "Washington Redskins" %}
+        <img class="WAS" src="{% static 'images/teams/WAS.png' %}"/>
       {% endif %}
+      <h5>{{ player.team }}</h5>
+    </div>
+  </div>
+  <div class="short-dotted-line"></div>
+  <div class="details-statsbox">
+    <div class="details">
+      <ul class="detail-titles">
+        <li>Height</li>
+        <li>Weight</li>
+        <li>DOB</li>
+        <li>College</li>
+        <li>Experience</li>
+      </ul>
+      <ul class="detail-info">
+        <li>{{ height }}</li>
+        <li>{{ player.weight }}</li>
+        <li>{{ player.birthday }}</li>
+        <li>{{ player.college }}</li>
+        <li>{{ player.experience }}</li>
+      </ul>
+    </div>
+    <div class="recent-season-box">
+      <h5>2018 SEASON STATS</h5>
+      <div class="season-box-container">
+        {% if player.position == "QB" %}
+          <ul class="season-box-heads">
+            <li>TD</li>
+            <li>INT</li>
+            <li>YDS</li>
+            <li>RATE</li>
+          </ul>
+          {% for pass in passer_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ pass.td }}</li>
+              <li class="pass-int">{{ pass.ints }}</li>
+              <li class="pass-yds">{{ pass.yards }}</li>
+              <li class="rate">{{ pass.rating }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "RB" %}
+          <ul class="season-box-heads">
+            <li>ATT</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          {% for rush in rusher_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ rush.att }}</li>
+              <li class="pass-int">{{ rush.yards }}</li>
+              <li class="pass-yds">{{ rush.yards_c }}</li>
+              <li class="rate">{{ rush.td }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "FB" %}
+          <ul class="season-box-heads">
+            <li>ATT</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          {% for rush in rusher_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ rush.att }}</li>
+              <li class="pass-int">{{ rush.yards }}</li>
+              <li class="pass-yds">{{ rush.yards_c }}</li>
+              <li class="rate">{{ rush.td }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "WR" %}
+          <ul class="season-box-heads">
+            <li>REC</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          {% for r in receiver_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ r.rec }}</li>
+              <li class="pass-int">{{ r.yards }}</li>
+              <li class="pass-yds">{{ r.yards_rec }}</li>
+              <li class="rate">{{ r.td }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "TE" %}
+          <ul class="season-box-heads">
+            <li>REC</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          {% for r in receiver_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ r.rec }}</li>
+              <li class="pass-int">{{ r.yards }}</li>
+              <li class="pass-yds">{{ r.yards_rec }}</li>
+              <li class="rate">{{ r.td }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "DE" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "DT" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "NT" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "OLB" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "ILB" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "MLB" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "LB" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "CB" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "DB" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "FS" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "SS" %}
+          <ul class="season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          {% for d in defender_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ d.total_tkl }}</li>
+              <li class="pass-int">{{ d.solo_tkl }}</li>
+              <li class="pass-yds">{{ d.sck }}</li>
+              <li class="rate">{{ d.ints }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "K" %}
+          <ul class="season-box-heads">
+            <li>FG</li>
+            <li>ATT</li>
+            <li>PCT</li>
+            <li>LNG</li>
+          </ul>
+          {% for k in kicker_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ k.fg }}</li>
+              <li class="pass-int">{{ k.fg_att }}</li>
+              <li class="pass-yds">{{ k.fg_perc }}</li>
+              <li class="rate">{{ k.lng }}</li>
+            </ul>
+          {% endfor %}
+        {% elif player.position == "P" %}
+          <ul class="season-box-heads">
+            <li>P</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>LNG</li>
+          </ul>
+          {% for p in punter_now %}
+            <ul class="season-box-data">
+              <li class="prof-pass-td">{{ p.punts }}</li>
+              <li class="pass-int">{{ p.p_yards }}</li>
+              <li class="pass-yds">{{ p.p_avg }}</li>
+              <li class="rate">{{ p.lng }}</li>
+            </ul>
+          {% endfor %}
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
