@@ -433,7 +433,8 @@ footer {
 .id-info {
   display: grid;
   grid-template-rows: 123%;
-  font-size: 30px;
+  font-size: 28px;
+  margin-left: -15px;
 }
 
 .name-posnum {
@@ -468,188 +469,29 @@ footer {
 
 .team-info {
   margin-top: 20px;
-  margin-left: -30%;
+  margin-left: -25%;
   display: grid;
   grid-template-rows: 45% 35%;
   align-items: center;
 }
 
-
-.team-info .ARI {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .ATL {
-  height: 100px;
-  width: 100px;
-  margin-left: 20px;
-}
-
-.team-info .BAL {
-  height: 100px;
-  width: 160px;
-  margin-left: -10px;
-}
-
-.team-info .BUF {
-  height: 100px;
-  width: 120px;
-  margin-left: -5px;
-}
-
-.team-info .CAR {
-  height: 90px;
-  width: 150px;
-}
-
-.team-info .CHI {
-  height: 90px;
-  width: 120px;
-  padding-right: 10px;
-  margin-right: -10px;
-}
-
-.team-info .CIN {
-  height: 100px;
-  width: 120px;
-  margin-left: 10px;
-
-}
-
-.team-info .CLE {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .DAL {
-  height: 100px;
-  width: 100px;
-  margin-left: 15px;
-}
-
-.team-info .DEN {
-  height: 100px;
-  width: 140px;
-  margin-right: 5px;
-}
-
-.team-info .DET {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .GB {
-  height: 90px;
-  width: 120px;
-  margin-left: 20px;
-}
-
-.team-info .HOU {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .IND {
-  height: 100px;
-  width: 120px;
-  margin-left: 10px;
-}
-
-.team-info .JAX {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .KC {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .LA {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .LAC {
-  height: 80px;
-  width: 110px;
-}
-
-.team-info .MIA {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .MIN {
-  height: 100px;
-  width: 120px;
-}
-
-.team-info .NE {
+.profile-wide-short {
   height: 65px;
+  width: 130px;
+}
+
+.profile-medium {
+  height: 85px;
   width: 125px;
 }
 
-.team-info .NO {
-  height: 100px;
-  width: 120px;
-  margin-left: 20px;
-}
-
-.team-info .NYG {
-  height: 90px;
-  width: 120px;
-}
-
-.team-info .NYJ {
-  height: 90px;
-  width: 140px;
-}
-
-.team-info .OAK {
-  height: 100px;
-  width: 120px;
-}
-
-.team-info .PHI {
-  height: 100px;
-  width: 140px;
-}
-
-.team-info .PIT {
-  height: 100px;
-  width: 110px;
-  margin-left: 20px;
-}
-
-.team-info .SEA {
-  height: 70px;
-  width: 140px;
-}
-
-.team-info .SF {
-  height: 80px;
-  width: 140px;
-}
-
-.team-info .TB {
-  height: 90px;
-  width: 130px;
-}
-
-.team-info .TEN {
-  height: 80px;
-  width: 130px;
-}
-
-.team-info .WAS {
-  height: 100px;
-  width: 120px;
+.profile-long-thin {
+  height: 85px;
+  width: 95px;
 }
 
 .team-info h5 {
-  font-size: 20px;
+  font-size: 19px;
   text-transform: uppercase;
 }
 
