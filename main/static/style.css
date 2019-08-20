@@ -433,7 +433,8 @@ footer {
 .id-info {
   display: grid;
   grid-template-rows: 123%;
-  font-size: 28px;
+  font-size: 26px;
+  margin-left: -5px;
 }
 
 .name-posnum {
@@ -466,16 +467,13 @@ footer {
   color: lightgrey;
 }
 
-.team-info {
-  margin-top: 20px;
-  display: grid;
-  grid-template-rows: 60% 40%;
-  align-items: center;
-}
-
 .profile-wide-short {
   display: inline-block;
   text-align: center;
+}
+
+.profile-wide-short h5 {
+  font-size: 18px;
 }
 
 .pic-wide-short {
@@ -488,6 +486,10 @@ footer {
   text-align: center;
 }
 
+.profile-medium h5 {
+  font-size: 18px;
+}
+
 .pic-medium {
   height: 80px;
   width: 125px;
@@ -496,16 +498,17 @@ footer {
 .profile-long-thin {
   display: inline-block;
   text-align: center;
+  margin-top: 5%;
+  margin-left: -40px;
+}
+
+.profile-long-thin h5 {
+  font-size: 20px;
 }
 
 .pic-long-thin {
   height: 85px;
   width: 95px;
-}
-
-.team-info h5 {
-  font-size: 19px;
-  text-transform: uppercase;
 }
 
 .short-dotted-line {
