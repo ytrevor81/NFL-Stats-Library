@@ -406,7 +406,7 @@ footer {
 
 .profile-container {
   display: grid;
-  grid-template-columns: 48% 2% 48%;
+  grid-template-columns: 48% 1% 35%;
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 5%;
@@ -433,12 +433,12 @@ footer {
 .id-info {
   display: grid;
   grid-template-rows: 123%;
-  font-size: 27px;
+  font-size: 30px;
 }
 
 .name-posnum {
   display: grid;
-  grid-template-rows: 15% 10% 86%;
+  grid-template-rows: 15% 10% 83%;
 }
 
 .firstname {
@@ -587,8 +587,8 @@ footer {
 }
 
 .team-info .NE {
-  height: 60px;
-  width: 115px;
+  height: 65px;
+  width: 125px;
 }
 
 .team-info .NO {
@@ -649,7 +649,7 @@ footer {
 }
 
 .team-info h5 {
-  font-size: 18px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
@@ -659,19 +659,21 @@ footer {
   border-left: 2px dotted lightgrey;
   margin-top: 8px;
   margin-bottom: 10px;
+  margin-left: -20px;
 }
 
 .details-statsbox {
   display: grid;
   grid-template-columns: 50% 50%;
   align-items: center;
+  margin-left: -35px;
 }
 
 .details {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .details .detail-titles {
@@ -694,20 +696,21 @@ footer {
 
 .recent-season-box {
   display: block;
-  height: 95px;
+  height: 105px;
   width: 320px;
   border: 1px solid grey;
   border-radius: 2%;
   background-color: #F1F1F1;
   text-align: center;
   vertical-align: middle;
+  margin-left: 20px;
   font-weight: bold;
   box-shadow: 0 5px 15px rgba(0,0,0,.4);
 }
 
 .recent-season-box h5 {
   padding-top: 5px;
-  font-size: 21px;
+  font-size: 22px;
 }
 
 .season-box-container {
@@ -732,26 +735,50 @@ footer {
 }
 
 .season-box-data {
-  font-size: 23px;
+  font-size: 25px;
 }
 
 .profile-options {
   display: flex;
   align-items: center;
-  margin-left: 7%;
+  margin-left: 9%;
   margin-top: -2%;
   margin-bottom: 3%;
 }
 
-.profile-options button {
-  margin-left: 2%;
+.radio-form {
+  display: grid;
+  grid-template-columns: 65% 50%;
+  grid-gap: 15px;
+  align-items: center;
+}
+
+.radio-form ul {
+  display: flex;
+}
+
+.radio-form li {
+  list-style-type: none;
+}
+
+.radio-form ul li label {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin-left: 12px;
+}
+
+.radio-form ul li label input {
+  width: 14px;
+  height: 16px;
+  margin-right: 6px;
 }
 
 .profile-stats-table-container {
-  width: 90%;
+  width: 80.5%;
   display: inline-block;
   box-sizing: border-box;
-  margin-left: 5%;
+  margin-left: 10%;
 }
 
 .profile-stats-titles {
@@ -765,9 +792,13 @@ footer {
   text-transform: uppercase;
 }
 
+.profile-stats-titles h1 {
+  font-size: 30px;
+}
+
 .profile-stats-table {
   width: 100%;
-  font-size: 23px;
+  font-size: 22px;
 }
 
 .profile-stats-head {
@@ -786,24 +817,6 @@ footer {
   padding-top: 1%;
   padding-bottom: 1%;
   text-align: center;
-}
-
-.radio-form {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 30px;
-}
-
-.radio-form ul {
-  display: flex;
-}
-
-.radio-form li {
-  list-style-type: none;
-}
-
-.radio-profile li {
-  flex-shrink: 0;
 }
 
 .careers {
