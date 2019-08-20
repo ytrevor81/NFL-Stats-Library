@@ -434,7 +434,6 @@ footer {
   display: grid;
   grid-template-rows: 123%;
   font-size: 28px;
-  margin-left: -15px;
 }
 
 .name-posnum {
@@ -469,23 +468,37 @@ footer {
 
 .team-info {
   margin-top: 20px;
-  margin-left: -25%;
   display: grid;
-  grid-template-rows: 45% 35%;
+  grid-template-rows: 60% 40%;
   align-items: center;
 }
 
 .profile-wide-short {
+  display: inline-block;
+  text-align: center;
+}
+
+.pic-wide-short {
   height: 65px;
   width: 130px;
 }
 
 .profile-medium {
-  height: 85px;
+  display: inline-block;
+  text-align: center;
+}
+
+.pic-medium {
+  height: 80px;
   width: 125px;
 }
 
 .profile-long-thin {
+  display: inline-block;
+  text-align: center;
+}
+
+.pic-long-thin {
   height: 85px;
   width: 95px;
 }

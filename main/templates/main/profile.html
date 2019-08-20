@@ -28,74 +28,166 @@
         </div>
       </div>
     </div>
-    <div class=team-info>
+  <!--  <div class=team-info> -->
       {% if player.team == "Arizona Cardinals" %}
-        <img class="profile-medium" src="{% static 'images/teams/ARI.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/ARI.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Atlanta Falcons" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/ATL.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/ATL.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Baltimore Ravens" %}
-        <img class="profile-wide-short" src="{% static 'images/teams/BAL.png' %}"/>
+        <div class="profile-wide-short">
+          <img class="pic-wide-short" src="{% static 'images/teams/BAL.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Buffalo Bills" %}
-        <img class="profile-medium" src="{% static 'images/teams/BUF.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/BUF.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Carolina Panthers" %}
-        <img class="profile-medium" src="{% static 'images/teams/CAR.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/CAR.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Chicago Bears" %}
-        <img class="profile-medium" src="{% static 'images/teams/CHI.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/CHI.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Cincinnati Bengals" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/CIN.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/CIN.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Cleveland Browns" %}
-        <img class="profile-medium" src="{% static 'images/teams/CLE.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/CLE.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Dallas Cowboys" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/DAL.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/DAL.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Denver Broncos" %}
-        <img class="profile-medium" src="{% static 'images/teams/DEN.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/DEN.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Detroit Lions" %}
-        <img class="profile-medium" src="{% static 'images/teams/DET.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/DET.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Green Bay Packers" %}
-        <img class="profile-medium" src="{% static 'images/teams/GB.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/GB.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Houston Texans" %}
-        <img class="profile-medium" src="{% static 'images/teams/HOU.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/HOU.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Indianapolis Colts" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/IND.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/IND.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Jacksonville Jaguars" %}
-        <img class="profile-medium" src="{% static 'images/teams/JAX.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/JAX.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Kansas City Chiefs" %}
-        <img class="profile-medium" src="{% static 'images/teams/KC.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/KC.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Los Angeles Rams" %}
-        <img class="profile-medium" src="{% static 'images/teams/LA.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/LA.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Los Angeles Chargers" %}
-        <img class="profile-wide-short" src="{% static 'images/teams/LAC.png' %}"/>
+        <div class="profile-wide-short">
+          <img class="pic-wide-short" src="{% static 'images/teams/LAC.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Miami Dolphins" %}
-        <img class="profile-medium" src="{% static 'images/teams/MIA.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/MIA.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Minnesota Vikings" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/MIN.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/MIN.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "New England Patriots" %}
-        <img class="profile-wide-short" src="{% static 'images/teams/NE.png' %}"/>
+        <div class="profile-wide-short">
+          <img class="pic-wide-short" src="{% static 'images/teams/NE.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "New Orleans Saints" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/NO.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/NO.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "New York Giants" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/NYG.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/NYG.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "New York Jets" %}
         <img class="profile-wide-short" src="{% static 'images/teams/NYJ.png' %}"/>
       {% elif player.team == "Oakland Raiders" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/OAK.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/OAK.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Philadelphia Eagles" %}
-        <img class="profile-medium" src="{% static 'images/teams/PHI.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/PHI.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Pittsburgh Steelers" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/PIT.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/PIT.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Seattle Seahawks" %}
-        <img class="profile-wide-short" src="{% static 'images/teams/SEA.png' %}"/>
+        <div class="profile-wide-short">
+          <img class="pic-wide-short" src="{% static 'images/teams/SEA.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "San Francisco 49ers" %}
-        <img class="profile-medium" src="{% static 'images/teams/SF.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/SF.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Tampa Bay Buccaneers" %}
-        <img class="profile-medium" src="{% static 'images/teams/TB.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/TB.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Tennessee Titans" %}
-        <img class="profile-medium" src="{% static 'images/teams/TEN.png' %}"/>
+        <div class="profile-medium">
+          <img class="pic-medium" src="{% static 'images/teams/TEN.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Washington Redskins" %}
-        <img class="profile-long-thin" src="{% static 'images/teams/WAS.png' %}"/>
+        <div class="profile-long-thin">
+          <img class="pic-long-thin" src="{% static 'images/teams/WAS.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% endif %}
-      <h5>{{ player.team }}</h5>
-    </div>
+  <!--  </div>-->
   </div>
   <div class="short-dotted-line"></div>
   <div class="details-statsbox">
