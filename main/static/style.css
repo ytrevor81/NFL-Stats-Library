@@ -457,7 +457,7 @@ footer {
 }
 
 .pos-num .pos {
-  padding-top: 4px;
+  padding-top: 5px;
   padding-left: 4px;
 }
 
@@ -470,6 +470,8 @@ footer {
 .profile-wide-short {
   display: inline-block;
   text-align: center;
+  margin-top: 25px;
+  margin-left: -45px;
 }
 
 .profile-wide-short h5 {
@@ -477,13 +479,15 @@ footer {
 }
 
 .pic-wide-short {
-  height: 65px;
+  height: 60px;
   width: 130px;
 }
 
 .profile-medium {
   display: inline-block;
   text-align: center;
+  margin-top: 16px;
+  margin-left: -45px;
 }
 
 .profile-medium h5 {
@@ -499,7 +503,7 @@ footer {
   display: inline-block;
   text-align: center;
   margin-top: 5%;
-  margin-left: -40px;
+  margin-left: -35px;
 }
 
 .profile-long-thin h5 {
@@ -517,7 +521,7 @@ footer {
   border-left: 2px dotted lightgrey;
   margin-top: 8px;
   margin-bottom: 10px;
-  margin-left: -20px;
+  margin-left: -15px;
 }
 
 .details-statsbox {
@@ -532,7 +536,7 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  margin-left: -45px;
+  margin-left: -50px;
 }
 
 .details .detail-titles {

@@ -144,7 +144,10 @@
           <h5>{{ player.team }}</h5>
         </div>
       {% elif player.team == "New York Jets" %}
-        <img class="profile-wide-short" src="{% static 'images/teams/NYJ.png' %}"/>
+        <div class="profile-wide-short">
+          <img class="pic-wide-short" src="{% static 'images/teams/NYJ.png' %}"/>
+          <h5>{{ player.team }}</h5>
+        </div>
       {% elif player.team == "Oakland Raiders" %}
         <div class="profile-long-thin">
           <img class="pic-long-thin" src="{% static 'images/teams/OAK.png' %}"/>
