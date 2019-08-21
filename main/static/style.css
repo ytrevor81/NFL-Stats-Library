@@ -521,7 +521,7 @@ footer {
   border-left: 2px dotted lightgrey;
   margin-top: 8px;
   margin-bottom: 10px;
-  margin-left: -15px;
+  margin-left: -20px;
 }
 
 .details-statsbox {
@@ -644,6 +644,10 @@ footer {
   margin-left: 10%;
 }
 
+.profile-stats-table-container h1 {
+  font-size: 30px;
+}
+
 .profile-stats-titles {
   display: flex;
   justify-content: center;
@@ -655,9 +659,9 @@ footer {
   text-transform: uppercase;
 }
 
-.profile-stats-titles h1 {
+/*.profile-stats-titles h1 {
   font-size: 30px;
-}
+}*/
 
 .profile-stats-table {
   width: 100%;
