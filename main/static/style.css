@@ -637,6 +637,193 @@ footer {
   margin-right: 6px;
 }
 
+.BAL-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #3E005D;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.CAR-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #0054C2;
+  color: #F5F5F5;
+  cursor: pointer;
+  }
+
+.CHI-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #C23500;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.CIN-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #FF5700;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.CLE-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #EC4100;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.DAL-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #00005D;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.DEN-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #0B0044;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.GB-btn {
+    font-size: 22px;
+    font-weight: bold;
+    border: 1px solid gray;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #002A03;
+    color: #F5F5F5;
+    cursor: pointer;
+}
+
+.IND-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #05159C;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.JAX-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #018BA1;
+  color: #F5F5F5;
+  cursor: pointer;
+  }
+
+.NO-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #B48B39;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.NYJ-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #005B34;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.OAK-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: black;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.PHI-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #026046;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.PIT-btn {
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #D6BA00;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+
+.profile-options button:hover {
+  background-color: #4B4B4B;
+  color: #F5F5F5;
+  transition: 0.5s ease;
+}
+
+
 .profile-stats-table-container {
   width: 80.5%;
   display: inline-block;

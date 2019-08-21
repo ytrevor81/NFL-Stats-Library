@@ -490,7 +490,51 @@
 <div class="profile-options">
   <form class="radio-form" action="/profile" method="GET">
     {{ radio }}
-    <button class="season-leaders-btn" type="submit">Search</button>
+    {% if player.team == "Baltimore Ravens" %}
+      <button class="BAL-btn" type="submit">Search</button>
+    {% elif player.team == "Carolina Panthers" %}
+      <button class="CAR-btn" type="submit">Search</button>
+    {% elif player.team == "Chicago Bears" %}
+      <button class="CHI-btn" type="submit">Search</button>
+    {% elif player.team == "Cincinnati Bengals" %}
+      <button class="CIN-btn" type="submit">Search</button>
+    {% elif player.team == "Cleveland Browns" %}
+      <button class="CLE-btn" type="submit">Search</button>
+    {% elif player.team == "Dallas Cowboys" %}
+      <button class="DAL-btn" type="submit">Search</button>
+    {% elif player.team == "Denver Broncos" %}
+      <button class="DEN-btn" type="submit">Search</button>
+    {% elif player.team == "Detroit Lions" %}
+      <button class="CAR-btn" type="submit">Search</button>
+    {% elif player.team == "Green Bay Packers" %}
+      <button class="GB-btn" type="submit">Search</button>
+    {% elif player.team == "Indianapolis Colts" %}
+      <button class="IND-btn" type="submit">Search</button>
+    {% elif player.team == "Jacksonville Jaguars" %}
+      <button class="JAX-btn" type="submit">Search</button>
+    {% elif player.team == "Los Angeles Rams" %}
+      <button class="DEN-btn" type="submit">Search</button>
+    {% elif player.team == "Los Angeles Chargers" %}
+      <button class="DAL-btn" type="submit">Search</button>
+    {% elif player.team == "Miami Dolphins" %}
+      <button class="JAX-btn" type="submit">Search</button>
+    {% elif player.team == "Minnesota Vikings" %}
+      <button class="BAL-btn" type="submit">Search</button>
+    {% elif player.team == "New Orleans Saints" %}
+      <button class="NO-btn" type="submit">Search</button>
+    {% elif player.team == "New York Jets" %}
+      <button class="NYJ-btn" type="submit">Search</button>
+    {% elif player.team == "Oakland Raiders" %}
+      <button class="OAK-btn" type="submit">Search</button>
+    {% elif player.team == "Philadelphia Eagles" %}
+      <button class="PHI-btn" type="submit">Search</button>
+    {% elif player.team == "Pittsburgh Steelers" %}
+      <button class="PIT-btn" type="submit">Search</button>
+    {% elif player.team == "Seattle Seahawks" %}
+      <button class="DEN-btn" type="submit">Search</button>
+    {% else %}
+      <button class="season-leaders-btn" type="submit">Search</button>
+    {% endif %}
   </form>
 </div>
 
