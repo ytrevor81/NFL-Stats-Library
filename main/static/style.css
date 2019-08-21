@@ -823,7 +823,6 @@ footer {
   transition: 0.5s ease;
 }
 
-
 .profile-stats-table-container {
   width: 80.5%;
   display: inline-block;
@@ -845,10 +844,6 @@ footer {
   width: 100%;
   text-transform: uppercase;
 }
-
-/*.profile-stats-titles h1 {
-  font-size: 30px;
-}*/
 
 .profile-stats-table {
   width: 100%;
@@ -876,6 +871,61 @@ footer {
 .careers {
   font-weight: bold;
   text-transform: uppercase;
+}
+
+/* Retired Profiles */
+
+.retired-dotted-line {
+  display: grid;
+  justify-content: center;
+  border-left: 2px dotted lightgrey;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  margin-left: -25px;
+}
+
+.retired-box-h5 {
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.retired-season-box-heads {
+  color: dimgrey;
+  font-size: 18px;
+}
+
+.retired-season-box-data {
+  font-size: 22px;
+}
+
+.name-yearsactive {
+  display: grid;
+  grid-template-rows: 15% 10% 72%;
+}
+
+.retired-teams {
+  display: inline-block;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: -45px;
+  font-size: 22px;
+}
+
+.retired-hof {
+  margin-top: -3%;
+  margin-bottom: 2%;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+}
+
+.retired-hof img {
+  height: 105px;
+  width: 95px;
+}
+
+.retired-hof h5 {
+  font-size: 22px;
 }
 
 /* Player search page */

@@ -3,178 +3,189 @@
 
 {% block content %}
 {% for player in profile %}
+
 <div class="profile-container">
-  <div class="profile-pic">
-    {% for p in pic %}
-      <img src="{{ p.urls }}"/>
-    {% endfor %}
-  </div>
-  <div class="id-info">
-      <div class="firstname">
-        {{ firstname }}
-      </div>
-      <div class="lastname">
-        {{ lastname }}
-      </div>
-      {% if hof != None %}
-        {% for player in hof %}
-          <div class="hof">
-            <img src="{% static 'images/icons/HOF.png'%}"/>
-            <h5>{{ player.year }}</h5>
+  <div class="pic-id-team">
+    <div class="profile-pic">
+      {% for p in pic %}
+        <img src="{{ p.urls }}"/>
+      {% endfor %}
+    </div>
+    <div class="id-info">
+      <div class="name-yearsactive">
+        <div class="firstname">
+          {{ firstname }}
+        </div>
+        <div class="lastname">
+          {{ lastname }}
+        </div>
+        <div class="pos-num">
+          <div class="years-active">
+            <p class="title">Years Active:</p>
+            <p class="years">{{ start }} - {{ finished }}</p>
           </div>
+        </div>
+      </div>
+    </div>
+      <div class="retired-teams">
+        {% for team in teams %}
+          <h5>{{ team }}</h5>
         {% endfor %}
-      {% endif %}
-  </div>
-  <div class="team-info">
-    {% for team in teams %}
-      <h5>{{ team }}</h5>
-    {% endfor %}
-  </div>
-  <div class="years-active">
-    <p class="title">Years Active:</p>
-    <p class="years">{{ start }} - {{ finished }}</p>
-  </div>
-  <span class="short-dotted-line"></span>
-  <div class="details">
-    <ul class="detail-titles">
-      <li>Height</li>
-      <li>Weight</li>
-      <li>DOB</li>
-      <li>College</li>
-      <li>Experience</li>
-    </ul>
-    <ul class="detail-info">
-      <li>{{ height }}</li>
-      <li>{{ player.weight }}</li>
-      <li>{{ player.birthday }}</li>
-      <li>{{ player.college }}</li>
-      <li>{{ player.experience }}</li>
-    </ul>
-  </div>
-  <div class="recent-season-box">
-    <h5>CAREER STATS</h5>
-    <div class="season-box-container">
-      {% if career == "passer" %}
-        <ul class="season-box-heads">
-          <li>TD</li>
-          <li>INT</li>
-          <li>YDS</li>
-          <li>RATE</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_pass_td }}</li>
-          <li class="pass-int">{{ car_pass_ints }}</li>
-          <li class="pass-yds">{{ car_pass_yards }}</li>
-          <li class="rate">{{ car_rating }}</li>
-        </ul>
-      {% elif career == "rusher" %}
-        <ul class="season-box-heads">
-          <li>ATT</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_rush_att }}</li>
-          <li class="pass-int">{{ car_rush_yds }}</li>
-          <li class="pass-yds">{{ car_rush_avg }}</li>
-          <li class="rate">{{ car_rush_tds }}</li>
-        </ul>
-      {% elif career == "receiver" %}
-        <ul class="season-box-heads">
-          <li>REC</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_recs }}</li>
-          <li class="pass-int">{{ car_rec_yds }}</li>
-          <li class="pass-yds">{{ car_rec_avg }}</li>
-          <li class="rate">{{ car_rec_td }}</li>
-        </ul>
-      {% elif career == "defender" %}
-        <ul class="season-box-heads">
-          <li>COMB</li>
-          <li>SOLO</li>
-          <li>SCK</li>
-          <li>INT</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_def_tot }}</li>
-          <li class="pass-int">{{ car_def_solo }}</li>
-          <li class="pass-yds">{{ car_def_sck }}</li>
-          <li class="rate">{{ car_def_ints }}</li>
-        </ul>
-      {% elif career == "kicker" %}
-        <ul class="season-box-heads">
-          <li>FG</li>
-          <li>ATT</li>
-          <li>PCT</li>
-          <li>LNG</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_k_fgs }}</li>
-          <li class="pass-int">{{ car_k_att }}</li>
-          <li class="pass-yds">{{ car_k_pct }}</li>
-          <li class="rate">{{ car_k_lng }}</li>
-        </ul>
-      {% elif career == "punter" %}
-        <ul class="season-box-heads">
-          <li>P</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>LNG</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_punt_punts }}</li>
-          <li class="pass-int">{{ car_punt_yds }}</li>
-          <li class="pass-yds">{{ car_punt_avg }}</li>
-          <li class="rate">{{ car_punt_lng }}</li>
-        </ul>
-      {% elif career == "kr" %}
-        <ul class="season-box-heads">
-          <li>KR</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_kr_kr }}</li>
-          <li class="pass-int">{{ car_kr_yds }}</li>
-          <li class="pass-yds">{{ car_kr_avg }}</li>
-          <li class="rate">{{ car_kr_tds }}</li>
-        </ul>
-      {% elif career == "pr" %}
-        <ul class="season-box-heads">
-          <li>PR</li>
-          <li>YDS</li>
-          <li>AVG</li>
-          <li>TD</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">{{ car_pr_pr }}</li>
-          <li class="pass-int">{{ car_pr_yds }}</li>
-          <li class="pass-yds">{{ car_pr_avg }}</li>
-          <li class="rate">{{ car_pr_tds }}</li>
-        </ul>
-      {% else %}
-        <ul class="season-box-heads">
-          <li>?</li>
-          <li>?</li>
-          <li>?</li>
-          <li>?</li>
-        </ul>
-        <ul class="season-box-data">
-          <li class="prof-pass-td">--</li>
-          <li class="pass-int">--</li>
-          <li class="pass-yds">--</li>
-          <li class="rate">--</li>
-        </ul>
-      {% endif %}
+      </div>
+    </div>
+  <div class="retired-dotted-line"></div>
+  <div class="details-statsbox">
+    <div class="details">
+      <ul class="detail-titles">
+        <li>Height</li>
+        <li>Weight</li>
+        <li>DOB</li>
+        <li>College</li>
+        <li>Experience</li>
+      </ul>
+      <ul class="detail-info">
+        <li>{{ height }}</li>
+        <li>{{ player.weight }}</li>
+        <li>{{ player.birthday }}</li>
+        <li>{{ player.college }}</li>
+        <li>{{ player.experience }}</li>
+      </ul>
+    </div>
+    <div class="recent-season-box">
+      <h5 class="retired-box-h5">CAREER STATS</h5>
+      <div class="season-box-container">
+        {% if career == "passer" %}
+          <ul class="retired-season-box-heads">
+            <li>TD</li>
+            <li>INT</li>
+            <li>YDS</li>
+            <li>RATE</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_pass_td }}</li>
+            <li class="pass-int">{{ car_pass_ints }}</li>
+            <li class="pass-yds">{{ car_pass_yards }}</li>
+            <li class="rate">{{ car_rating }}</li>
+          </ul>
+        {% elif career == "rusher" %}
+          <ul class="retired-season-box-heads">
+            <li>ATT</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_rush_att }}</li>
+            <li class="pass-int">{{ car_rush_yds }}</li>
+            <li class="pass-yds">{{ car_rush_avg }}</li>
+            <li class="rate">{{ car_rush_tds }}</li>
+          </ul>
+        {% elif career == "receiver" %}
+          <ul class="retired-season-box-heads">
+            <li>REC</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_recs }}</li>
+            <li class="pass-int">{{ car_rec_yds }}</li>
+            <li class="pass-yds">{{ car_rec_avg }}</li>
+            <li class="rate">{{ car_rec_td }}</li>
+          </ul>
+        {% elif career == "defender" %}
+          <ul class="retired-season-box-heads">
+            <li>COMB</li>
+            <li>SOLO</li>
+            <li>SCK</li>
+            <li>INT</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_def_tot }}</li>
+            <li class="pass-int">{{ car_def_solo }}</li>
+            <li class="pass-yds">{{ car_def_sck }}</li>
+            <li class="rate">{{ car_def_ints }}</li>
+          </ul>
+        {% elif career == "kicker" %}
+          <ul class="retired-season-box-heads">
+            <li>FG</li>
+            <li>ATT</li>
+            <li>PCT</li>
+            <li>LNG</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_k_fgs }}</li>
+            <li class="pass-int">{{ car_k_att }}</li>
+            <li class="pass-yds">{{ car_k_pct }}</li>
+            <li class="rate">{{ car_k_lng }}</li>
+          </ul>
+        {% elif career == "punter" %}
+          <ul class="retired-season-box-heads">
+            <li>P</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>LNG</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_punt_punts }}</li>
+            <li class="pass-int">{{ car_punt_yds }}</li>
+            <li class="pass-yds">{{ car_punt_avg }}</li>
+            <li class="rate">{{ car_punt_lng }}</li>
+          </ul>
+        {% elif career == "kr" %}
+          <ul class="retired-season-box-heads">
+            <li>KR</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_kr_kr }}</li>
+            <li class="pass-int">{{ car_kr_yds }}</li>
+            <li class="pass-yds">{{ car_kr_avg }}</li>
+            <li class="rate">{{ car_kr_tds }}</li>
+          </ul>
+        {% elif career == "pr" %}
+          <ul class="retired-season-box-heads">
+            <li>PR</li>
+            <li>YDS</li>
+            <li>AVG</li>
+            <li>TD</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">{{ car_pr_pr }}</li>
+            <li class="pass-int">{{ car_pr_yds }}</li>
+            <li class="pass-yds">{{ car_pr_avg }}</li>
+            <li class="rate">{{ car_pr_tds }}</li>
+          </ul>
+        {% else %}
+          <ul class="retired-season-box-heads">
+            <li>?</li>
+            <li>?</li>
+            <li>?</li>
+            <li>?</li>
+          </ul>
+          <ul class="retired-season-box-data">
+            <li class="prof-pass-td">--</li>
+            <li class="pass-int">--</li>
+            <li class="pass-yds">--</li>
+            <li class="rate">--</li>
+          </ul>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
+
+{% if hof != None %}
+  {% for player in hof %}
+    <div class="retired-hof">
+      <img src="{% static 'images/icons/HOF.png'%}"/>
+      <h5>Class of {{ player.year }}</h5>
+    </div>
+  {% endfor %}
+{% endif %}
+
 <div class="profile-stats-table-container">
   <div class="profile-stats-titles"> <!--1-->
     <h1>Passing</h1>
