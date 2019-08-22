@@ -1,21 +1,25 @@
 class DataTypes(object):
+    '''Used to process a list of strings to a list of usable integers or floats.'''
 
     @classmethod
     def integers(cls, list):
-        x = [i.replace(",", "") for i in list]
-        y = [i for i in x if i != "--"]
+        '''Returns a list of integers, from a list of strings'''
+        x = [i.replace(",", "") for i in list] #for string numbers > '999'
+        y = [i for i in x if i != "--"] #some '--' are present in each queryset
         z = [i for i in y if i != "0"]
         ints = [int(i) for i in z]
         return ints
 
     @classmethod
     def floats(cls, list):
+        '''Returns a list of floats from a list of strings'''
         x = [i for i in list if i != "--"]
         y = [i for i in x if i != "0"]
         real = [float(i) for i in y]
         return real
 
 class StatOrder(object):
+    '''Most of these functions are for the "Season Leaders" and "Season Stats" pages.'''
 
     @classmethod
     def lng(cls, list):
@@ -66,45 +70,75 @@ class StatOrder(object):
 
     @classmethod
     def real_topfive(cls, list):
-        names = []
+        '''Returns a list of player IDs from each player's queryset from the parameter.
+        The list parameter is a list of player's querysets'''
+        ids = []
         for i in list:
             for x in i:
-                names.append(x.player_id)
-        return names
+                ids.append(x.player_id)
+        return ids
 
     @classmethod
     def pagecount(cls, pagination):
+        '''Returns a list of the number of pages in the paginator object.
+        The paginator object is the parameter.'''
         pages = []
         plusone = pagination.paginator.num_pages + 1
         for i in range(1, plusone):
             pages.append(i)
         return pages
 
+class Commas(object):
+    '''Only for the career...() functions below. It's to return a number
+    over 999 with a comma in the correct place. For example: from '1000' to '1,000'.'''
+
+    @classmethod
+    def career_commas(cls, n):
+        '''The n parameter is the resulting integer from one of the career functions'''
+        num = str(n)
+        if len(num) == 4:
+            new = num[:1] + ',' + num[1:]
+        elif len(num) == 5:
+            new = num[:2] + ',' + num[2:]
+        elif len(num) == 6:
+            new = num[:3] + ',' + num[3:]
+        else:
+            new = n
+        return new
+
+
 class ProfilePage(object):
+    '''Most of these functions are used for profile() and retired_profile()'''
 
     @classmethod
     def name(cls, list):
-        for name in list:
-            rawname = name.partition(", ")
-            first = rawname[2]
-            last = rawname[0]
-        firstlast = [first, last]
+        '''Returns fullname of a player in the original order. A list of player names
+        like "Brady, Tom" is the parameter. The purpose is to return a readable fullname
+        like "Tom Brady" for each player.'''
+        for name in list: #ex. name == "Brady, Tom"
+            rawname = name.partition(", ") #ex. [(Brady), (,), (Tom)]
+            first = rawname[2] #ex. Tom
+            last = rawname[0] #ex. Brady
+        firstlast = [first, last] #ex. ["Tom", "Brady"]
         return firstlast
 
     @classmethod
     def names_list(cls, players):
+        '''Same as name() but with a lot of players'''
         names = []
-        raw_names = [x.name for x in players]
+        raw_names = [x.name for x in players] #ex. ["Brady, Tom", "Manning, Peyton", ...]
         for i in raw_names:
             rawname = i.partition(", ")
             first = rawname[2]
             last = rawname[0]
             name = first + " " + last
             names.append(name)
-        return names
+        return names #ex. ["Tom Brady", "Peyton Manning", ...]
 
     @classmethod
     def names_extraforloop(cls, players):
+        '''Same as name() but dealing with an extra layer of querysets.
+        Mostly used for "Season Leasers" page'''
         names = []
         for player in players:
             raw_names = [x.name for x in player]
@@ -118,6 +152,9 @@ class ProfilePage(object):
 
     @classmethod
     def many_names(cls, list, listtwo):
+        '''Same as name() but the names are appended to an empty list.
+        The 'list' parameter is a list of player names; 'listtwo' parameter
+        is an empty list'''
         for x in list:
             raw = x.partition(", ")
             first = raw[2]
@@ -127,20 +164,25 @@ class ProfilePage(object):
 
     @classmethod
     def height(cls, list):
-        for string in list:
+        '''To calculate the heights of each player in profile()
+        and retired_profile(). A list of player's height in inches is the
+        parameter. Returns a string of the correct height format'''
+        for string in list: #ex. ["70", "72", "68", ...]
             num = int(string)
             feet = num // 12
             inches = num % 12
             ft = str(feet)
             i = str(inches)
-        h = ft + "-" + i
+        h = ft + "-" + i #ex. 6-2 is 6ft 2in
         return h
 
     @classmethod
     def career_passing(cls, list):
+        '''All of the career...() functions are to process the stats of inidividual querysets on
+        profile() and retired_profile()'''
         g = [x.games for x in list]
 
-        if len(g) == 0:
+        if len(g) == 0: #if there's no data from the queryset, return a list of "--" strings
             return ["--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--"]
 
         else:
@@ -149,32 +191,35 @@ class ProfilePage(object):
 
             c = [x.comp for x in list]
             pre_comp = DataTypes.integers(c)
-            comp = sum(pre_comp)
+            completions = sum(pre_comp)
+            comp = Commas.career_commas(completions)
 
             a = [x.att for x in list]
             pre_att = DataTypes.integers(a)
-            att = sum(pre_att)
+            attempts = sum(pre_att)
+            att = Commas.career_commas(attempts)
 
             if att == 0:
                 pct = 0
             else:
-                pct = round(((comp/att) * 100), 1)
+                pct = round(((completions/attempts) * 100), 1)
 
             if games == 0:
                 att_g = 0
             else:
-                att_g = round((att/games), 1)
+                att_g = round((attempts/games), 1)
 
             y = [x.yards for x in list]
             pre_yds = DataTypes.integers(y)
-            yds = sum(pre_yds)
+            yards = sum(pre_yds)
+            yds = Commas.career_commas(yards)
 
-            avg = round((yds/att), 1)
+            avg = round((yards/attempts), 1)
 
             if games == 0:
                 yds_g = 0
             else:
-                yds_g = round((yds/games), 1)
+                yds_g = round((yards/games), 1)
 
             td = [x.td for x in list]
             pre_tds = DataTypes.integers(td)
@@ -191,11 +236,14 @@ class ProfilePage(object):
 
             tp = [x.comp_twenty_plus for x in list]
             pre_t_plus = DataTypes.integers(tp)
-            t_plus = sum(pre_t_plus)
+            twenty_plus = sum(pre_t_plus)
+            t_plus = Commas.career_commas(twenty_plus)
+
 
             fp = [x.comp_forty_plus for x in list]
             pre_f_plus = DataTypes.integers(fp)
-            f_plus = sum(pre_f_plus)
+            forty_plus = sum(pre_f_plus)
+            f_plus = Commas.career_commas(forty_plus)
 
             s = [x.sck for x in list]
             pre_sck = DataTypes.integers(s)
@@ -204,10 +252,10 @@ class ProfilePage(object):
             if att == 0:
                 rate = 0.0
             else:
-                x = ((comp/att) - .3) * 5
-                xx = ((yds/att) - 3) * .25
-                xxx = (tds/att) * 20
-                xxxx = 2.375 - ((ints/att) * 25)
+                x = ((completions/attempts) - .3) * 5
+                xx = ((yards/attempts) - 3) * .25
+                xxx = (tds/attempts) * 20
+                xxxx = 2.375 - ((ints/attempts) * 25)
                 rate = round((((x + xx + xxx + xxxx)/6) * 100), 1)
 
             career = [games, comp, att, pct, att_g, yds, avg, yds_g, tds, ints, lng, t_plus, f_plus, sck, rate]
@@ -227,26 +275,28 @@ class ProfilePage(object):
 
             a = [x.att for x in list]
             pre_att = DataTypes.integers(a)
-            att = sum(pre_att)
+            attempts = sum(pre_att)
+            att = Commas.career_commas(attempts)
 
             if games == 0:
                 att_g = 0
             else:
-                att_g = round((att/games), 1)
+                att_g = round((attempts/games), 1)
 
             y = [x.yards for x in list]
             pre_yds = DataTypes.integers(y)
-            yds = sum(pre_yds)
+            yards = sum(pre_yds)
+            yds = Commas.career_commas(yards)
 
             if att == 0:
                 avg = 0
             else:
-                avg = round((yds/att), 1)
+                avg = round((yards/attempts), 1)
 
             if games == 0:
                 yds_g = 0
             else:
-                yds_g = round((yds/games), 1)
+                yds_g = round((yards/games), 1)
 
             td = [x.td for x in list]
             pre_tds = DataTypes.integers(td)
@@ -291,21 +341,23 @@ class ProfilePage(object):
 
             r = [x.rec for x in list]
             pre_recs = DataTypes.integers(r)
-            recs = sum(pre_recs)
+            receptions = sum(pre_recs)
+            recs = Commas.career_commas(receptions)
 
             y = [x.yards for x in list]
             pre_yds = DataTypes.integers(y)
-            yds = sum(pre_yds)
+            yards = sum(pre_yds)
+            yds = Commas.career_commas(yards)
 
             if recs == 0:
                 avg = 0
             else:
-                avg = round((yds/recs), 1)
+                avg = round((yards/receptions), 1)
 
             if games == 0:
                 yds_g = 0
             else:
-                yds_g = round((yds/games), 1)
+                yds_g = round((yards/games), 1)
 
             td = [x.td for x in list]
             pre_tds = DataTypes.integers(td)
@@ -350,15 +402,18 @@ class ProfilePage(object):
 
             tt = [x.total_tkl for x in list]
             pre_tot = DataTypes.integers(tt)
-            tot = sum(pre_tot)
+            total = sum(pre_tot)
+            tot = Commas.career_commas(total)
 
             so = [x.solo_tkl for x in list]
             pre_solo = DataTypes.integers(so)
-            solo = sum(pre_solo)
+            solos = sum(pre_solo)
+            solo = Commas.career_commas(solos)
 
             a = [x.assisted_tkl for x in list]
             pre_ass = DataTypes.integers(a)
-            ass = sum(pre_ass)
+            assist = sum(pre_ass)
+            ass = Commas.career_commas(assist)
 
             s = [x.sck for x in list]
             pre_sck = DataTypes.floats(s)
@@ -408,16 +463,18 @@ class ProfilePage(object):
 
             fg = [x.fg for x in list]
             pre_fgs = DataTypes.integers(fg)
-            fgs = sum(pre_fgs)
+            fieldgoals = sum(pre_fgs)
+            fgs = Commas.career_commas(fieldgoals)
 
             a = [x.fg_att for x in list]
             pre_att = DataTypes.integers(a)
-            att = sum(pre_att)
+            attempts = sum(pre_att)
+            att = Commas.career_commas(attempts)
 
             if att == 0:
                 pct = 0
             else:
-                pct = round(((fgs/att) * 100), 1)
+                pct = round(((fieldgoals/attempts) * 100), 1)
 
             b = [x.kb for x in list]
             pre_kb = DataTypes.integers(b)
@@ -430,29 +487,33 @@ class ProfilePage(object):
 
             fgtw = [x.fg_twenty for x in list]
             pre_fg_twenty = DataTypes.integers(fgtw)
-            fg_twenty = sum(pre_fg_twenty)
+            fieldgoals_twenty = sum(pre_fg_twenty)
+            fg_twenty = Commas.career_commas(fieldgoals_twenty)
 
             fgtwa = [x.fg_twenty_att for x in list]
             pre_fgtw_att = DataTypes.integers(fgtwa)
-            fgtw_att = sum(pre_fgtw_att)
+            fgtw_attempts = sum(pre_fgtw_att)
+            fgtw_att = Commas.career_commas(fgtw_attempts)
 
             if fgtw_att == 0:
                 fgtw_pct = 0
             else:
-                fgtw_pct = round(((fg_twenty/fgtw_att) * 100), 1)
+                fgtw_pct = round(((fieldgoals_twenty/fgtw_attempts) * 100), 1)
 
             fgth = [x.fg_thirty for x in list]
             pre_fg_thirty = DataTypes.integers(fgth)
-            fg_thirty = sum(pre_fg_thirty)
+            fieldgoals_thirty = sum(pre_fg_thirty)
+            fg_thirty = Commas.career_commas(fieldgoals_thirty)
 
             fgtha = [x.fg_thirty_att for x in list]
             pre_fgth_att = DataTypes.integers(fgtha)
-            fgth_att = sum(pre_fgth_att)
+            fgth_attempts = sum(pre_fgth_att)
+            fgth_att = Commas.career_commas(fgth_attempts)
 
             if fgth_att == 0:
                 fgth_pct = 0
             else:
-                fgth_pct = round(((fg_thirty/fgth_att) * 100), 1)
+                fgth_pct = round(((fieldgoals_thirty/fgth_attempts) * 100), 1)
 
             fgfo = [x.fg_forty for x in list]
             pre_fg_forty = DataTypes.integers(fgfo)
@@ -482,16 +543,18 @@ class ProfilePage(object):
 
             e = [x.ex for x in list]
             pre_ex = DataTypes.integers(e)
-            ex = sum(pre_ex)
+            extra = sum(pre_ex)
+            ex = Commas.career_commas(extra)
 
             ea = [x.ex_att for x in list]
             pre_ex_att = DataTypes.integers(ea)
-            ex_att = sum(pre_ex_att)
+            ex_attempts = sum(pre_ex_att)
+            ex_att = Commas.career_commas(ex_attempts)
 
             if ex_att == 0:
                 ex_pct = 0
             else:
-                ex_pct = round(((ex/ex_att) * 100), 1)
+                ex_pct = round(((extra/ex_attempts) * 100), 1)
 
             eb = [x.ex_b for x in list]
             pre_ex_b = DataTypes.integers(eb)
@@ -514,11 +577,13 @@ class ProfilePage(object):
 
             p = [x.punts for x in list]
             pre_punts = DataTypes.integers(p)
-            punts = sum(pre_punts)
+            punts_int = sum(pre_punts)
+            punts = Commas.career_commas(punts_int)
 
             py = [x.p_yards for x in list]
             pre_yds = DataTypes.integers(py)
-            yds = sum(pre_yds)
+            yards = sum(pre_yds)
+            yds = Commas.career_commas(yards)
 
             l = [x.lng for x in list]
             lng = StatOrder.lng(l)
@@ -528,7 +593,7 @@ class ProfilePage(object):
             if punts == 0:
                 avg = 0
             else:
-                avg = round((yds/punts), 1)
+                avg = round((yards/punts_int), 1)
 
             b = [x.pb for x in list]
             pre_pb = DataTypes.integers(b)
@@ -556,11 +621,13 @@ class ProfilePage(object):
 
             ret = [x.p_ret for x in list]
             pre_p_ret = DataTypes.integers(ret)
-            p_ret = sum(pre_p_ret)
+            punts_ret = sum(pre_p_ret)
+            p_ret = Commas.career_commas(punts_ret)
 
             rety = [x.p_ret_yards for x in list]
             pre_retyds = DataTypes.integers(rety)
-            retyds = sum(pre_retyds)
+            retyards = sum(pre_retyds)
+            retyds = Commas.career_commas(retyards)
 
             rtd = [x.p_ret_td for x in list]
             pre_rettd = DataTypes.integers(rtd)
@@ -584,16 +651,18 @@ class ProfilePage(object):
 
             k = [x.kr for x in list]
             pre_kr = DataTypes.integers(k)
-            kr = sum(pre_kr)
+            kicksr = sum(pre_kr)
+            kr = Commas.career_commas(kicksr)
 
             y = [x.kr_yards for x in list]
             pre_yds = DataTypes.integers(y)
-            yds = sum(pre_yds)
+            yards = sum(pre_yds)
+            yds = Commas.career_commas(yards)
 
             if kr == 0:
                 avg = 0
             else:
-                avg = round((yds/kr), 1)
+                avg = round((yards/kicksr), 1)
 
             l = [x.lng for x in list]
             lng = StatOrder.lng(l)
@@ -638,16 +707,18 @@ class ProfilePage(object):
 
             p = [x.pr for x in list]
             pre_pr = DataTypes.integers(p)
-            pr = sum(pre_pr)
+            puntsr = sum(pre_pr)
+            pr = Commas.career_commas(puntsr)
 
             y = [x.pr_yards for x in list]
             pre_yds = DataTypes.integers(y)
-            yds = sum(pre_yds)
+            yards = sum(pre_yds)
+            yds = Commas.career_commas(yards)
 
             if pr == 0:
                 avg = 0
             else:
-                avg = round((yds/pr), 1)
+                avg = round((yards/puntsr), 1)
 
             l = [x.lng for x in list]
             lng = StatOrder.lng(l)
@@ -686,7 +757,87 @@ class ProfilePage(object):
             return variable
 
     @classmethod
-    def career_box(cls, pass_att, rush_att, recs, tackles, sacks, ints, kicks, punts, kr, pr):
+    def career_box(cls, pass_a, rush_a, rec, tkl, sck, its, ks, pts, krs, prs):
+        if type(pass_a) == str:
+            if pass_a == "--":
+                pass_att = 0
+            else:
+                pa = DataTypes.integers([pass_a])
+                pass_att = pa[0]
+        else:
+            pass_att = pass_a
+        if type(rush_a) == str:
+            if rush_a == "--":
+                rush_att = 0
+            else:
+                ra = DataTypes.integers([str(rush_a)])
+                rush_att = ra[0]
+        else:
+            rush_att = rush_a
+        if type(rec) == str:
+            if rec == "--":
+                recs = 0
+            else:
+                r = DataTypes.integers([str(rec)])
+                recs = r[0]
+        else:
+            recs = rec
+        if type(tkl) == str:
+            if tkl == "--":
+                tackles = 0
+            else:
+                t = DataTypes.integers([str(tkl)])
+                tackles = t[0]
+        else:
+            tackles = tkl
+        if type(sck) == str:
+            if sck == "--":
+                sacks = 0
+            else:
+                s = DataTypes.integers([str(sck)])
+                sacks = s[0]
+        else:
+            sacks = sck
+        if type(its) == str:
+            if its == "--":
+                ints = 0
+            else:
+                i = DataTypes.integers([str(its)])
+                ints = i[0]
+        else:
+            ints = its
+        if type(ks) == str:
+            if ks == "--":
+                kicks = 0
+            else:
+                k = DataTypes.integers([str(ks)])
+                kicks = k[0]
+        else:
+            kicks = ks
+        if type(pts) == str:
+            if pts == "--":
+                punts = 0
+            else:
+                p = DataTypes.integers([str(pts)])
+                punts = p[0]
+        else:
+            punts = pts
+        if type(krs) == str:
+            if krs == "--":
+                kr = 0
+            else:
+                kk = DataTypes.integers([str(krs)])
+                kr = kk[0]
+        else:
+            kr = krs
+        if type(prs) == str:
+            if prs == "--":
+                pr = 0
+            else:
+                pp = DataTypes.integers([str(prs)])
+                pr = pp[0]
+        else:
+            pr = prs
         if pass_att > rush_att and pass_att > recs and pass_att > tackles and pass_att > sacks and pass_att > ints and pass_att > kicks and pass_att > punts and pass_att > kr and pass_att > pr:
             return "passer"
         elif rush_att > pass_att and rush_att > recs and rush_att > tackles and rush_att > sacks and rush_att > ints and rush_att > kicks and rush_att > punts and rush_att > kr and rush_att > pr:
