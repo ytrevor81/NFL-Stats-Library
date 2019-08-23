@@ -1214,3 +1214,15 @@ class SeasonStats(object):
             else:
                 new.append(y)
         return new
+
+
+class HOFDisplay(object):
+    '''This is to uncluter the hof() in views.py'''
+
+    @classmethod
+    def hofdisplay(cls, query):
+        '''Returns a zip() object of the player's fullname and queryset. The query parameter
+        is a query object'''
+        names = ProfilePage.names_list(query) #processes the name of each player, returning normal fullname: ex. from "Manning, Peyton" to "Peyton Manning"...function in data_functions.py
+        names_queryset = zip(names, query) #ex. [("Peyton Manning", <QuerySet...>), ()...]
+        return names_queryset

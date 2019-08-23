@@ -15,233 +15,63 @@ def HallOfFame(request):
     '''Extracts names from the querysets in the HOF SQL table.
     Each section returns a zip() object containing the fullname and queryset of each HOF player.'''
 
-    sixtythree_players = HOF.objects.filter(year="1963") #QuerySet for each player in the specified year
-    sixtythree_names = ProfilePage.names_list(sixtythree_players) #processes the name of each player, returning normal fullname: ex. from "Manning, Peyton" to "Peyton Manning"...function in data_functions.py
-    sixtythree = zip(sixtythree_names, sixtythree_players) #ex. [("Peyton Manning", <QuerySet...>), ()...]
-
-    sixtyfour_players = HOF.objects.filter(year="1964")
-    sixtyfour_names = ProfilePage.names_list(sixtyfour_players)
-    sixtyfour = zip(sixtyfour_names, sixtyfour_players)
-
-    sixtyfive_players = HOF.objects.filter(year="1965")
-    sixtyfive_names = ProfilePage.names_list(sixtyfive_players)
-    sixtyfive = zip(sixtyfive_names, sixtyfive_players)
-
-    sixtysix_players = HOF.objects.filter(year="1966")
-    sixtysix_names = ProfilePage.names_list(sixtysix_players)
-    sixtysix = zip(sixtysix_names, sixtysix_players)
-
-    sixtyseven_players = HOF.objects.filter(year="1967")
-    sixtyseven_names = ProfilePage.names_list(sixtyseven_players)
-    sixtyseven = zip(sixtyseven_names, sixtyseven_players)
-
-    sixtyeight_players = HOF.objects.filter(year="1968")
-    sixtyeight_names = ProfilePage.names_list(sixtyeight_players)
-    sixtyeight = zip(sixtyeight_names, sixtyeight_players)
-
-    sixtynine_players = HOF.objects.filter(year="1969")
-    sixtynine_names = ProfilePage.names_list(sixtynine_players)
-    sixtynine = zip(sixtynine_names, sixtynine_players)
-
-    seventy_players = HOF.objects.filter(year="1970")
-    seventy_names = ProfilePage.names_list(seventy_players)
-    seventy = zip(seventy_names, seventy_players)
-
-    seventyone_players = HOF.objects.filter(year="1971")
-    seventyone_names = ProfilePage.names_list(seventyone_players)
-    seventyone = zip(seventyone_names, seventyone_players)
-
-    seventytwo_players = HOF.objects.filter(year="1972")
-    seventytwo_names = ProfilePage.names_list(seventytwo_players)
-    seventytwo = zip(seventytwo_names, seventytwo_players)
-
-    seventythree_players = HOF.objects.filter(year="1973")
-    seventythree_names = ProfilePage.names_list(seventythree_players)
-    seventythree = zip(seventythree_names, seventythree_players)
-
-    seventyfour_players = HOF.objects.filter(year="1974")
-    seventyfour_names = ProfilePage.names_list(seventyfour_players)
-    seventyfour = zip(seventyfour_names, seventyfour_players)
-
-    seventyfive_players = HOF.objects.filter(year="1975")
-    seventyfive_names = ProfilePage.names_list(seventyfive_players)
-    seventyfive = zip(seventyfive_names, seventyfive_players)
-
-    seventysix_players = HOF.objects.filter(year="1976")
-    seventysix_names = ProfilePage.names_list(seventysix_players)
-    seventysix = zip(seventysix_names, seventysix_players)
-
-    seventyseven_players = HOF.objects.filter(year="1977")
-    seventyseven_names = ProfilePage.names_list(seventyseven_players)
-    seventyseven = zip(seventyseven_names, seventyseven_players)
-
-    seventyeight_players = HOF.objects.filter(year="1978")
-    seventyeight_names = ProfilePage.names_list(seventyeight_players)
-    seventyeight = zip(seventyeight_names, seventyeight_players)
-
-    seventynine_players = HOF.objects.filter(year="1979")
-    seventynine_names = ProfilePage.names_list(seventynine_players)
-    seventynine = zip(seventynine_names, seventynine_players)
-
-    eighty_players = HOF.objects.filter(year="1980")
-    eighty_names = ProfilePage.names_list(eighty_players)
-    eighty = zip(eighty_names, eighty_players)
-
-    eightyone_players = HOF.objects.filter(year="1981")
-    eightyone_names = ProfilePage.names_list(eightyone_players)
-    eightyone = zip(eightyone_names, eightyone_players)
-
-    eightytwo_players = HOF.objects.filter(year="1982")
-    eightytwo_names = ProfilePage.names_list(eightytwo_players)
-    eightytwo = zip(eightytwo_names, eightytwo_players)
-
-    eightythree_players = HOF.objects.filter(year="1983")
-    eightythree_names = ProfilePage.names_list(eightythree_players)
-    eightythree = zip(eightythree_names, eightythree_players)
-
-    eightyfour_players = HOF.objects.filter(year="1984")
-    eightyfour_names = ProfilePage.names_list(eightyfour_players)
-    eightyfour = zip(eightyfour_names, eightyfour_players)
-
-    eightyfive_players = HOF.objects.filter(year="1985")
-    eightyfive_names = ProfilePage.names_list(eightyfive_players)
-    eightyfive = zip(eightyfive_names, eightyfive_players)
-
-    eightysix_players = HOF.objects.filter(year="1986")
-    eightysix_names = ProfilePage.names_list(eightysix_players)
-    eightysix = zip(eightysix_names, eightysix_players)
-
-    eightyseven_players = HOF.objects.filter(year="1987")
-    eightyseven_names = ProfilePage.names_list(eightyseven_players)
-    eightyseven = zip(eightyseven_names, eightyseven_players)
-
-    eightyeight_players = HOF.objects.filter(year="1988")
-    eightyeight_names = ProfilePage.names_list(eightyeight_players)
-    eightyeight = zip(eightyeight_names, eightyeight_players)
-
-    eightynine_players = HOF.objects.filter(year="1989")
-    eightynine_names = ProfilePage.names_list(eightynine_players)
-    eightynine = zip(eightynine_names, eightynine_players)
-
-    ninety_players = HOF.objects.filter(year="1990")
-    ninety_names = ProfilePage.names_list(ninety_players)
-    ninety = zip(ninety_names, ninety_players)
-
-    ninetyone_players = HOF.objects.filter(year="1991")
-    ninetyone_names = ProfilePage.names_list(ninetyone_players)
-    ninetyone = zip(ninetyone_names, ninetyone_players)
-
-    ninetytwo_players = HOF.objects.filter(year="1992")
-    ninetytwo_names = ProfilePage.names_list(ninetytwo_players)
-    ninetytwo = zip(ninetytwo_names, ninetytwo_players)
-
-    ninetythree_players = HOF.objects.filter(year="1993")
-    ninetythree_names = ProfilePage.names_list(ninetythree_players)
-    ninetythree = zip(ninetythree_names, ninetythree_players)
-
-    ninetyfour_players = HOF.objects.filter(year="1994")
-    ninetyfour_names = ProfilePage.names_list(ninetyfour_players)
-    ninetyfour = zip(ninetyfour_names, ninetyfour_players)
-
-    ninetyfive_players = HOF.objects.filter(year="1995")
-    ninetyfive_names = ProfilePage.names_list(ninetyfive_players)
-    ninetyfive = zip(ninetyfive_names, ninetyfive_players)
-
-    ninetysix_players = HOF.objects.filter(year="1996")
-    ninetysix_names = ProfilePage.names_list(ninetysix_players)
-    ninetysix = zip(ninetysix_names, ninetysix_players)
-
-    ninetyseven_players = HOF.objects.filter(year="1997")
-    ninetyseven_names = ProfilePage.names_list(ninetyseven_players)
-    ninetyseven = zip(ninetyseven_names, ninetyseven_players)
-
-    ninetyeight_players = HOF.objects.filter(year="1998")
-    ninetyeight_names = ProfilePage.names_list(ninetyeight_players)
-    ninetyeight = zip(ninetyeight_names, ninetyeight_players)
-
-    ninetynine_players = HOF.objects.filter(year="1999")
-    ninetynine_names = ProfilePage.names_list(ninetynine_players)
-    ninetynine = zip(ninetynine_names, ninetynine_players)
-
-    two_players = HOF.objects.filter(year="2000")
-    two_names = ProfilePage.names_list(two_players)
-    two = zip(two_names, two_players)
-
-    twoone_players = HOF.objects.filter(year="2001")
-    twoone_names = ProfilePage.names_list(twoone_players)
-    twoone = zip(twoone_names, twoone_players)
-
-    twotwo_players = HOF.objects.filter(year="2002")
-    twotwo_names = ProfilePage.names_list(twotwo_players)
-    twotwo = zip(twotwo_names, twotwo_players)
-
-    twothree_players = HOF.objects.filter(year="2003")
-    twothree_names = ProfilePage.names_list(twothree_players)
-    twothree = zip(twothree_names, twothree_players)
-
-    twofour_players = HOF.objects.filter(year="2004")
-    twofour_names = ProfilePage.names_list(twofour_players)
-    twofour = zip(twofour_names, twofour_players)
-
-    twofive_players = HOF.objects.filter(year="2005")
-    twofive_names = ProfilePage.names_list(twofive_players)
-    twofive = zip(twofive_names, twofive_players)
-
-    twosix_players = HOF.objects.filter(year="2006")
-    twosix_names = ProfilePage.names_list(twosix_players)
-    twosix = zip(twosix_names, twosix_players)
-
-    twoseven_players = HOF.objects.filter(year="2007")
-    twoseven_names = ProfilePage.names_list(twoseven_players)
-    twoseven = zip(twoseven_names, twoseven_players)
-
-    twoeight_players = HOF.objects.filter(year="2008")
-    twoeight_names = ProfilePage.names_list(twoeight_players)
-    twoeight = zip(twoeight_names, twoeight_players)
-
-    twonine_players = HOF.objects.filter(year="2009")
-    twonine_names = ProfilePage.names_list(twonine_players)
-    twonine = zip(twonine_names, twonine_players)
-
-    twoten_players = HOF.objects.filter(year="2010")
-    twoten_names = ProfilePage.names_list(twoten_players)
-    twoten = zip(twoten_names, twoten_players)
-
-    twoeleven_players = HOF.objects.filter(year="2011")
-    twoeleven_names = ProfilePage.names_list(twoeleven_players)
-    twoeleven = zip(twoeleven_names, twoeleven_players)
-
-    twotwelve_players = HOF.objects.filter(year="2012")
-    twotwelve_names = ProfilePage.names_list(twotwelve_players)
-    twotwelve = zip(twotwelve_names, twotwelve_players)
-
-    twothirteen_players = HOF.objects.filter(year="2013")
-    twothirteen_names = ProfilePage.names_list(twothirteen_players)
-    twothirteen = zip(twothirteen_names, twothirteen_players)
-
-    twofourteen_players = HOF.objects.filter(year="2014")
-    twofourteen_names = ProfilePage.names_list(twofourteen_players)
-    twofourteen = zip(twofourteen_names, twofourteen_players)
-
-    twofifteen_players = HOF.objects.filter(year="2015")
-    twofifteen_names = ProfilePage.names_list(twofifteen_players)
-    twofifteen = zip(twofifteen_names, twofifteen_players)
-
-    twosixteen_players = HOF.objects.filter(year="2016")
-    twosixteen_names = ProfilePage.names_list(twosixteen_players)
-    twosixteen = zip(twosixteen_names, twosixteen_players)
-
-    twoseventeen_players = HOF.objects.filter(year="2017")
-    twoseventeen_names = ProfilePage.names_list(twoseventeen_players)
-    twoseventeen = zip(twoseventeen_names, twoseventeen_players)
-
-    twoeighteen_players = HOF.objects.filter(year="2018")
-    twoeighteen_names = ProfilePage.names_list(twoeighteen_players)
-    twoeighteen = zip(twoeighteen_names, twoeighteen_players)
-
-    twonineteen_players = HOF.objects.filter(year="2019")
-    twonineteen_names = ProfilePage.names_list(twonineteen_players)
-    twonineteen = zip(twonineteen_names, twonineteen_players)
+    sixtythree = HOFDisplay.hofdisplay(HOF.objects.filter(year="1963")) #ex. [("Peyton Manning", <QuerySet...>), ()...]--function in data_functions.py
+    sixtyfour =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1964"))
+    sixtyfive =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1965"))
+    sixtysix =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1966"))
+    sixtyseven =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1967"))
+    sixtyeight =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1968"))
+    sixtynine =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1969"))
+    seventy =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1970"))
+    seventyone =  HOFDisplay.hofdisplay(HOF.objects.filter(year="1971"))
+    seventytwo = HOFDisplay.hofdisplay(HOF.objects.filter(year="1972"))
+    seventythree = HOFDisplay.hofdisplay(HOF.objects.filter(year="1973"))
+    seventyfour = HOFDisplay.hofdisplay(HOF.objects.filter(year="1974"))
+    seventyfive = HOFDisplay.hofdisplay(HOF.objects.filter(year="1975"))
+    seventysix = HOFDisplay.hofdisplay(HOF.objects.filter(year="1976"))
+    seventyseven = HOFDisplay.hofdisplay(HOF.objects.filter(year="1977"))
+    seventyeight = HOFDisplay.hofdisplay(HOF.objects.filter(year="1978"))
+    seventynine = HOFDisplay.hofdisplay(HOF.objects.filter(year="1979"))
+    eighty = HOFDisplay.hofdisplay(HOF.objects.filter(year="1980"))
+    eightyone = HOFDisplay.hofdisplay(HOF.objects.filter(year="1981"))
+    eightytwo = HOFDisplay.hofdisplay(HOF.objects.filter(year="1982"))
+    eightythree = HOFDisplay.hofdisplay(HOF.objects.filter(year="1983"))
+    eightyfour = HOFDisplay.hofdisplay(HOF.objects.filter(year="1984"))
+    eightyfive = HOFDisplay.hofdisplay(HOF.objects.filter(year="1985"))
+    eightysix = HOFDisplay.hofdisplay(HOF.objects.filter(year="1986"))
+    eightyseven = HOFDisplay.hofdisplay(HOF.objects.filter(year="1987"))
+    eightyeight = HOFDisplay.hofdisplay(HOF.objects.filter(year="1988"))
+    eightynine = HOFDisplay.hofdisplay(HOF.objects.filter(year="1989"))
+    ninety = HOFDisplay.hofdisplay(HOF.objects.filter(year="1990"))
+    ninetyone = HOFDisplay.hofdisplay(HOF.objects.filter(year="1991"))
+    ninetytwo = HOFDisplay.hofdisplay(HOF.objects.filter(year="1992"))
+    ninetythree = HOFDisplay.hofdisplay(HOF.objects.filter(year="1993"))
+    ninetyfour = HOFDisplay.hofdisplay(HOF.objects.filter(year="1994"))
+    ninetyfive = HOFDisplay.hofdisplay(HOF.objects.filter(year="1995"))
+    ninetysix = HOFDisplay.hofdisplay(HOF.objects.filter(year="1996"))
+    ninetyseven = HOFDisplay.hofdisplay(HOF.objects.filter(year="1997"))
+    ninetyeight = HOFDisplay.hofdisplay(HOF.objects.filter(year="1998"))
+    ninetynine = HOFDisplay.hofdisplay(HOF.objects.filter(year="1999"))
+    two = HOFDisplay.hofdisplay(HOF.objects.filter(year="2000"))
+    twoone = HOFDisplay.hofdisplay(HOF.objects.filter(year="2001"))
+    twotwo = HOFDisplay.hofdisplay(HOF.objects.filter(year="2002"))
+    twothree = HOFDisplay.hofdisplay(HOF.objects.filter(year="2003"))
+    twofour = HOFDisplay.hofdisplay(HOF.objects.filter(year="2004"))
+    twofive = HOFDisplay.hofdisplay(HOF.objects.filter(year="2005"))
+    twosix = HOFDisplay.hofdisplay(HOF.objects.filter(year="2006"))
+    twoseven = HOFDisplay.hofdisplay(HOF.objects.filter(year="2007"))
+    twoeight = HOFDisplay.hofdisplay(HOF.objects.filter(year="2008"))
+    twonine = HOFDisplay.hofdisplay(HOF.objects.filter(year="2009"))
+    twoten = HOFDisplay.hofdisplay(HOF.objects.filter(year="2010"))
+    twoeleven = HOFDisplay.hofdisplay(HOF.objects.filter(year="2011"))
+    twotwelve = HOFDisplay.hofdisplay(HOF.objects.filter(year="2012"))
+    twothirteen = HOFDisplay.hofdisplay(HOF.objects.filter(year="2013"))
+    twofourteen = HOFDisplay.hofdisplay(HOF.objects.filter(year="2014"))
+    twofifteen = HOFDisplay.hofdisplay(HOF.objects.filter(year="2015"))
+    twosixteen = HOFDisplay.hofdisplay(HOF.objects.filter(year="2016"))
+    twoseventeen = HOFDisplay.hofdisplay(HOF.objects.filter(year="2017"))
+    twoeighteen = HOFDisplay.hofdisplay(HOF.objects.filter(year="2018"))
+    twonineteen = HOFDisplay.hofdisplay(HOF.objects.filter(year="2019"))
 
     context = {"sixtythree":sixtythree, "sixtyfour":sixtyfour, "sixtyfive":sixtyfive, "sixtysix":sixtysix,
             "sixtyseven":sixtyseven, "sixtyeight":sixtyeight, "sixtynine":sixtynine, "seventy":seventy,
@@ -261,9 +91,10 @@ def HallOfFame(request):
     return render(request, "main/HOF.html", context)
 
 def playersearch(request):
+    '''This is for the 'Player Search' page.'''
     queries = [] #to hold querysets
 
-    team_menu = TeamDropdown(request.GET or None)
+    team_menu = TeamDropdown(request.GET or None) #these are the Django forms for the dropdown menus
     statussearch_menu = StatusSearchDropdown(request.GET or None)
     position_menu = PositionDropdown(request.GET or None)
 
@@ -276,7 +107,7 @@ def playersearch(request):
     if team_select == None and position_select == None and status_select == None and lookup == None: #when the window opens with no GET requests
 
         passer = Passing.objects.filter(year="2018", position="QB")
-        PlayerSearch.paginator_list(passer, queries)
+        PlayerSearch.paginator_list(passer, queries) #appends the querysets to the query list--function in data_functions.py
         rusher = Rushing.objects.filter(year="2018", position__in=["RB", "FB"])
         PlayerSearch.paginator_list(rusher, queries)
         receiver = Receiving.objects.filter(year="2018", position__in=["WR", "TE"])
@@ -290,11 +121,11 @@ def playersearch(request):
         limited_queries = queries[:200] #creates a new data set with a 200 item limit
         p = Paginator(limited_queries, 50) #creates a paginator object
         players = p.get_page(page) #makes the paginator object iterable
-        names = ProfilePage.names_list(players)
-        q = zip(names, players)
-        pagecount = StatOrder.pagecount(players)
+        names = ProfilePage.names_list(players) #processes the name of each player, so that it display 'first last' rather than 'last, first'; ex. "Brady, Tom" --> "Tom Brady"--function in data_functions.py
+        q = zip(names, players) #ex. [("Randy Moss", <QuerySet...>), ()...]
+        pagecount = StatOrder.pagecount(players) #a list of page numbers with pagination--function in data_functions.py
 
-    elif team_select == "All NFL" and position_select == "All" and status_select == "Active" and lookup == "":
+    elif team_select == "All NFL" and position_select == "All" and status_select == "Active" and lookup == "": #the same process is done for other scenarios with differing GET requests
 
         passer = Passing.objects.filter(year="2018", position="QB")
         PlayerSearch.paginator_list(passer, queries)
@@ -500,7 +331,7 @@ def playersearch(request):
         q = zip(names, players)
         pagecount = StatOrder.pagecount(players)
 
-    elif status_select == "Active" and lookup != "":
+    elif status_select == "Active" and lookup != "": #if a GET request is passed through the "Quick Lookup" search bar, the only recogized GET request will be 'status'
 
         passing = Passing.objects.filter(year="2018")
         rushing = Rushing.objects.filter(year="2018")
@@ -509,14 +340,14 @@ def playersearch(request):
         kicking = FieldGoals.objects.filter(year="2018")
         punting = Punting.objects.filter(year="2018")
 
-        all_passers = [i.name for i in passing]
+        all_passers = [i.name for i in passing] #all names for a specific category
         all_rushers = [i.name for i in rushing]
         all_receivers = [i.name for i in receiving]
         all_defenders = [i.name for i in defending]
         all_kickers = [i.name for i in kicking]
         all_punters = [i.name for i in punting]
 
-        passers = NameFilter.spaced_filter(lookup, all_passers)
+        passers = NameFilter.spaced_filter(lookup, all_passers) #if the string passed through the loopup GET request has a " " (space), this function will return a readable string for the functions below
         rushers = NameFilter.spaced_filter(lookup, all_rushers)
         receivers = NameFilter.spaced_filter(lookup, all_receivers)
         defenders = NameFilter.spaced_filter(lookup, all_defenders)
