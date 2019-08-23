@@ -8,8 +8,8 @@ import csv
 import itertools
 import functools
 
-player = ["tombrady/2504211"]
-ret_player = ["terrybradshaw/2510042"]
+player = ["tombrady/2504211"] #if user types in nfl-stats-library.com/profile
+ret_player = ["terrybradshaw/2510042"] #if user types in nfl-stats-library.com/retiredprofile
 
 def HallOfFame(request):
     '''Extracts names from the querysets in the HOF SQL table.

@@ -1115,7 +1115,18 @@ font-weight: lighter;
   color: #1100F9;
 }
 
+.teams-page-link-NO-TB {
+  text-decoration: none;
+  color: #1100F9;
+  font-size: 18px;
+}
+
 .teams-page-link:hover {
+  text-decoration: none;
+  color:#C50505;
+}
+
+.teams-page-link-NO-TB:hover {
   text-decoration: none;
   color:#C50505;
 }

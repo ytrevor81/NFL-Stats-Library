@@ -1,3 +1,6 @@
+'''This page holds reusable code used in views.py. All of the functions on this page
+are used more than one time'''
+
 class DataTypes(object):
     '''Used to process a list of strings to a list of usable integers or floats.'''
 
@@ -23,15 +26,16 @@ class StatOrder(object):
 
     @classmethod
     def lng(cls, list):
-        separate = [x.partition("T") for x in list]
+        '''Returns the greatest value from a list of strings of lng data'''
+        separate = [x.partition("T") for x in list] #ex. "90T" --> "90"
         strings = [x[0] for x in separate]
-        clear = [i for i in strings if i != "--"]
-        integers = [int(x) for x in clear]
-        lngs = sorted(integers)
+        clear = [i for i in strings if i != "--"] #removes "--" from the list
+        integers = [int(x) for x in clear] #changes all values to an integer type
+        lngs = sorted(integers) #sorts from least to greatest value
         if len(lngs) == 0:
             pass
         else:
-            return lngs[-1]
+            return lngs[-1] #the last item in the list with always be the greatest value
 
     @classmethod
     def greatest_least(cls, list):
@@ -39,7 +43,7 @@ class StatOrder(object):
         ints = DataTypes.integers(list)
         sorted_list = []
         for i in ints:
-            if i not in sorted_list:
+            if i not in sorted_list: #ensures no duplicates
                 sorted_list.append(i)
         sorted_list.sort(reverse=True)
         return sorted_list
@@ -95,14 +99,14 @@ class Commas(object):
     @classmethod
     def career_commas(cls, n):
         '''The n parameter is the resulting integer from one of the career functions'''
-        num = str(n)
-        if len(num) == 4:
-            new = num[:1] + ',' + num[1:]
-        elif len(num) == 5:
-            new = num[:2] + ',' + num[2:]
-        elif len(num) == 6:
-            new = num[:3] + ',' + num[3:]
-        else:
+        num = str(n) #changes integer to string type
+        if len(num) == 4: #ex. if '1000'
+            new = num[:1] + ',' + num[1:] #ex. "1,000"
+        elif len(num) == 5: #ex. if '10000'
+            new = num[:2] + ',' + num[2:] #ex. "10,000"
+        elif len(num) == 6: #ex. if '100000'
+            new = num[:3] + ',' + num[3:] #ex. '100,000'
+        else: #ex. if n == 767, then return the parameter
             new = n
         return new
 
@@ -186,40 +190,40 @@ class ProfilePage(object):
             return ["--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--", "--"]
 
         else:
-            pre_games = DataTypes.integers(g)
-            games = sum(pre_games)
+            pre_games = DataTypes.integers(g) #swtiches the parameter value to an integer from a string type
+            games = sum(pre_games) #integer of all games played over career
 
             c = [x.comp for x in list]
             pre_comp = DataTypes.integers(c)
-            completions = sum(pre_comp)
-            comp = Commas.career_commas(completions)
+            completions = sum(pre_comp) #integer of all passing completions
+            comp = Commas.career_commas(completions) #a string of the same value above, with an added comma
 
             a = [x.att for x in list]
             pre_att = DataTypes.integers(a)
-            attempts = sum(pre_att)
-            att = Commas.career_commas(attempts)
+            attempts = sum(pre_att) #integer of all passing attempts
+            att = Commas.career_commas(attempts) #a string of the same value above, with an added comma
 
             if att == 0:
-                pct = 0
+                pct = 0 #if attempts is 0, this avoids the ZeroDivision Error
             else:
-                pct = round(((completions/attempts) * 100), 1)
+                pct = round(((completions/attempts) * 100), 1) #calculates the completion precentage over career
 
             if games == 0:
                 att_g = 0
             else:
-                att_g = round((attempts/games), 1)
+                att_g = round((attempts/games), 1) #calculates attempts per game over career
 
             y = [x.yards for x in list]
             pre_yds = DataTypes.integers(y)
-            yards = sum(pre_yds)
-            yds = Commas.career_commas(yards)
+            yards = sum(pre_yds) #integer of all yards
+            yds = Commas.career_commas(yards) #a string of the same value above, with an added comma
 
-            avg = round((yards/attempts), 1)
+            avg = round((yards/attempts), 1) #calculates yards per attempt over career
 
             if games == 0:
                 yds_g = 0
             else:
-                yds_g = round((yards/games), 1)
+                yds_g = round((yards/games), 1) #calculates yards per game over career
 
             td = [x.td for x in list]
             pre_tds = DataTypes.integers(td)
@@ -230,8 +234,8 @@ class ProfilePage(object):
             ints = sum(pre_ints)
 
             l = [x.lng for x in list]
-            lng = StatOrder.lng(l)
-            if lng == None:
+            lng = StatOrder.lng(l) #returns the highest value from lng parameter
+            if lng == None: #if there is no value for lng parameter, it returns "--"
                 lng = "--"
 
             tp = [x.comp_twenty_plus for x in list]
@@ -256,7 +260,7 @@ class ProfilePage(object):
                 xx = ((yards/attempts) - 3) * .25
                 xxx = (tds/attempts) * 20
                 xxxx = 2.375 - ((ints/attempts) * 25)
-                rate = round((((x + xx + xxx + xxxx)/6) * 100), 1)
+                rate = round((((x + xx + xxx + xxxx)/6) * 100), 1) #calculates the passer rating over career
 
             career = [games, comp, att, pct, att_g, yds, avg, yds_g, tds, ints, lng, t_plus, f_plus, sck, rate]
 
@@ -751,6 +755,7 @@ class ProfilePage(object):
 
     @classmethod
     def zero(cls, variable):
+        '''Returns 0 for the string value "--". Mostly for profile() and retiredprofile()'''
         if variable == "--":
             return 0
         else:
@@ -758,108 +763,43 @@ class ProfilePage(object):
 
     @classmethod
     def career_box(cls, pass_a, rush_a, rec, tkl, sck, its, ks, pts, krs, prs):
-        if type(pass_a) == str:
-            if pass_a == "--":
-                pass_att = 0
-            else:
-                pa = DataTypes.integers([pass_a])
-                pass_att = pa[0]
-        else:
-            pass_att = pass_a
-        if type(rush_a) == str:
-            if rush_a == "--":
-                rush_att = 0
-            else:
-                ra = DataTypes.integers([str(rush_a)])
-                rush_att = ra[0]
-        else:
-            rush_att = rush_a
-        if type(rec) == str:
-            if rec == "--":
-                recs = 0
-            else:
-                r = DataTypes.integers([str(rec)])
-                recs = r[0]
-        else:
-            recs = rec
-        if type(tkl) == str:
-            if tkl == "--":
-                tackles = 0
-            else:
-                t = DataTypes.integers([str(tkl)])
-                tackles = t[0]
-        else:
-            tackles = tkl
-        if type(sck) == str:
-            if sck == "--":
-                sacks = 0
-            else:
-                s = DataTypes.integers([str(sck)])
-                sacks = s[0]
-        else:
-            sacks = sck
-        if type(its) == str:
-            if its == "--":
-                ints = 0
-            else:
-                i = DataTypes.integers([str(its)])
-                ints = i[0]
-        else:
-            ints = its
-        if type(ks) == str:
-            if ks == "--":
-                kicks = 0
-            else:
-                k = DataTypes.integers([str(ks)])
-                kicks = k[0]
-        else:
-            kicks = ks
-        if type(pts) == str:
-            if pts == "--":
-                punts = 0
-            else:
-                p = DataTypes.integers([str(pts)])
-                punts = p[0]
-        else:
-            punts = pts
-        if type(krs) == str:
-            if krs == "--":
-                kr = 0
-            else:
-                kk = DataTypes.integers([str(krs)])
-                kr = kk[0]
-        else:
-            kr = krs
-        if type(prs) == str:
-            if prs == "--":
-                pr = 0
-            else:
-                pp = DataTypes.integers([str(prs)])
-                pr = pp[0]
-        else:
-            pr = prs
+        '''Each parameter is a specific career stat of a player. First, if the parameter is
+        a string value, it's processed through string_value_filter(), which returns an integer
+        or float. Then which ever parameter is has the greatest value, a string statement is returned
+        to determine which career stats to display in the career box in retiredprofile(). In all,
+        this function will return a string that will be passed into the html page of retiredprofile()'''
+        pass_att = StringFilter.string_value_filter(pass_a) #if parameter is a string value, it is turned into an integer
+        rush_att = StringFilter.string_value_filter(rush_a)
+        recs = StringFilter.string_value_filter(rec)
+        tackles = StringFilter.string_value_filter(tkl)
+        sacks = StringFilter.string_value_filter(sck)
+        ints = StringFilter.string_value_filter(its)
+        kicks = StringFilter.string_value_filter(ks)
+        punts = StringFilter.string_value_filter(pts)
+        kr = StringFilter.string_value_filter(krs)
+        pr = StringFilter.string_value_filter(prs)
         if pass_att > rush_att and pass_att > recs and pass_att > tackles and pass_att > sacks and pass_att > ints and pass_att > kicks and pass_att > punts and pass_att > kr and pass_att > pr:
-            return "passer"
+            return "passer" #passing stats will be displayed in the career box
         elif rush_att > pass_att and rush_att > recs and rush_att > tackles and rush_att > sacks and rush_att > ints and rush_att > kicks and rush_att > punts and rush_att > kr and rush_att > pr:
-            return "rusher"
+            return "rusher" #rushing stats will be displayed in the career box
         elif recs > pass_att and recs > rush_att and recs > tackles and recs > sacks and recs > ints and recs > kicks and recs > punts and recs > kr and recs > pr:
-            return "receiver"
+            return "receiver" #receiving stats will be displayed in the career box
         elif tackles > pass_att and tackles > rush_att and tackles > recs and tackles > sacks and tackles > ints and tackles > kicks and tackles > punts and tackles > kr and tackles > pr:
-            return "defender"
+            return "defender" #defense stats will be displayed in the career box
         elif sacks > pass_att and sacks > rush_att and sacks > recs and sacks > tackles and sacks > ints and sacks > kicks and sacks > punts and sacks > kr and sacks > pr:
             return "defender"
         elif ints > pass_att and ints > rush_att and ints > recs and ints > tackles and ints > sacks and ints > kicks and ints > punts and ints > kr and ints > pr:
             return "defender"
         elif kicks > pass_att and kicks > rush_att and kicks > recs and kicks > tackles and kicks > sacks and kicks > ints and kicks > punts and kicks > kr and kicks > pr:
-            return "kicker"
+            return "kicker" #field goal stats will be displayed in the career box
         elif punts > pass_att and punts > rush_att and punts > recs and punts > tackles and punts > sacks and punts > ints and punts > kicks and punts > kr and punts > pr:
-            return "punter"
+            return "punter" #punting stats will be displayed in the career box
         elif kr > pass_att and kr > rush_att and kr > recs and kr > tackles and kr > sacks and kr > ints and kr > kicks and kr > punts and kr > pr:
-            return "kr"
+            return "kr" #kick return stats will be displayed in the career box
         elif pr > pass_att and pr > rush_att and pr > rush_att and pr > recs and pr > tackles and pr > sacks and pr > ints and pr > kicks and pr > punts and pr > kr:
-            return "pr"
+            return "pr" #punt return stats will be displayed in the career box
         else:
-            return "--"
+            return "--" #if no value is given for any parameter, only "--" will be displayed in the career box
 
     @classmethod
     def get_list(cls, x, list):
@@ -948,19 +888,40 @@ class ProfilePage(object):
         final_list.append(single_teams)
         return final_list
 
+class StringFilter(object):
+    '''This is for processing the career stats of retired players'''
+
+    @classmethod
+    def string_value_filter(cls, x):
+        '''If the parameter is a string type, it will either be switched to
+        an integer or "--"'''
+        if type(x) == str:
+            if x == "--":
+                return 0
+            else:
+                integer = DataTypes.integers([x])
+                return integer[0]
+        else:
+            return x
+
 
 class PlayerSearch(object):
+    '''Most of these functions are used for playersearch()'''
 
     @classmethod
     def get_filter_name(cls, x):
+        '''Used to process the 'lookup' GET request. This makes the string value from the
+        GET request readable to the queryset'''
         separate = x.partition(" ")
         first = separate[0]
         last = separate[2]
         name = last + ", " + first
-        return name
+        return name #ex. "Tom Brady" --> "Brady, Tom"
 
     @classmethod
     def search_results(cls, x, y):
+        '''Parameter x is a list of names. Parameter y is the lookup GET request. This returns
+        a list of all names that match the GET request'''
         results = []
         for i in y:
             if x in i:
@@ -969,11 +930,14 @@ class PlayerSearch(object):
 
     @classmethod
     def paginator_list(cls, queries, list):
+        '''Appends queries to a list'''
         for q in queries:
             list.append(q)
 
     @classmethod
     def no_duplicate(cls, used_list):
+        '''Returns a list of no duplicates from the original list of
+        values, from the used_list parameter'''
         new_list = []
         for i in used_list:
             if i in new_list:
@@ -1007,11 +971,13 @@ class SeasonStats(object):
 
     @classmethod
     def yards(cls, active, retired):
+        '''Returns a list from greatest to least in value, combining the yards stats of
+        current players and retired players.'''
         limit = []
-        yards_list = [player.yards for player in active] + [player.yards for player in retired]
+        yards_list = [player.yards for player in active] + [player.yards for player in retired] #combines data from current players and retired players
         int_list = StatOrder.greatest_least(yards_list)
-        yards = StatOrder.add_commas(int_list)
-        for x, y in enumerate(yards):
+        yards = StatOrder.add_commas(int_list) #adds commas for all numbers over 999
+        for x, y in enumerate(yards): #used to create a limit of 150 queries
             if x == 150:
                 break
             else:
@@ -1020,6 +986,7 @@ class SeasonStats(object):
 
     @classmethod
     def yards_one(cls, status):
+        '''Same as the function above but for either current players or retired players. Not both'''
         limit = []
         yards_list = [player.yards for player in status]
         int_list = StatOrder.greatest_least(yards_list)
@@ -1033,6 +1000,7 @@ class SeasonStats(object):
 
     @classmethod
     def tackles(cls, active, retired):
+        '''Same as yards() but with data about tackles'''
         limit = []
         tackles_list = [player.total_tkl for player in active] + [player.total_tkl for player in retired]
         int_list = StatOrder.greatest_least(tackles_list)
@@ -1046,6 +1014,7 @@ class SeasonStats(object):
 
     @classmethod
     def tackles_one(cls, status):
+        '''Same as yards_one() but with data about tackles'''
         limit = []
         tackles_list = [player.total_tkl for player in status]
         int_list = StatOrder.greatest_least(tackles_list)
@@ -1059,9 +1028,10 @@ class SeasonStats(object):
 
     @classmethod
     def sacks(cls, active, retired):
+        '''Same as yards() but with data about sacks.'''
         limit = []
         sacks_list = [player.sck for player in active] + [player.sck for player in retired]
-        float_list = StatOrder.greatest_least_float(sacks_list)
+        float_list = StatOrder.greatest_least_float(sacks_list) #sacks are in '0.0' form; not integers
         sacks = [str(x) for x in float_list]
         for x, y in enumerate(sacks):
             if x == 150:
@@ -1072,6 +1042,7 @@ class SeasonStats(object):
 
     @classmethod
     def sacks_one(cls, status):
+        '''Same as yards_one() but with data about sacks'''
         limit = []
         sacks_list = [player.sck for player in status]
         float_list = StatOrder.greatest_least_float(sacks_list)
@@ -1086,6 +1057,7 @@ class SeasonStats(object):
 
     @classmethod
     def ints(cls, active, retired):
+        '''Same as yards() but with data about interceptions'''
         limit = []
         ints_list = [player.ints for player in active] + [player.ints for player in retired]
         int_list = StatOrder.greatest_least(ints_list)
@@ -1099,6 +1071,7 @@ class SeasonStats(object):
 
     @classmethod
     def ints_one(cls, status):
+        '''Same as yards_one() but with data about interceptions'''
         limit = []
         ints_list = [player.ints for player in status]
         int_list = StatOrder.greatest_least(ints_list)
@@ -1112,6 +1085,7 @@ class SeasonStats(object):
 
     @classmethod
     def fgs(cls, active, retired):
+        '''Same as yards() but with data about field goals'''
         limit = []
         fgs_list = [player.fg for player in active] + [player.fg for player in retired]
         int_list = StatOrder.greatest_least(fgs_list)
@@ -1125,6 +1099,7 @@ class SeasonStats(object):
 
     @classmethod
     def fgs_one(cls, status):
+        '''Same as yards_one() but with data about field goals'''
         limit = []
         fgs_list = [player.fg for player in status]
         int_list = StatOrder.greatest_least(fgs_list)
@@ -1138,6 +1113,7 @@ class SeasonStats(object):
 
     @classmethod
     def punts(cls, active, retired):
+        '''Same as yards() but with data about punting'''
         limit = []
         punts_list = [player.punts for player in active] + [player.punts for player in retired]
         int_list = StatOrder.greatest_least(punts_list)
@@ -1151,6 +1127,7 @@ class SeasonStats(object):
 
     @classmethod
     def punts_one(cls, status):
+        '''Same as yards_one() but with data about punting'''
         limit = []
         punts_list = [player.punts for player in status]
         int_list = StatOrder.greatest_least(punts_list)
@@ -1164,6 +1141,7 @@ class SeasonStats(object):
 
     @classmethod
     def krs(cls, active, retired):
+        '''Same as yards() but with data about kick returns'''
         limit = []
         krs_list = [player.kr for player in active] + [player.kr for player in retired]
         int_list = StatOrder.greatest_least(krs_list)
@@ -1177,6 +1155,7 @@ class SeasonStats(object):
 
     @classmethod
     def krs_one(cls, status):
+        '''Same as yards_one() but with data about kick returns'''
         limit = []
         krs_list = [player.kr for player in status]
         int_list = StatOrder.greatest_least(krs_list)
@@ -1190,6 +1169,7 @@ class SeasonStats(object):
 
     @classmethod
     def prs(cls, active, retired):
+        '''Same as yards() but with data about punt returns'''
         limit = []
         prs_list = [player.pr for player in active] + [player.pr for player in retired]
         int_list = StatOrder.greatest_least(prs_list)
@@ -1203,6 +1183,7 @@ class SeasonStats(object):
 
     @classmethod
     def prs_one(cls, status):
+        '''Same as yards_one() but with data about punt returns'''
         limit = []
         prs_list = [player.pr for player in status]
         int_list = StatOrder.greatest_least(prs_list)
@@ -1216,6 +1197,8 @@ class SeasonStats(object):
 
     @classmethod
     def act_ret_order(cls, list, active, retired):
+        '''Active and retired parameters are querysets. This ensures that
+        empty querysets are filtered out, leaving only valid querysets'''
         if active.exists():
             list.append(active)
         if retired.exists():
@@ -1223,6 +1206,7 @@ class SeasonStats(object):
 
     @classmethod
     def limit(cls, list):
+        '''Ensures a maximum of 150 queries, in case a limit was not already imposed'''
         new = []
         for x, y in enumerate(list):
             if x == 150:
