@@ -395,8 +395,11 @@ def playersearch(request):
 
 
 def retired_profile(request):
-    raw_id = request.GET.get('player')
+    '''Variables passed to the html file are querysets from Profiles, ProfilePics, and all Retired... models'''
+    raw_id = request.GET.get('player') #playerids for querysets
 
+
+    '''The lists below are to catch if specific career categories have no integers or floats'''
     pass_empty = ['--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--']
     rush_empty = ['--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--']
     rec_empty = ['--', '--', '--', '--', '--', '--', '--', '--', '--', '--', '--']
@@ -406,25 +409,25 @@ def retired_profile(request):
     kr_empty = ['--', '--', '--', '--', '--', '--', '--', '--', '--', '--']
     pr_empty = ['--', '--', '--', '--', '--', '--', '--', '--', '--', '--']
 
-    if raw_id != None:
-        if " -" in raw_id:
-            id = ProfilePage.get_filter_id(raw_id)
-            ProfilePage.get_list(id, ret_player)
+    if raw_id != None: #if there is no GET request, the item in the ret_player list will be used
+        if " -" in raw_id: #in 'Season Leaders', if the user clicks on a profle link, a " -" will appear in the GET request
+            id = ProfilePage.get_filter_id(raw_id) #makes the GET request readable to the queryset
+            ProfilePage.get_list(id, ret_player) #clears then appends the ret_player list with the GET request
         else:
-            ProfilePage.get_list(raw_id, ret_player)
+            ProfilePage.get_list(raw_id, ret_player) #if the GET request doesn't have " -", it doesn't need get_filter_id()
 
-    profile = RetiredProfiles.objects.filter(player_id=ret_player[-1])
-    fullname = ProfilePage.name([i.name for i in profile])
+    profile = RetiredProfiles.objects.filter(player_id=ret_player[-1]) #grabs the most recent entry in ret_player, in case an error in appending occurs
+    fullname = ProfilePage.name([i.name for i in profile]) #returns a list that separates first and last name; ex ["Tom", "Brady"]
     first = fullname[0]
     last = fullname[1]
-    height = ProfilePage.height([i.height for i in profile])
-    p = [i.player_id for i in profile]
+    height = ProfilePage.height([i.height for i in profile]) #filters height in inches to ft. in. ex. 72 inches --> 6-1
+    p = [i.player_id for i in profile] #p = player id
 
-    for i in p:
+    for i in p: #for each player id
         pic = ProfilePics.objects.filter(player_id=i)
 
         passer = RetiredPassing.objects.filter(player_id=i)
-        pcar = ProfilePage.career_passing(passer)
+        pcar = ProfilePage.career_passing(passer) #...car variable are lists of each player's career stats in specific areas
 
         rusher = RetiredRushing.objects.filter(player_id=i)
         rushcar = ProfilePage.career_rushing(rusher)
@@ -461,15 +464,15 @@ def retired_profile(request):
     pr = ProfilePage.zero(prcar[1])
 
     if pcar == pass_empty and rushcar == rush_empty and reccar == rec_empty and defcar == def_empty and kickcar == kick_empty and puntcar == punt_empty and prcar == pr_empty and krcar == kr_empty:
-        years_and_teams = ["--", "--", ["--"]]
+        years_and_teams = ["--", "--", ["--"]] #if a player has no career stats, then this is returned
     else:
-        years_and_teams = ProfilePage.year_and_teams(passer, rusher, receiver, defender, kicker, punter, p_returner, k_returner)
+        years_and_teams = ProfilePage.year_and_teams(passer, rusher, receiver, defender, kicker, punter, p_returner, k_returner) #calcuates the beginning year, final year, and all teams a player has played for. ex. ["1988", "1996", ["Baltimore Ravens", "Miami Dolphins"]]
 
     start = years_and_teams[0]
     finished = years_and_teams[1]
     teams = years_and_teams[2]
 
-    career = ProfilePage.career_box(pass_att, rush_att, recs, tackles, sacks, ints, kicks, punts, kr, pr)
+    career = ProfilePage.career_box(pass_att, rush_att, recs, tackles, sacks, ints, kicks, punts, kr, pr) #returns a string that will be passed to the html file and will determine which stats are displayed in the career box
 
     context = {"car_game":pcar[0], "firstname":first, "lastname":last, "height":height, "profile":profile, "career":career,
     "car_comp":pcar[1], "car_pass_att":pcar[2], "car_comp_pct":pcar[3], "car_pass_att_g":pcar[4],
@@ -506,6 +509,7 @@ def retired_profile(request):
 
 
 def profile(request):
+    '''Most of the functionality is the same as the retired_profile()'''
     radio = ProfileRadio()
     radio_select = request.GET.get('radio')
     raw_id = request.GET.get('player')
@@ -527,11 +531,36 @@ def profile(request):
     for i in p:
         pic = ProfilePics.objects.filter(player_id=i)
         passer_now = Passing.objects.filter(year="2018",player_id=i)
-        rusher_now = Rushing.objects.filter(year="2018",player_id=i)
-        receiver_now = Receiving.objects.filter(year="2018",player_id=i)
-        defender_now = Defense.objects.filter(year="2018",player_id=i)
-        kicker_now = FieldGoals.objects.filter(year="2018",player_id=i)
-        punter_now = Punting.objects.filter(year="2018",player_id=i)
+        #the season_box...() functions are to elimnate any possible duplicate displays in the season box
+        rusher_now = ProfilePage.season_box_rushing(Rushing.objects.filter(year="2018",player_id=i)) #this returns a list of four items, which will be used in the season box and separated into four separate variables to be passed to the html file
+        rush_attempts = rusher_now[0]
+        rush_yards = rusher_now[1]
+        rush_avg = rusher_now[2]
+        rush_tds = rusher_now[3]
+
+        receiver_now = ProfilePage.season_box_receiving(Receiving.objects.filter(year="2018",player_id=i))
+        rec_recs = receiver_now[0]
+        rec_yards = receiver_now[1]
+        rec_avg = receiver_now[2]
+        rec_tds = receiver_now[3]
+
+        defender_now = ProfilePage.season_box_defense(Defense.objects.filter(year="2018",player_id=i))
+        def_total = defender_now[0]
+        def_solo = defender_now[1]
+        def_sacks = defender_now[2]
+        def_ints = defender_now[3]
+
+        kicker_now = ProfilePage.season_box_kicking(FieldGoals.objects.filter(year="2018",player_id=i))
+        kick_fgs = kicker_now[0]
+        kick_attempts = kicker_now[1]
+        kick_pct = kicker_now[2]
+        kick_lng = kicker_now[3]
+
+        punter_now = ProfilePage.season_box_punting(Punting.objects.filter(year="2018",player_id=i))
+        punt_punts = punter_now[0]
+        punt_yards = punter_now[1]
+        punt_avg = punter_now[2]
+        punt_lng = punter_now[3]
 
         passer = Passing.objects.filter(player_id=i)
         pcar = ProfilePage.career_passing(passer)
@@ -587,8 +616,11 @@ def profile(request):
                "car_pr_lng":prcar[4], "car_pr_tds":prcar[5], "car_pr_pr_twenty":prcar[6], "car_pr_forty":prcar[7],
                "car_pr_fcs":prcar[8], "car_pr_fums":prcar[9], "rusher":rusher, "receiver":receiver, "defender":defender,
                "kicker":kicker, "punter":punter, "k_returner":k_returner, "p_returner":p_returner,
-               "rusher_now":rusher_now, "receiver_now":receiver_now, "defender_now":defender_now, "kicker_now":kicker_now,
-               "punter_now":punter_now
+               "rush_attempts":rush_attempts, "rush_yards":rush_yards, "rush_avg":rush_avg, "rush_tds":rush_tds,
+               "rec_recs":rec_recs, "rec_yards":rec_yards, "rec_avg":rec_avg, "rec_tds":rec_tds,
+               "def_total":def_total, "def_solo":def_solo, "def_sacks":def_sacks, "def_ints":def_ints,
+               "kick_fgs":kick_fgs, "kick_attempts":kick_attempts, "kick_pct":kick_pct, "kick_lng":kick_lng,
+               "punt_punts":punt_punts, "punt_yards":punt_yards, "punt_avg":punt_avg, "punt_lng":punt_lng
               }
 
     return render(request, "main/profile.html", context)

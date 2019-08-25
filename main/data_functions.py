@@ -203,7 +203,7 @@ class ProfilePage(object):
             attempts = sum(pre_att) #integer of all passing attempts
             att = Commas.career_commas(attempts) #a string of the same value above, with an added comma
 
-            if att == 0:
+            if attempts == 0:
                 pct = 0 #if attempts is 0, this avoids the ZeroDivision Error
             else:
                 pct = round(((completions/attempts) * 100), 1) #calculates the completion precentage over career
@@ -292,7 +292,7 @@ class ProfilePage(object):
             yards = sum(pre_yds)
             yds = Commas.career_commas(yards)
 
-            if att == 0:
+            if attempts == 0:
                 avg = 0
             else:
                 avg = round((yards/attempts), 1)
@@ -353,7 +353,7 @@ class ProfilePage(object):
             yards = sum(pre_yds)
             yds = Commas.career_commas(yards)
 
-            if recs == 0:
+            if receptions == 0:
                 avg = 0
             else:
                 avg = round((yards/receptions), 1)
@@ -475,7 +475,7 @@ class ProfilePage(object):
             attempts = sum(pre_att)
             att = Commas.career_commas(attempts)
 
-            if att == 0:
+            if attempts == 0:
                 pct = 0
             else:
                 pct = round(((fieldgoals/attempts) * 100), 1)
@@ -499,7 +499,7 @@ class ProfilePage(object):
             fgtw_attempts = sum(pre_fgtw_att)
             fgtw_att = Commas.career_commas(fgtw_attempts)
 
-            if fgtw_att == 0:
+            if fgtw_attempts == 0:
                 fgtw_pct = 0
             else:
                 fgtw_pct = round(((fieldgoals_twenty/fgtw_attempts) * 100), 1)
@@ -514,7 +514,7 @@ class ProfilePage(object):
             fgth_attempts = sum(pre_fgth_att)
             fgth_att = Commas.career_commas(fgth_attempts)
 
-            if fgth_att == 0:
+            if fgth_attempts == 0:
                 fgth_pct = 0
             else:
                 fgth_pct = round(((fieldgoals_thirty/fgth_attempts) * 100), 1)
@@ -555,7 +555,7 @@ class ProfilePage(object):
             ex_attempts = sum(pre_ex_att)
             ex_att = Commas.career_commas(ex_attempts)
 
-            if ex_att == 0:
+            if ex_attempts == 0:
                 ex_pct = 0
             else:
                 ex_pct = round(((extra/ex_attempts) * 100), 1)
@@ -594,7 +594,7 @@ class ProfilePage(object):
             if lng == None:
                 lng = "--"
 
-            if punts == 0:
+            if punts_int == 0:
                 avg = 0
             else:
                 avg = round((yards/punts_int), 1)
@@ -663,7 +663,7 @@ class ProfilePage(object):
             yards = sum(pre_yds)
             yds = Commas.career_commas(yards)
 
-            if kr == 0:
+            if kicksr == 0:
                 avg = 0
             else:
                 avg = round((yards/kicksr), 1)
@@ -719,7 +719,7 @@ class ProfilePage(object):
             yards = sum(pre_yds)
             yds = Commas.career_commas(yards)
 
-            if pr == 0:
+            if puntsr == 0:
                 avg = 0
             else:
                 avg = round((yards/puntsr), 1)
@@ -760,6 +760,129 @@ class ProfilePage(object):
             return 0
         else:
             return variable
+
+    @classmethod
+    def season_box_rushing(cls, query):
+        '''This is to ensure of no duplicates in the season box in profile(). Each of
+        these functions below return a list of four items, all of which will be displayed
+        in the correct order in the season box'''
+        query_att = [i.att for i in query] #attempts
+        query_yards = [i.yards for i in query] #yards
+        query_tds = [i.td for i in query] #touchdowns
+        empty = ["--", "--", "--", "--"] #if no numbers are in the query, return a list of "--" to display
+        if query_att == ["--"] or query_att == ["--", "--"]:
+            return empty
+        elif len(query_att) == 0: #if the list is empty, return a list of "--" to  display
+            return empty
+        else:
+            raw_attempts = DataTypes.integers(query_att) #changes from string type to integer type
+            attempts = sum(raw_attempts)
+            raw_yards = DataTypes.integers(query_yards)
+            yards = sum(raw_yards)
+            yards_string = Commas.career_commas(yards) #in case the number is over 999, then this will add a comma
+            raw_tds = DataTypes.integers(query_tds)
+            tds = sum(raw_tds)
+            if attempts == 0:
+                avg = 0
+            else:
+                avg = round((yards/attempts), 1)
+            seasonbox_data = [attempts, yards_string, avg, tds]
+            return seasonbox_data
+
+    @classmethod
+    def season_box_receiving(cls, query):
+        query_recs = [i.rec for i in query] #receptions
+        query_yards = [i.yards for i in query] #yards
+        query_tds = [i.td for i in query] #touchdowns
+        empty = ["--", "--", "--", "--"] #if no numbers are in the query, return a list of "--" to display
+        if query_recs == ["--"] or query_recs == ["--", "--"]:
+            return empty
+        elif len(query_recs) == 0:
+            return empty
+        else:
+            raw_recs = DataTypes.integers(query_recs)
+            recs = sum(raw_recs)
+            raw_yards = DataTypes.integers(query_yards)
+            yards = sum(raw_yards)
+            yards_string = Commas.career_commas(yards)
+            raw_tds = DataTypes.integers(query_tds)
+            tds = sum(raw_tds)
+            if recs == 0:
+                avg = 0
+            else:
+                avg = round((yards/recs), 1)
+            seasonbox_data = [recs, yards_string, avg, tds]
+            return seasonbox_data
+
+    @classmethod
+    def season_box_defense(cls, query):
+        query_total = [i.total_tkl for i in query] #total tackles
+        query_solo = [i.solo_tkl for i in query] #solo tackles
+        query_sacks = [i.sck for i in query] #sacks
+        query_ints = [i.ints for i in query] #interceptions
+        empty = ["--", "--", "--", "--"] #if no numbers are in the query, return a list of "--" to display
+        if query_total == ["--"] or query_total == ["--", "--"]:
+            return empty
+        elif len(query_total) == 0:
+            return empty
+        else:
+            raw_total = DataTypes.integers(query_total)
+            total = sum(raw_total)
+            raw_solo = DataTypes.integers(query_solo)
+            solo = sum(raw_solo)
+            raw_sacks = DataTypes.floats(query_sacks)
+            sacks = sum(raw_sacks)
+            raw_ints = DataTypes.integers(query_ints)
+            ints = sum(raw_ints)
+            seasonbox_data = [total, solo, sacks, ints]
+            return seasonbox_data
+
+    @classmethod
+    def season_box_kicking(cls, query):
+        query_fgs = [i.fg for i in query] #field goals
+        query_fgatts = [i.fg_att for i in query] #field goal attempts
+        query_lng = [i.lng for i in query] #longest field goal completed
+        empty = ["--", "--", "--", "--"] #if no numbers are in the query, return a list of "--" to display
+        if query_fgs == ["--"] or query_fgs == ["--", "--"]:
+            return empty
+        elif len(query_fgs) == 0:
+            return empty
+        else:
+            raw_fgs = DataTypes.integers(query_fgs)
+            fgs = sum(raw_fgs)
+            raw_fgatts = DataTypes.integers(query_fgatts)
+            fgatts = sum(raw_fgatts)
+            lng = query_lng[-1] #the most recent entry
+            if fgatts == 0:
+                pct = 0
+            else:
+                pct = round(((fgs/fgatts) * 100), 1)
+            seasonbox_data = [fgs, fgatts, pct, lng]
+            return seasonbox_data
+
+    @classmethod
+    def season_box_punting(cls, query):
+        query_punts = [i.punts for i in query] #punts
+        query_yards = [i.p_yards for i in query] #punting yards
+        query_lng = [i.lng for i in query] #longest punt completed
+        empty = ["--", "--", "--", "--"] #if no numbers are in the query, return a list of "--" to display
+        if query_punts == ["--"] or query_punts == ["--", "--"]:
+            return empty
+        elif len(query_punts) == 0:
+            return empty
+        else:
+            raw_punts = DataTypes.integers(query_punts)
+            punts = sum(raw_punts)
+            raw_yards = DataTypes.integers(query_yards)
+            yards = sum(raw_yards)
+            yards_string = Commas.career_commas(yards)
+            lng = query_lng[-1]
+            if punts == 0:
+                avg = 0
+            else:
+                avg = round((yards/punts), 1)
+            seasonbox_data = [punts, yards_string, avg, lng]
+            return seasonbox_data
 
     @classmethod
     def career_box(cls, pass_a, rush_a, rec, tkl, sck, its, ks, pts, krs, prs):

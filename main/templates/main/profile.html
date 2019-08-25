@@ -233,14 +233,12 @@
             <li>AVG</li>
             <li>TD</li>
           </ul>
-          {% for rush in rusher_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ rush.att }}</li>
-              <li class="pass-int">{{ rush.yards }}</li>
-              <li class="pass-yds">{{ rush.yards_c }}</li>
-              <li class="rate">{{ rush.td }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ rush_attempts }}</li>
+            <li class="pass-int">{{ rush_yards }}</li>
+            <li class="pass-yds">{{ rush_avg }}</li>
+            <li class="rate">{{ rush_tds }}</li>
+          </ul>
         {% elif player.position == "FB" %}
           <ul class="season-box-heads">
             <li>ATT</li>
@@ -248,14 +246,12 @@
             <li>AVG</li>
             <li>TD</li>
           </ul>
-          {% for rush in rusher_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ rush.att }}</li>
-              <li class="pass-int">{{ rush.yards }}</li>
-              <li class="pass-yds">{{ rush.yards_c }}</li>
-              <li class="rate">{{ rush.td }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ rush_attempts }}</li>
+            <li class="pass-int">{{ rush_yards }}</li>
+            <li class="pass-yds">{{ rush_avg }}</li>
+            <li class="rate">{{ rush_tds }}</li>
+          </ul>
         {% elif player.position == "WR" %}
           <ul class="season-box-heads">
             <li>REC</li>
@@ -263,14 +259,12 @@
             <li>AVG</li>
             <li>TD</li>
           </ul>
-          {% for r in receiver_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ r.rec }}</li>
-              <li class="pass-int">{{ r.yards }}</li>
-              <li class="pass-yds">{{ r.yards_rec }}</li>
-              <li class="rate">{{ r.td }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ rec_recs }}</li>
+            <li class="pass-int">{{ rec_yards }}</li>
+            <li class="pass-yds">{{ rec_avg }}</li>
+            <li class="rate">{{ rec_tds }}</li>
+          </ul>
         {% elif player.position == "TE" %}
           <ul class="season-box-heads">
             <li>REC</li>
@@ -278,14 +272,12 @@
             <li>AVG</li>
             <li>TD</li>
           </ul>
-          {% for r in receiver_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ r.rec }}</li>
-              <li class="pass-int">{{ r.yards }}</li>
-              <li class="pass-yds">{{ r.yards_rec }}</li>
-              <li class="rate">{{ r.td }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ rec_recs }}</li>
+            <li class="pass-int">{{ rec_yards }}</li>
+            <li class="pass-yds">{{ rec_avg }}</li>
+            <li class="rate">{{ rec_tds }}</li>
+          </ul>
         {% elif player.position == "DE" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -293,14 +285,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "DT" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -308,14 +298,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "NT" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -323,14 +311,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "OLB" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -338,14 +324,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "ILB" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -353,14 +337,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "MLB" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -368,14 +350,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "LB" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -383,14 +363,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "CB" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -398,14 +376,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "DB" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -413,14 +389,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "FS" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -428,14 +402,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "SS" %}
           <ul class="season-box-heads">
             <li>COMB</li>
@@ -443,14 +415,12 @@
             <li>SCK</li>
             <li>INT</li>
           </ul>
-          {% for d in defender_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ d.total_tkl }}</li>
-              <li class="pass-int">{{ d.solo_tkl }}</li>
-              <li class="pass-yds">{{ d.sck }}</li>
-              <li class="rate">{{ d.ints }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ def_total }}</li>
+            <li class="pass-int">{{ def_solo }}</li>
+            <li class="pass-yds">{{ def_sacks }}</li>
+            <li class="rate">{{ def_ints }}</li>
+          </ul>
         {% elif player.position == "K" %}
           <ul class="season-box-heads">
             <li>FG</li>
@@ -458,14 +428,12 @@
             <li>PCT</li>
             <li>LNG</li>
           </ul>
-          {% for k in kicker_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ k.fg }}</li>
-              <li class="pass-int">{{ k.fg_att }}</li>
-              <li class="pass-yds">{{ k.fg_perc }}</li>
-              <li class="rate">{{ k.lng }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ kick_fgs }}</li>
+            <li class="pass-int">{{ kick_attempts }}</li>
+            <li class="pass-yds">{{ kick_pct }}</li>
+            <li class="rate">{{ kick_lng }}</li>
+          </ul>
         {% elif player.position == "P" %}
           <ul class="season-box-heads">
             <li>P</li>
@@ -473,14 +441,12 @@
             <li>AVG</li>
             <li>LNG</li>
           </ul>
-          {% for p in punter_now %}
-            <ul class="season-box-data">
-              <li class="prof-pass-td">{{ p.punts }}</li>
-              <li class="pass-int">{{ p.p_yards }}</li>
-              <li class="pass-yds">{{ p.p_avg }}</li>
-              <li class="rate">{{ p.lng }}</li>
-            </ul>
-          {% endfor %}
+          <ul class="season-box-data">
+            <li class="prof-pass-td">{{ punt_punts }}</li>
+            <li class="pass-int">{{ punt_yards }}</li>
+            <li class="pass-yds">{{ punt_avg }}</li>
+            <li class="rate">{{ punt_lng }}</li>
+          </ul>
         {% endif %}
       </div>
     </div>
