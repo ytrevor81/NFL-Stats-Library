@@ -2,9 +2,9 @@
 
 Django | MySQL | Beautiful Soup (Web Scraping) | HTML | CSS | Python
 
-A Django web app that allows you to browse the NFL stats of all players up until the 2018 season. Users can access individual players but
-team and by individual player search. Users can also analyze and compare stats from a variety of categories, and view the stats of all 
-Hall of Fame players.
+A Django web app that allows you to browse the NFL stats of all players up until the 2018 season. Users can access individual players 
+but team and by individual player search. Users can also analyze and compare stats from a variety of categories, and view the stats of 
+all Hall of Fame players.
 
 - All data was accumulated using a customized version of Kendall Gillies code from her repo "NFL-Statistics-Scrape"
 (https://github.com/kendallgillies/NFL-Statistics-Scrape). I also added a script to scrape the profile picture urls of each 
@@ -12,6 +12,7 @@ player from NFL.com (https://github.com/ytrevor81/Profile-Picture-URLs-Scrape).
 - Database is MySQL, which is accessed by Django via models.py.
 - A library was created to utilize reusable code in data_functions.py. These functions handle most of the data processing when extracted
 from the MySQL database.
+- Website is www.nfl-stats-library.com
 
 # Home/Full Season Stats
 Users can view season stats of players, ranked from greatest to least, from a variety of categories in any given year and/or for any
