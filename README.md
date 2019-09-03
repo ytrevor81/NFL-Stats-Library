@@ -12,6 +12,7 @@ player from NFL.com (https://github.com/ytrevor81/Profile-Picture-URLs-Scrape).
 - Database is MySQL, which is accessed by Django via models.py.
 - A library was created to utilize reusable code in data_functions.py. These functions handle most of the data processing when extracted
 from the MySQL database.
+- Deployed on a Linode VPS server, using Apache2 and Ubuntu.
 - Website is www.nfl-stats-library.com
 
 # Home/Full Season Stats
