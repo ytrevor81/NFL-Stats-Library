@@ -59,7 +59,7 @@ can search for any player.
 
 # Hall of Fame
 
-All of players in the NFL Hall of Fame are listed on this page. Each link takes the user to the player's retired profile page.
+All players in the NFL Hall of Fame are listed on this page. Each link takes the user to the player's retired profile page.
 
 ![nfl-hof](https://user-images.githubusercontent.com/46886041/64142814-d5fa8900-ce37-11e9-82a7-2dd61cd3ac0d.PNG)
 
