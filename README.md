@@ -22,13 +22,13 @@ team.
 
 # Active Player Profiles
 Each player has a profile page, which lists the player's background information and career stats, highlighting the stats of the most 
-recent NFL season in the grey box in the right side of the page. Users have the option to view only stats relevant to the player's 
+recent NFL season in the grey box on the right side of the page. Users have the option to view stats only relevant to the player's 
 position or to view all career stats.
 
 ![nfl-profile](https://user-images.githubusercontent.com/46886041/64142787-ba8f7e00-ce37-11e9-80b1-421261f13edc.PNG)
 
 # Retired Player Profiles
-Each retired player has a profile page as well. This highlights all career stats, teams played, background information, and whether or 
+Each retired player has a profile page as well. This displays all career stats, teams played, background information, and whether or 
 not they are in the NFL Hall of Fame.
 
 ![nfl-retprofile](https://user-images.githubusercontent.com/46886041/64142789-bebb9b80-ce37-11e9-9016-a9580a7cd0fb.PNG)
@@ -52,7 +52,7 @@ Displays the top five ranked players of six categories for any given year. These
 
 # Player Search
 
-Users can search for any individual player, whether they are currently active or retired. The "Name" is a case-sensitive search bar that 
+Users can search for any player, whether they are currently active or retired. The "Name" is a case-sensitive search bar that 
 can search for any player. 
 
 ![nfl-players](https://user-images.githubusercontent.com/46886041/64142809-d2670200-ce37-11e9-9fd2-83ffcfc986f4.PNG)
