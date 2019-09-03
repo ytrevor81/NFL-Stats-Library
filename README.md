@@ -6,9 +6,9 @@ A Django web app that allows you to browse the NFL stats of all players up until
 by team and by individual player search. Users can also analyze and compare stats from a variety of categories, and view the stats of 
 all Hall of Fame players.
 
-- All of the data was accumulated utilizing the Beautiful Soup library and a customized version of Kendall Gillies code from her repo 
-"NFL-Statistics-Scrape" (https://github.com/kendallgillies/NFL-Statistics-Scrape). I also added a script to scrape the profile picture 
-urls of each player from NFL.com (https://github.com/ytrevor81/Profile-Picture-URLs-Scrape).
+- All of the data was accumulated using customized version of Kendall Gillies code from her repo "NFL-Statistics-Scrape" 
+(https://github.com/kendallgillies/NFL-Statistics-Scrape) and utilizing the Beautiful Soup library. I also added a script to scrape the 
+profile picture urls of each player from NFL.com (https://github.com/ytrevor81/Profile-Picture-URLs-Scrape).
 - Database is MySQL, which is accessed by Django via models.py.
 - A library was created to utilize reusable code in data_functions.py. These functions handle most of the data processing when extracted
 from the MySQL database.
