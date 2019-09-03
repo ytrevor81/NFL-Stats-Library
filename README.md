@@ -1,6 +1,6 @@
 # NFL-Stats-Library
 
-Django | MySQL | Beautiful Soup (Web Scraping) | HTML | CSS | Python
+Django | MySQL | Beautiful Soup (Web Scraping) | HTML | CSS | Python | Apache2 | VPS
 
 A Django web app that allows you to browse the NFL stats of all players up until the 2018 season. Users can access individual players 
 by team and by individual player search. Users can also analyze and compare stats from a variety of categories, and view the stats of 
