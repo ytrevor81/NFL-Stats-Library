@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ###Secret ;)
+SECRET_KEY = 'tw=@gbua$$#sz^61g39t1em-p5acsc((clhn$)5#o31t^s(%b@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'statsman.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': ###,
-        'USER': ###,
-        'PASSWORD': ###,
+        'NAME': 'statsman',
+        'USER': 'root',
+        'PASSWORD': 'EOWilson000',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},

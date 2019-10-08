@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 html {
   background-color: lightgrey;
 }
@@ -6,7 +8,8 @@ html {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Browallia New', serif;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
 }
 
 /* Index.html */
@@ -39,7 +42,7 @@ header {
 .search {
   margin-right: 20px;
   display: inline-flex;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .search-box {
@@ -88,7 +91,7 @@ header ul li{
   text-transform: uppercase;
   color: #F5F5F5;
   display: block;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   padding-right: 3px;
   padding-left: 3px;
@@ -97,7 +100,7 @@ header ul li{
 .separator {
   text-decoration: none;
   color: #F5F5F5;
-  font-size: 28px;
+  font-size: 20px;
 }
 
 .nav-links li a:hover {
@@ -112,7 +115,7 @@ header ul li{
   border: 1px solid gray;
   color: #F5F5F5;
   text-transform: uppercase;
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
   height: 35px;
@@ -167,7 +170,7 @@ footer {
 }
 
 .season-leaders-tools h1 {
-  font-size: 40px;
+  font-size: 28px;
   text-transform: uppercase;
   padding-bottom: 20px;
 }
@@ -198,7 +201,7 @@ footer {
 }
 
 .season-leaders-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -239,15 +242,15 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 25px;
+  font-size: 20px;
   text-transform: uppercase;
   margin-left: 17%;
 }
 
 .season-leaders-titles h5 a {
   display: flex;
-  margin-top: 13%;
-  font-size: 15px;
+  margin-top: 23%;
+  font-size: 10px;
   text-decoration: underline;
   color: #F5F5F5;
   cursor: pointer;
@@ -269,11 +272,14 @@ footer {
 
 .season-leaders-table {
   width: 100%;
-  font-size: 22px;
 }
 
 .season-leaders-head {
   text-transform: uppercase;
+}
+
+.season-leaders-head tr th {
+  padding-top: 3%;
 }
 
 .season-leaders-body tr:nth-child(even) {
@@ -281,8 +287,8 @@ footer {
 }
 
 .season-leaders-body tr td {
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   text-align: center;
 }
 
@@ -300,7 +306,7 @@ footer {
 }
 
 .seasons-tools h1 {
-  font-size: 40px;
+  font-size: 28px;
   text-transform: uppercase;
   padding-bottom: 20px;
 }
@@ -329,6 +335,10 @@ footer {
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.season-stats-titles h1 {
+  font-size: 20px;
 }
 
 .season-stats-table {
@@ -376,8 +386,8 @@ footer {
   border-radius: 10%;
   text-decoration: none;
   color: black;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-right: 10px;
   padding-left: 10px;
   margin-right: 2%;
@@ -395,8 +405,8 @@ footer {
   border-radius: 10%;
   background-color: #C50505;
   color: #F5F5F5;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   padding-right: 10px;
   padding-left: 10px;
   margin-right: 2%;
@@ -444,11 +454,13 @@ footer {
 
 .firstname {
   text-transform: uppercase;
+  font-size: 17px;
 }
 
 .lastname {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 17px;
 }
 
 .pos-num {
@@ -456,14 +468,27 @@ footer {
   align-items: center;
 }
 
+.pos-num .num {
+  font-size: 15px;
+}
+
 .pos-num .pos {
-  padding-top: 5px;
-  padding-left: 4px;
+  padding-top: 4px;
+  padding-left: 3px;
+  font-size: 17px;
+}
+
+.pos-num .title {
+  font-size: 15px;
+}
+
+.pos-num .years {
+  font-size: 15px;
 }
 
 .id-info .num::after {
   content: "|";
-  font-size: 35px;
+  font-size: 20px;
   color: lightgrey;
 }
 
@@ -474,9 +499,9 @@ footer {
   margin-left: -45px;
 }
 
-.profile-wide-short h5 {
+/*.profile-wide-short h5 {
   font-size: 18px;
-}
+}*/
 
 .pic-wide-short {
   height: 60px;
@@ -490,9 +515,9 @@ footer {
   margin-left: -45px;
 }
 
-.profile-medium h5 {
+/*.profile-medium h5 {
   font-size: 18px;
-}
+}*/
 
 .pic-medium {
   height: 80px;
@@ -505,10 +530,10 @@ footer {
   margin-top: 5%;
   margin-left: -35px;
 }
-
+/*
 .profile-long-thin h5 {
   font-size: 20px;
-}
+}*/
 
 .pic-long-thin {
   height: 85px;
@@ -537,6 +562,7 @@ footer {
   align-items: center;
   font-size: 20px;
   margin-left: -50px;
+  margin-top: 8px;
 }
 
 .details .detail-titles {
@@ -550,11 +576,11 @@ footer {
 }
 
 .details .detail-titles li {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .details .detail-info li {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .recent-season-box {
@@ -572,13 +598,13 @@ footer {
 }
 
 .recent-season-box h5 {
-  padding-top: 5px;
-  font-size: 22px;
+  padding-top: 10px;
+  font-size: 16px;
 }
 
 .season-box-container {
   display: inline-block;
-  padding-top: 5px;
+  padding-top: 15px;
 }
 
 .season-box-container ul {
@@ -589,7 +615,8 @@ footer {
 .season-box-container li {
   display: table-cell;
   text-align: center;
-  padding: 0 25px;
+  padding: 0 20px;
+  padding-bottom: 5px;
 }
 
 .season-box-heads {
@@ -611,7 +638,7 @@ footer {
 
 .radio-form {
   display: grid;
-  grid-template-columns: 65% 50%;
+  grid-template-columns: 67% 50%;
   grid-gap: 15px;
   align-items: center;
 }
@@ -627,7 +654,6 @@ footer {
 .radio-form ul li label {
   display: flex;
   align-items: center;
-  font-size: 20px;
   margin-left: 12px;
 }
 
@@ -638,7 +664,7 @@ footer {
 }
 
 .BAL-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -650,7 +676,7 @@ footer {
 }
 
 .CAR-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -662,7 +688,7 @@ footer {
   }
 
 .CHI-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -674,7 +700,7 @@ footer {
 }
 
 .CIN-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -686,7 +712,7 @@ footer {
 }
 
 .CLE-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -698,7 +724,7 @@ footer {
 }
 
 .DAL-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -710,7 +736,7 @@ footer {
 }
 
 .DEN-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -722,7 +748,7 @@ footer {
 }
 
 .GB-btn {
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
     border: 1px solid gray;
     height: 35px;
@@ -734,7 +760,7 @@ footer {
 }
 
 .IND-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -746,7 +772,7 @@ footer {
 }
 
 .JAX-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -758,7 +784,7 @@ footer {
   }
 
 .NO-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -770,7 +796,7 @@ footer {
 }
 
 .NYJ-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -782,7 +808,7 @@ footer {
 }
 
 .OAK-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -794,7 +820,7 @@ footer {
 }
 
 .PHI-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -806,7 +832,7 @@ footer {
 }
 
 .PIT-btn {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: bold;
   border: 1px solid gray;
   height: 35px;
@@ -843,6 +869,10 @@ footer {
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.profile-stats-titles h1 {
+  font-size: 20px;
 }
 
 .profile-stats-table {
@@ -900,7 +930,7 @@ footer {
 
 .name-yearsactive {
   display: grid;
-  grid-template-rows: 15% 10% 72%;
+  grid-template-rows: 13% 10% 86%;
 }
 
 .retired-teams {
@@ -925,7 +955,7 @@ footer {
 }
 
 .retired-hof h5 {
-  font-size: 22px;
+  font-size: 15px;
 }
 
 /* Player search page */
@@ -937,7 +967,7 @@ footer {
 }
 
 .players-tools h1 {
-  font-size: 40px;
+  font-size: 28px;
   text-transform: uppercase;
   padding-bottom: 20px;
 }
@@ -975,7 +1005,7 @@ footer {
 }
 
 .playersearch-box h5 {
-  font-size: 21px;
+  font-size: 15px;
   margin-bottom: -2%;
 }
 
@@ -986,9 +1016,9 @@ footer {
 
 .playersearch-pos::after {
 content: "|";
-font-size: 30px;
-padding-right: 3px;
-padding-left: 3px;
+font-size: 22px;
+padding-right: 4px;
+padding-left: 4px;
 font-weight: lighter;
 }
 
@@ -1008,7 +1038,7 @@ font-weight: lighter;
   text-decoration: none;
   color: #1100F9;
   cursor: pointer;
-  margin-top: 7px;
+  margin-top: 7.5px;
 }
 
 .team-search-link:hover {
@@ -1078,23 +1108,26 @@ font-weight: lighter;
 }
 
 .division h2 {
-  font-size: 22px;
+  font-size: 18px;
   color: grey;
 }
 
 .normal {
   height: 90px;
   width: 145px;
+  margin-bottom: 10px;
 }
 
 .less-width {
   height: 90px;
   width: 105px;
+  margin-bottom: 10px;
 }
 
 .short-wide {
   height: 75px;
   width: 150px;
+  margin-bottom: 10px;
 }
 
 .two-team-division {
@@ -1118,7 +1151,7 @@ font-weight: lighter;
 .teams-page-link-NO-TB {
   text-decoration: none;
   color: #1100F9;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .teams-page-link:hover {
@@ -1204,9 +1237,16 @@ font-weight: lighter;
 
 .team-page-info {
   padding-left: 2%;
+  margin-right: -5%;
+}
+
+.team-name {
+  font-size: 18px;
+  margin-bottom: 3px;
 }
 
 .division-name {
+  font-size: 18px;
   color: grey;
 }
 
@@ -1228,6 +1268,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.team-titles h1 {
+  font-size: 20px;
+}
+
 .BAL-team-titles {
   display: flex;
   justify-content: center;
@@ -1237,6 +1281,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.BAL-team-titles h1 {
+  font-size: 20px;
 }
 
 .CAR-team-titles {
@@ -1250,6 +1298,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.CAR-team-titles h1 {
+  font-size: 20px;
+}
+
 .CHI-team-titles {
   display: flex;
   justify-content: center;
@@ -1259,6 +1311,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.CHI-team-titles h1 {
+  font-size: 20px;
 }
 
 .CIN-team-titles {
@@ -1272,6 +1328,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.CIN-team-titles h1 {
+  font-size: 20px;
+}
+
 .CLE-team-titles {
   display: flex;
   justify-content: center;
@@ -1281,6 +1341,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.CLE-team-titles h1 {
+  font-size: 20px;
 }
 
 .DAL-team-titles {
@@ -1294,6 +1358,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.DAL-team-titles h1 {
+  font-size: 20px;
+}
+
 .DEN-team-titles {
   display: flex;
   justify-content: center;
@@ -1303,6 +1371,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.DEN-team-titles h1 {
+  font-size: 20px;
 }
 
 .GB-team-titles {
@@ -1316,6 +1388,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.GB-team-titles h1 {
+  font-size: 20px;
+}
+
 .IND-team-titles {
   display: flex;
   justify-content: center;
@@ -1325,6 +1401,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.IND-team-titles h1 {
+  font-size: 20px;
 }
 
 .JAX-team-titles {
@@ -1338,6 +1418,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.JAX-team-titles h1 {
+  font-size: 20px;
+}
+
 .NO-team-titles {
   display: flex;
   justify-content: center;
@@ -1347,6 +1431,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.NO-team-titles h1 {
+  font-size: 20px;
 }
 
 .NYJ-team-titles {
@@ -1360,6 +1448,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.NYJ-team-titles h1 {
+  font-size: 20px;
+}
+
 .OAK-team-titles {
   display: flex;
   justify-content: center;
@@ -1369,6 +1461,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.OAK-team-titles h1 {
+  font-size: 20px;
 }
 
 .PHI-team-titles {
@@ -1382,6 +1478,10 @@ font-weight: lighter;
   text-transform: uppercase;
 }
 
+.PHI-team-titles h1 {
+  font-size: 20px;
+}
+
 .PIT-team-titles {
   display: flex;
   justify-content: center;
@@ -1391,6 +1491,10 @@ font-weight: lighter;
   height: 35px;
   width: 100%;
   text-transform: uppercase;
+}
+
+.PIT-team-titles h1 {
+  font-size: 20px;
 }
 
 .team-table {
@@ -1441,7 +1545,7 @@ font-weight: lighter;
 }
 
 .class-container h5 {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .hof-player {
@@ -1452,7 +1556,7 @@ font-weight: lighter;
 
 .hof-player a {
   text-decoration: none;
-  font-size: 21px;
+  font-size: 15px;
   color: #1100F9;
 }
 

@@ -2,19 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {% load static %}
     <link rel="icon" href="{% static 'images/icons/favicon.ico'%}">
     <title>NFL Stats Library</title>
+    <meta name="description" content="A Django web app that allows you to browse and search NFL player and team stats up until the 2018 season.">
+
     <link href="{% static 'style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Browser & Touch Identity Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="static/icons/favicon-32x32.png">
+  	<link rel="icon" type="image/png" sizes="16x16" href="static/icons/favicon-16x16.png">
+  	<link rel="shortcut icon" type="image/x-icon" href="static/icons/favicon.ico">
+  	<link rel="apple-touch-icon" sizes="180x180" href="static/icons/apple-touch-icon.png">
+
+    <!-- External Font Resources -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto&display=swap" type="text/css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- HTML5 Boilerplate & Custom Stylesheets -->
+    <link rel="stylesheet" href="{% static 'normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+
+
   </head>
   <body>
     <header>
       <a href="/"><img class='logo' src="{% static 'images/icons/logo_icon.png' %}"></img></a>
       <form method="get" action="http://www.google.com/search" class='search'>
-        <input type="text" name="query" class="search-box" placeholder="Search" required autofocus/>
+        <input type="text" name="query" class="search-box" placeholder="Google Search" required autofocus/>
         <button class="search-btn" type="submit" value="Google Search" ><i class="fa fa-search"></i></button>
       </form>
       <ul class="nav-links">
@@ -22,9 +42,9 @@
         <li class="separator"> | </li>
         <li><a href="/teams" class="teams-text">Teams</a></li>
         <li class="separator"> | </li>
-        <li><a href="/" class="home-text">Season Leaders</a></li>
+        <li><a href="/seasonleaders" class="home-text">Season Leaders</a></li>
         <li class="separator"> | </li>
-        <li><a href="/seasonstats" class="seasonstats-text">Season Stats</a></li>
+        <li><a href="/" class="seasonstats-text">Season Stats</a></li>
         <li class="separator"> | </li>
         <li><a href="/HOF" class="hof-text">HOF</a></li>
       </ul>
