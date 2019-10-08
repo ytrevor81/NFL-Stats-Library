@@ -31,12 +31,44 @@
 
   </head>
   <body>
-    <header>
-      <a href="/"><img class='logo' src="{% static 'images/icons/logo_icon.png' %}"></img></a>
-      <form method="get" action="http://www.google.com/search" class='search'>
-        <input type="text" name="query" class="search-box" placeholder="Google Search" required autofocus/>
-        <button class="search-btn" type="submit" value="Google Search" ><i class="fa fa-search"></i></button>
-      </form>
+    <header id="masthead">
+      <!--His template
+      <div class="col one-fifth first">
+        <a class="logo" href="/">
+          <img src="static/img/logo_nfl-stats-lib.png" alt="Logo | NFL Stats Library">
+        </a>
+      </div>
+
+
+      <div class="col one-fifth last tright">
+        <a class="button code" target="_blank" href="NFL-Stats.zip">My Code</a>
+      </div>
+
+
+      <div class="col three-fifth middle">
+        <nav class="nav-main">
+          <ul class="menu">
+            <li class="menu-item curr-page"><a href="/">Home</a></li>
+            <li class="menu-item"><a href="/teams">Teams</a></li>
+            <li class="menu-item"><a href="/players">Players</a></li>
+            <li class="menu-item"><a href="/season-stats">Season Stats</a></li>
+            <li class="menu-item"><a href="/season-leaders">Season Leaders</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+  </header>
+-->
+
+      <div class="col one-fifth first">
+        <a class="logo" href="/">
+          <img src="{static 'img/logo_nfl-stats-lib.png'}" alt="Logo | NFL Stats Library">
+        </a>
+      </div>
+      <div class="col one-fifth last tright">
+        <a class="button code" target="_blank" href="https://github.com/ytrevor81/NFL-Stats-Library">My Code</a>
+      </div>
       <ul class="nav-links">
         <li><a href="/playersearch" class="players-text">Players</a></li>
         <li class="separator"> | </li>
@@ -48,8 +80,6 @@
         <li class="separator"> | </li>
         <li><a href="/HOF" class="hof-text">HOF</a></li>
       </ul>
-      <button class="sign-in" onclick="location.href='https://github.com/ytrevor81/NFL-Stats-Library'" type="button">
-         MY CODE</button>
     </header>
     <div class='container'>
       {% block content %}
