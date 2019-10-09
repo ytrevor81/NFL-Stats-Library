@@ -1,0 +1,244 @@
+@charset "utf-8";
+/*	==================================================
+	FILE: style.css
+	DESC: Main Custom Stylesheet
+ *	=============================================== */
+
+/*	--------------------------------------------------
+		Global Base Styles
+*	----------------------------------------------- */
+html { background-color: #696969; }
+body { background-color: #d5d5d5; }
+
+body {
+	font-size: 16px;
+	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/*	--------------------------------------------------
+		Primary Layout Container Styles
+*	----------------------------------------------- */
+#masthead {
+	margin-bottom: 50px;
+	background-color: #4B4B4B;
+}
+#colophon {
+	padding: 10px 0;
+	background-color: #4B4B4B;
+}
+#main {
+	background-color: #ffffff;
+	box-shadow: 0 5px 15px rgba(0,0,0,.6);
+}
+.contain {
+	max-width: 1600px;
+	margin: 0 auto;
+}
+
+
+/*	--------------------------------------------------
+		HEADER: Elements
+*	----------------------------------------------- */
+#masthead .logo {
+	float: left;
+	margin-right: 25px;
+}
+#masthead .button.code {
+	float:right;
+}
+#masthead .nav-main {
+	float: left;
+	padding: 20px 0;
+}
+
+
+/*	--------------------------------------------------
+		HEADER: Main Menu Elements
+*	----------------------------------------------- */
+#masthead .nav-main .menu {
+	list-style-type: none;
+	margin: 0; padding: 0;
+}
+#masthead .nav-main .menu .menu-item {
+	line-height: 1;
+	display: inline;
+	padding: 0 5px 0 0;
+	border-right: 1px solid #fff;
+}
+#masthead .nav-main .menu .menu-item:last-child {
+	border-right: 0 none;
+}
+#masthead .nav-main .menu .menu-item > a {
+	color: #fff;
+	padding: 5px 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+#masthead .nav-main .menu .menu-item > a:not(.curr-page):hover,
+#masthead .nav-main .menu .menu-item > a:not(.curr-page):active {
+	color: #c00;
+	background-color: #fff;
+}
+#masthead .nav-main .menu .menu-item.curr-page > a {
+	font-weight: bold;
+	background-color: #191919;
+}
+
+
+
+/*	--------------------------------------------------
+		MAIN Content: Sub-Containers
+*	----------------------------------------------- */
+#main .header {
+	padding: 50px 75px 35px;
+	background-image: linear-gradient(lightgrey, white);
+}
+#main .content {
+	min-height: 600px;
+	padding: 0px 75px;
+}
+#main .footer  {
+	padding: 25px 75px;
+}
+
+
+/*	--------------------------------------------------
+		MAIN Content: Header Elemets
+*	----------------------------------------------- */
+#main .header .page-titles  { float: left; }
+#main .header .stat-filters { float: right; }
+
+#main .header .page-titles .main-title {
+	margin: 0; padding: 0;
+	text-transform: uppercase;
+	color: #000; font-size: 28px; line-height: 1.25;
+}
+#main .header .page-titles .sub-title {
+	margin: 0; padding: 0;
+	text-transform: uppercase;
+	color: #c00; font-size: 24px; line-height: 1.25;
+}
+
+
+/*	--------------------------------------------------
+		MAIN Content: Content Elemets
+*	----------------------------------------------- */
+#main .content .stats-table-header {
+	margin: 0;
+	padding: 10px 0;
+	background-color: #c00;
+	color: #F5F5F5;
+	font-size: 20px; line-height: 1;
+	text-align: center; text-transform: uppercase;
+}
+
+
+/*	--------------------------------------------------
+		MAIN Content: Footer Elemets
+*	----------------------------------------------- */
+#main .footer .pagination { float: right; }
+#main .footer .pagination .steps {
+	margin: 0; padding: 0;
+	list-style-type: none;
+}
+#main .footer .pagination .steps .step {
+	display: inline-block;
+	margin: 0 5px 0 0;
+	color: #000;
+	line-height: 1;
+	border-radius: 3px;
+	border: 1px solid #333;
+	background-color: #d9d9d9;
+}
+#main .footer .pagination .steps .step > a {
+	color: #000;
+	padding: 10px;
+	display: block;
+	text-decoration: none;
+}
+#main .footer .pagination .steps .step > a:hover,
+#main .footer .pagination .steps .step > a:active {
+	color: #fff;
+	background-color: #333;
+}
+#main .footer .pagination .steps .step.current {
+	color: #fff;
+	padding: 10px;
+	background-color: #900;
+}
+
+
+/*	--------------------------------------------------
+		Form Elements
+*	----------------------------------------------- */
+form select {
+	cursor: pointer;
+	padding-left: 5px;
+	margin-right: 15px;
+	height: 35px; width: 125px;
+	background-color: #D3D3D3;
+	border: 1px solid gray; border-radius: 3px;
+}
+form select:hover,
+form select:active { background-color: #f0f0f0; }
+
+
+
+/*	--------------------------------------------------
+		FOOTER Area Elements
+*	----------------------------------------------- */
+#colophon .social-links {
+	text-align: center;
+	list-style-type: none;
+	margin: 0; padding: 0;
+}
+#colophon .social-links .item {
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+#colophon .social-links .item > a {
+	display: block;
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+}
+#colophon .social-links .item > a > .fa {
+	color: #333;
+	font-size: 24px;
+}
+#colophon .social-links .item > a:hover,
+#colophon .social-links .item > a:active {
+	background-color: #900;
+}
+#colophon .social-links .item > a:hover > .fa,
+#colophon .social-links .item > a:active > .fa {
+	color: #fff;
+}
+
+
+/*	--------------------------------------------------
+		Extra Utility Classes
+*	----------------------------------------------- */
+.contain:before,
+.contain:after { content: " "; display: table; }
+.contain:after { clear: both; }
+
+.button {
+	margin: 10px 0;
+	padding: 10px 20px;
+	
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	border-radius: 5px;
+	border: 1px solid #a0a0a0;
+	background-color: #900;
+}
+.button:hover,
+.button:active {
+	border-color: #000;
+	background-color: #c00;
+	box-shadow: 0px 0px 5px #000;
+}

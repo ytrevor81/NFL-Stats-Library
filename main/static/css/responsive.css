@@ -1,0 +1,121 @@
+@charset "utf-8";
+/*	==================================================
+	FILE: responsive.css
+	DESC: Mobile Responsive Stylesheet
+ *	=============================================== */
+
+/*	--------------------------------------------------
+		Laptop: Up to 1600px
+*	----------------------------------------------- */
+@media screen and (max-width: 1600px) {
+	
+
+}
+
+
+/*	--------------------------------------------------
+		Laptop: 1201px and Above
+*	----------------------------------------------- */
+@media screen and (min-width: 1201px) {
+	#main .content .stats.row .col { margin: 0; padding: 0; }
+	#main .content .stats.row.first .col { margin-top: 10px; }
+	#main .content .stats.row:not(.first) .stats-table thead { display: none; }
+	#main .content .stats.row.even .col .stats-table td { background-color: #E8E8E8; }
+}
+
+/*	--------------------------------------------------
+		Laptop: Up to 1200px
+*	----------------------------------------------- */
+@media screen and (max-width: 1200px) {
+	#masthead .code { margin: 0; }
+	#masthead .nav-main { padding: 10px 0; }
+	#masthead .nav-main .menu .menu-item { font-size: 14px; }
+	
+	#main .content .stats.row {
+		margin-bottom: 10px;
+		padding-bottom: 20px;
+		border-bottom: 4px double #999;
+	}
+	#main .content .stats.row .col { padding: 0; margin: .5% 0; }
+	#main .content .stats.row .col .stats-table td { background-color: #E8E8E8; }
+}
+
+
+/*	--------------------------------------------------
+		Between Tablet & Laptop: >= 961px 
+*	----------------------------------------------- */
+@media screen and (min-width: 961px) {
+	#main .header  { padding: 50px 70px 0px; }
+	#main .content { padding: 0px 70px; }
+	#main .footer  { padding: 25px 75px; }
+
+	#main .header .page-titles  { float: left; }
+	#main .header .form-filters { float: right; }
+	
+	#main .content .stats-table .player-name { width: 200px; }
+}
+
+/*	--------------------------------------------------
+		Tablet Horizontal: Up to 960px
+*	----------------------------------------------- */
+@media screen and (max-width: 960px) {
+	#masthead .col.one-fifth { width: 250px; }
+	#masthead .col.last { padding: 20px 0; }
+	#masthead .col.middle { float: none; clear: both; width: 100%; padding: 0 0 10px; }
+
+	#main .header  { padding: 20px 35px 25px; }
+	#main .content { padding: 0px 35px; }
+	#main .footer  { padding: 25px 35px; }
+	
+	#main .header .form-filters select { margin: 0 10px 15px 0; }
+	#main .content .stats-table th,
+	#main .content .stats-table td { font-size: 14px; }	
+	#main .content .stats-table .player-name { width: 150px; }
+
+}
+
+
+/*	--------------------------------------------------
+		Tablet Vertical: Up to 768px
+*	----------------------------------------------- */
+@media screen and (max-width: 768px) {
+	#masthead { margin-bottom: 35px; }
+	#masthead .col.one-fifth { width: 48%; max-width: 250px; }
+	#masthead .col.first.one-fifth { float: left;  }
+	#masthead .col.last.one-fifth  { float: right; }
+}
+
+
+/*	--------------------------------------------------
+		Small Tablets: 481px to 600px
+*	----------------------------------------------- */
+@media screen and (max-width: 600px) {
+	#masthead { margin-bottom: 30px; }
+	#masthead .col.one-fifth { width: 100%; max-width: none; }
+	#masthead .col.last   { display: none; }
+	#masthead .col.first  { text-align: center; }
+	#masthead .logo > img { display: inline-block; width: 250px; height: auto; }
+	#masthead .nav-main .menu .menu-item > a { line-height: 28px; }
+}
+
+
+/*	--------------------------------------------------
+		Phone: Up to 480px
+*	----------------------------------------------- */
+@media screen and (max-width: 480px) {
+	#masthead { margin-bottom: 25px; }
+	#masthead .logo > img { display: inline-block; }
+}
+
+
+/*	--------------------------------------------------
+		Phone: Up to 360px
+*	----------------------------------------------- */
+@media screen and (max-width: 360px) {
+	.contain  { width: 100%; }
+	#masthead { margin-bottom: 20px; }
+	#main .header,
+	#main .footer,
+	#main .content { padding: 20px; }
+	#main .header .form-filters select { width: 100%; margin-right: 0; }
+}
