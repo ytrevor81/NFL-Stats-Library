@@ -10,7 +10,6 @@
     <title>NFL Stats Library</title>
     <meta name="description" content="A Django web app that allows you to browse and search NFL player and team stats up until the 2018 season.">
 
-    <link href="{% static 'style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Browser & Touch Identity Icons -->
@@ -31,34 +30,43 @@
   </head>
   <body>
     <header id="masthead">
-      <div class="col one-fifth first">
-        <a class="logo" href="/">
-          <img src="{static 'images/logo.png'}" alt="Logo | NFL Stats Library">
-        </a>
-      </div>
-      <div class="col one-fifth last tright">
-        <a class="button code" target="_blank" href="https://github.com/ytrevor81/NFL-Stats-Library">My Code</a>
-      </div>
-      <div class="col three-fifth middle">
-        <nav class="nav-main">
-          <ul class="menu">
-            <li class="menu-item curr-page"><a href="/">Home</a></li>
-            <li class="separator"> | </li>
-            <li class="menu-item"><a href="/teams">Teams</a></li>
-            <li class="separator"> | </li>
-            <li class="menu-item"><a href="/players">Players</a></li>
-            <li class="separator"> | </li>
-            <li class="menu-item"><a href="/season-stats">Season Stats</a></li>
-            <li class="separator"> | </li>
-            <li class="menu-item"><a href="/season-leaders">Season Leaders</a></li>
-          </ul>
-        </nav>
+      <div class="grid row contain">
+
+        <!-- Column - Left: Logo -->
+        <div class="col one-fifth first">
+          <a class="logo" href="/">
+            <img src="{% static 'images/logo.PNG' %}" alt="Logo | NFL Stats Library">
+          </a>
+        </div>
+
+        <!-- Column - Right: Button -->
+        <div class="col one-fifth last tright">
+          <a class="button code" target="_blank" href="https://github.com/ytrevor81/NFL-Stats-Library">My Code</a>
+        </div>
+
+        <!-- Column - Middle: Main Menu -->
+        <div class="col three-fifth middle">
+          <nav class="nav-main">
+            <ul class="menu">
+              <li class="menu-item"><a href="/">Home</a></li>
+              <li class="separator"> | </li>
+              <li class="menu-item"><a href="/teams">Teams</a></li>
+              <li class="separator"> | </li>
+              <li class="menu-item"><a href="/players">Players</a></li>
+              <li class="separator"> | </li>
+              <li class="menu-item"><a href="/season-stats">Season Stats</a></li>
+              <li class="separator"> | </li>
+              <li class="menu-item"><a href="/season-leaders">Season Leaders</a></li>
+            </ul>
+          </nav>
+        </div>
+
       </div>
     </header>
-    <div class='container'>
+    <main id="main" class="contain">
       {% block content %}
       {% endblock %}
-    </div>
+    </main>
     <footer id="colophon">
   		<div class="contain">
   			<ul class="social-links">
