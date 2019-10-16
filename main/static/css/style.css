@@ -9,7 +9,6 @@
 *	----------------------------------------------- */
 html { background-color: #696969; }
 body { background-color: #d5d5d5; }
-
 body {
 	font-size: 16px;
 	font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -32,37 +31,39 @@ body {
 	box-shadow: 0 5px 15px rgba(0,0,0,.6);
 }
 .contain {
-	max-width: 1600px;
+	width: 90%;
 	margin: 0 auto;
+	max-width: 1600px;
 }
 
 
 /*	--------------------------------------------------
-		HEADER: Elements
+		HEADER: Areas & Main Elements
 *	----------------------------------------------- */
-#masthead .logo {
-	float: left;
-	margin-right: 25px;
-}
-#masthead .button.code {
-	float:right;
-}
-#masthead .nav-main {
-	float: left;
-	padding: 20px 0;
-}
+#masthead .col { margin: 0; padding-top: 3px; }
+#masthead .col.first { margin-right: 25px; display: grid; grid-template-columns: 28% 50% 24%; align-items: center;}
+
+
+#masthead .logo { display: block; }
+#masthead .code { display: inline-block; margin: 10px 0; }
+#masthead .logo > img { display: block; width: 270px; height: 60px; }
+
+#masthead .nav-main { padding: 20px 0; }
 
 
 /*	--------------------------------------------------
 		HEADER: Main Menu Elements
 *	----------------------------------------------- */
 #masthead .nav-main .menu {
+	display: block;
+	text-align: center;
 	list-style-type: none;
 	margin: 0; padding: 0;
 }
 #masthead .nav-main .menu .menu-item {
+	font-size: 16px;
 	line-height: 1;
-	display: inline;
+	display: inline-block;
 	padding: 0 5px 0 0;
 	border-right: 1px solid #fff;
 }
@@ -71,6 +72,7 @@ body {
 }
 #masthead .nav-main .menu .menu-item > a {
 	color: #fff;
+	display: block;
 	padding: 5px 10px;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -90,32 +92,21 @@ body {
 /*	--------------------------------------------------
 		MAIN Content: Sub-Containers
 *	----------------------------------------------- */
-#main .header {
-	padding: 50px 75px 35px;
-	background-image: linear-gradient(lightgrey, white);
-}
-#main .content {
-	min-height: 600px;
-	padding: 0px 75px;
-}
-#main .footer  {
-	padding: 25px 75px;
-}
+#main .header  { background-image: linear-gradient(#CCC, #FFF); }
+#main .content { min-height: 600px; }
+#main .footer  { border-top: 1px solid #696969; }
 
 
 /*	--------------------------------------------------
 		MAIN Content: Header Elemets
 *	----------------------------------------------- */
-#main .header .page-titles  { float: left; }
-#main .header .stat-filters { float: right; }
-
 #main .header .page-titles .main-title {
 	margin: 0; padding: 0;
 	text-transform: uppercase;
 	color: #000; font-size: 28px; line-height: 1.25;
 }
 #main .header .page-titles .sub-title {
-	margin: 0; padding: 0;
+	margin: 0 0 25px; padding: 0;
 	text-transform: uppercase;
 	color: #c00; font-size: 24px; line-height: 1.25;
 }
@@ -124,7 +115,7 @@ body {
 /*	--------------------------------------------------
 		MAIN Content: Content Elemets
 *	----------------------------------------------- */
-#main .content .stats-table-header {
+#main .content .stats-area-header {
 	margin: 0;
 	padding: 10px 0;
 	background-color: #c00;
@@ -132,6 +123,15 @@ body {
 	font-size: 20px; line-height: 1;
 	text-align: center; text-transform: uppercase;
 }
+
+
+/*	--------------------------------------------------
+		MAIN Content: Stats Tables
+*	----------------------------------------------- */
+#main .content .stats-table { width: 100%; }
+#main .content .stats-table th,
+#main .content .stats-table td { padding: 10px 0; text-align: center; }
+#main .content .stats-table th { text-transform: uppercase; }
 
 
 /*	--------------------------------------------------
@@ -175,14 +175,20 @@ body {
 form select {
 	cursor: pointer;
 	padding-left: 5px;
-	margin-right: 15px;
+	margin: 0 15px 15px 0;
 	height: 35px; width: 125px;
-	background-color: #D3D3D3;
+	color: #fff; background-color: #4B4B4B;
 	border: 1px solid gray; border-radius: 3px;
 }
 form select:hover,
-form select:active { background-color: #f0f0f0; }
+form select:active {
+	color: #000;
+	background-color: #f0f0f0;
+}
 
+#main .header .form-filters select {
+	margin: 0 15px 15px 0;
+}
 
 
 /*	--------------------------------------------------
@@ -218,16 +224,21 @@ form select:active { background-color: #f0f0f0; }
 
 
 /*	--------------------------------------------------
-		Extra Utility Classes
+		Global Overrides: Utility Classes
 *	----------------------------------------------- */
-.contain:before,
-.contain:after { content: " "; display: table; }
-.contain:after { clear: both; }
+/* Block & Text Alignment */
+.fleft   { float: left; }         /* Block Float Left   */
+.fright  { float: right; }        /* Block Float Right  */
+.bcenter { margin: 0 auto; }      /* Block Align Center */
 
+.tleft   { text-align: left; }    /* Text Align Left    */
+.tright  { text-align: right; }   /* Text Align Right   */
+.tcenter { text-align: center; }  /* Text Align Center  */
+
+/* Global Button Base Style */
 .button {
-	margin: 10px 0;
 	padding: 10px 20px;
-	
+
 	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -242,3 +253,15 @@ form select:active { background-color: #f0f0f0; }
 	background-color: #c00;
 	box-shadow: 0px 0px 5px #000;
 }
+
+/* Button Color Mods */
+.button.gray,
+.button.grey  { color:#fff; background-color: #999; }
+.button.dark  { color:#fff; background-color: #333; }
+.button.light { color:#333; background-color: #fff; }
+
+.button.gray:hover, .button.gray:active,
+.button.grey:hover, .button.grey:active,
+.button.dark:hover, .button.dark:active,
+.button.dark:hover, .button.dark:active,
+.button.light:hover, .button.light:active { color: #fff; background-color: #000; }

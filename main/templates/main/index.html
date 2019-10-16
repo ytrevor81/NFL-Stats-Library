@@ -34,31 +34,37 @@
       <div class="grid row contain">
 
         <!-- Column - Left: Logo -->
-        <div class="col one-fifth first">
+        <div class="col first">
           <a class="logo" href="/">
             <img src="{% static 'images/logo.PNG' %}" alt="Logo | NFL Stats Library">
           </a>
+          <div class="col middle">
+            <nav class="nav-main">
+              <ul class="menu">
+                <li class="menu-item"><a href="/">Home</a></li>
+                <li class="menu-item"><a href="/teams">Teams</a></li>
+                <li class="menu-item"><a href="/players">Players</a></li>
+                <li class="menu-item"><a href="/season-leaders">Season Leaders</a></li>
+                <li class="menu-item"><a href="/hof">HOF</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col last">
+            <a class="button code" target="_blank" href="https://github.com/ytrevor81/NFL-Stats-Library">My Code</a>
+            <div class="burger">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+            </div>
+          </div>
         </div>
 
         <!-- Column - Right: Button -->
-        <div class="col one-fifth last tright">
-          <a class="button code" target="_blank" href="https://github.com/ytrevor81/NFL-Stats-Library">My Code</a>
-        </div>
+
 
         <!-- Column - Middle: Main Menu -->
-        <div class="col three-fifth middle">
-          <nav class="nav-main">
-            <ul class="menu">
-              <li class="menu-item"><a href="/">Home</a></li>
-              <li class="menu-item"><a href="/teams">Teams</a></li>
-              <li class="menu-item"><a href="/players">Players</a></li>
-              <li class="menu-item"><a href="/season-leaders">Season Leaders</a></li>
-              <li class="menu-item"><a href="/hof">HOF</a></li>
-            </ul>
-          </nav>
-        </div>
-
       </div>
+
     </header>
     <main id="main" class="contain">
       {% block content %}
