@@ -41,14 +41,14 @@ body {
 		HEADER: Areas & Main Elements
 *	----------------------------------------------- */
 #masthead .col { margin: 0; padding-top: 3px; }
-#masthead .col.first { margin-right: 25px; display: grid; grid-template-columns: 28% 50% 24%; align-items: center;}
-
-
-#masthead .logo { display: block; }
+#masthead .col.first { margin-right: 25px; display: grid; grid-template-columns: 28% 71%; align-items: center;}
+#masthead .col.middle {display: grid; align-items: center; grid-template-columns: 60% 44%;}
+#masthead .col.last { display: flex; justify-content: flex-end;}
 #masthead .code { display: inline-block; margin: 10px 0; }
 #masthead .logo > img { display: block; width: 270px; height: 60px; }
-
 #masthead .nav-main { padding: 20px 0; }
+#masthead .burger {display: none;}
+#masthead .burger div {float: right; background-color: #fff; height: 3px; width: 25px; margin: 5px;}
 
 
 /*	--------------------------------------------------
@@ -76,6 +76,7 @@ body {
 	padding: 5px 10px;
 	text-decoration: none;
 	text-transform: uppercase;
+	font-weight: bold;
 }
 #masthead .nav-main .menu .menu-item > a:not(.curr-page):hover,
 #masthead .nav-main .menu .menu-item > a:not(.curr-page):active {
@@ -265,3 +266,14 @@ form select:active {
 .button.dark:hover, .button.dark:active,
 .button.dark:hover, .button.dark:active,
 .button.light:hover, .button.light:active { color: #fff; background-color: #000; }
+
+/* Screen sizes */
+@media screen and (max-width: 1125px) {
+	#masthead .col.first { display: grid; grid-template-columns: 98% 0% }
+	#masthead .col.middle { display: none;}
+	#masthead .burger { display: grid; grid-template-rows: 12% 12% 12%; grid-gap: 3px; margin-top: 10px;}
+}
+
+@media screen and (max-width: 450px) {
+	#masthead .logo img { height: 45px; width: 200px;}
+}
