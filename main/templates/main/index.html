@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css">
 
   </head>
   <body>
@@ -83,10 +82,10 @@
   	</footer>
 
     <!-- JS/jQuery Scripts -->
-    <script src="static/js/modernizr-3.7.1.min.js"></script>
-    <script src="static/js/jquery-3.4.1.min.js"></script>
-    <script src="static/js/plugins.js"></script>
-    <script src="static/js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/modernizr-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+
 
     <!-- Google Analytics -->
     <script>

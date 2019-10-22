@@ -44,10 +44,10 @@ body {
 #masthead .col.first { margin-right: 25px; display: grid; grid-template-columns: 28% 71%; align-items: center;}
 #masthead .col.middle {display: grid; align-items: center; grid-template-columns: 60% 44%;}
 #masthead .col.last { display: flex; justify-content: flex-end;}
-#masthead .code { display: inline-block; margin: 10px 0; }
+#masthead .code { display: inline-block; margin-bottom: 10px;}
 #masthead .logo > img { display: block; width: 270px; height: 60px; }
 #masthead .nav-main { padding: 20px 0; }
-#masthead .burger {display: none;}
+#masthead .burger {display: none; cursor: pointer;}
 #masthead .burger div {float: right; background-color: #fff; height: 3px; width: 25px; margin: 5px;}
 
 
@@ -78,15 +78,11 @@ body {
 	text-transform: uppercase;
 	font-weight: bold;
 }
-#masthead .nav-main .menu .menu-item > a:not(.curr-page):hover,
-#masthead .nav-main .menu .menu-item > a:not(.curr-page):active {
-	color: #c00;
-	background-color: #fff;
-}
-#masthead .nav-main .menu .menu-item.curr-page > a {
-	font-weight: bold;
-	background-color: #191919;
-}
+
+#masthead .nav-main .menu .menu-item > a:hover { color: lightgrey; }
+#masthead .nav-main .menu .menu-item > a:active { text-decoration: underline; }
+
+
 
 
 
@@ -217,10 +213,12 @@ form select:active {
 #colophon .social-links .item > a:hover,
 #colophon .social-links .item > a:active {
 	background-color: #900;
+	transition: 0.3s ease;
 }
 #colophon .social-links .item > a:hover > .fa,
 #colophon .social-links .item > a:active > .fa {
 	color: #fff;
+	transition: 0.3s ease;
 }
 
 
@@ -253,6 +251,7 @@ form select:active {
 	border-color: #000;
 	background-color: #c00;
 	box-shadow: 0px 0px 5px #000;
+	transition: 0.3s ease;
 }
 
 /* Button Color Mods */
@@ -267,13 +266,94 @@ form select:active {
 .button.dark:hover, .button.dark:active,
 .button.light:hover, .button.light:active { color: #fff; background-color: #000; }
 
-/* Screen sizes */
+/* Responsiveness to Screen Sizes */
+
 @media screen and (max-width: 1125px) {
+	body { overflow-x: hidden; }
 	#masthead .col.first { display: grid; grid-template-columns: 98% 0% }
-	#masthead .col.middle { display: none;}
 	#masthead .burger { display: grid; grid-template-rows: 12% 12% 12%; grid-gap: 3px; margin-top: 10px;}
+	#masthead .col.middle { position: absolute;
+													right: 0px;
+													height: 92vh;
+													top: 8vh;
+													background-color: #4B4B4B;
+													display: flex;
+													flex-direction: column;
+													align-items: center;
+													width: 25%;
+													transform: translateX(100%);
+													transition: transform 0.5s ease-in;
+
+													}
+	#masthead .nav-main .menu { display: grid;
+														  grid-template-rows: 10% 10% 10% 10% 10%;
+														  grid-gap: 60px;
+														  text-align: center;
+														  list-style-type: none;
+														  margin-top: 40px;
+														 	padding: 0;}
+	#masthead .nav-main .menu .menu-item { border: none; }
+	#masthead .code { display: none; }
+	#masthead .col.middle.approved { transform: translateX(0%); }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 768px) {
 	#masthead .logo img { height: 45px; width: 200px;}
+	#masthead .col.middle { width: 35%;}
 }
+
+@media screen and (max-width: 500px) {
+	#masthead .logo img { height: 40px; width: 190px;}
+	#masthead .col.middle { width: 50%;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/
