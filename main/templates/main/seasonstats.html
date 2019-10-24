@@ -1,22 +1,21 @@
 {% extends "main/index.html" %}
 
 {% block content %}
-
-<div class="seasons-query">
-  <div class="seasons-tools">
-    <h1>Season Stats</h1>
-      <form action="." method="GET">
-          {{ team_menu }}
-          {{ category_menu }}
-          {{ year_menu }}
-          {{ status_menu }}
-          <button class="season-leaders-btn" type="submit">Search</button>
-      </form>
-  </div>
-</div>
+<header class="row header">
+  <hgroup class="page-titles">
+    <h1 class="main-title">Season Stats</h1>
+  </hgroup>
+  <form action="." class="form-filters" method="GET">
+    {{ team_menu }}
+    {{ category_menu }}
+    {{ year_menu }}
+    {{ status_menu }}
+    <button class="button code" type="submit">Search</button>
+  </form>
+</header>
 
 {% if category == None %}
-  <div class="season-stats-table-container">
+<div class="season-stats-table-container">
     <div class="season-stats-titles"> <!--1-->
       <h1>Passing</h1>
     </div>
@@ -88,7 +87,7 @@
     </table>
   </div>
 
-  <div class="pagination">
+  <footer class="pagination">
     <span class="step-links">
         <span class="current">
           {% for pc in pagecount %}
@@ -114,7 +113,7 @@
           {% endfor %}
         </span>
     </span>
-  </div>
+  </footer>
 
   {% elif category == "Passing" %}
   <div class="season-stats-table-container">

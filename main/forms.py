@@ -15,15 +15,15 @@ status_search = ['Active', 'Retired']
 
 
 class YearDropdown(forms.Form):
-    year = forms.ChoiceField(label="", choices=((str(x), x) for x in range(2018, 1959, -1)), widget=forms.Select(attrs={'class':'grey-dropdown'}))
+    year = forms.ChoiceField(label="", choices=((str(x), x) for x in range(2018, 1959, -1)), widget=forms.Select(attrs={'name':'year', 'id': 'sel-year'}))
 
 
 class TeamDropdown(forms.Form):
-    team = forms.ChoiceField(label="", choices=((x, x) for x in teams), widget=forms.Select(attrs={'class':'grey-dropdown'}))
+    team = forms.ChoiceField(label="", choices=((x, x) for x in teams), widget=forms.Select(attrs={'name': 'team', 'id':'sel-team'}))
 
 
 class Categorydown(forms.Form):
-    category = forms.ChoiceField(label="", choices=((x, x) for x in categories), widget=forms.Select(attrs={'class':'grey-dropdown'}))
+    category = forms.ChoiceField(label="", choices=((x, x) for x in categories), widget=forms.Select(attrs={'name':'category', 'id':'sel_category'}))
 
 
 class PositionDropdown(forms.Form):
@@ -31,7 +31,7 @@ class PositionDropdown(forms.Form):
 
 
 class StatusDropdown(forms.Form):
-    status = forms.ChoiceField(label="", choices=((x, x) for x in status), widget=forms.Select(attrs={'class':'grey-dropdown'}))
+    status = forms.ChoiceField(label="", choices=((x, x) for x in status), widget=forms.Select(attrs={'name':'status', 'id':'sel_status'}))
 
 
 class StatusSearchDropdown(forms.Form):
