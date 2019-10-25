@@ -1,6 +1,7 @@
 {% extends "main/index.html" %}
 
 {% block content %}
+<!--
 <div class="season-leaders-query">
   <div class="season-leaders-tools">
     <h1>Season Leaders</h1>
@@ -10,6 +11,16 @@
       </form>
   </div>
 </div>
+-->
+<header class="row header">
+  <hgroup class="page-titles">
+    <h1 class="main-title">Season Leaders</h1>
+  </hgroup>
+  <form action="." class="form-filters" method="GET">
+    {{ form }}
+    <button class="button code" type="submit">Search</button>
+  </form>
+</header>
 
 <div class="six-tables-container">
   <div class="season-leaders-table-container">
@@ -24,17 +35,14 @@
     <table class="season-leaders-table">
       <thead class="season-leaders-head">
         <tr>
-          <th class="rk">RK</th>
-          <th class="player">Player</th>
-          <th class="team">Team</th>
-          <th class="stat">Yds</th>
+          <th>RK</th><th>Player</th><th>Team</th><th>Yds</th>
         </tr>
       </thead>
       <tbody class="season-leaders-body">
       {% for name, query in passers %}
         {% for passer in query %}
         <tr>
-          <td class="rk">{{ c1 }}</td>
+          <td>{{ c1 }}</td>
           {% if passer.team_short == None %}
             <td><a class="player-link" href="/retiredprofile/?player={{ passer.player_id }}">{{ name }}</a></td>
           {% else %}
@@ -49,7 +57,7 @@
           {% else %}
             <td><a class="team-link" href="/teams/{{ passer.team_short }}">{{ passer.team_short }}</a></td>
           {% endif %}
-          <td class="stat">{{ passer.yards }}</td>
+          <td>{{ passer.yards }}</td>
         </tr>
         {% endfor %}
       {% endfor %}
@@ -69,17 +77,14 @@
     <table class="season-leaders-table">
       <thead class="season-leaders-head">
         <tr>
-          <th class="rk">RK</th>
-          <th class="player">Player</th>
-          <th class="team">Team</th>
-          <th class="stat">Yds</th>
+          <th>RK</th><th>Player</th><th>Team</th><th>Yds</th>
         </tr>
       </thead>
       <tbody class="season-leaders-body">
         {% for name, query in rushers %}
           {% for rusher in query %}
           <tr>
-            <td class="rk">{{ c2 }}</td>
+            <td>{{ c2 }}</td>
             {% if rusher.team_short == None %}
               <td><a class="player-link" href="/retiredprofile/?player={{ rusher.player_id }}">{{ name }}</a></td>
             {% else %}
@@ -94,7 +99,7 @@
             {% else %}
               <td><a class="team-link" href="/teams/{{ rusher.team_short }}">{{ rusher.team_short }}</a></td>
             {% endif %}
-            <td class="stat">{{ rusher.yards }}</td>
+            <td>{{ rusher.yards }}</td>
           </tr>
           {% endfor %}
         {% endfor %}
@@ -114,17 +119,14 @@
     <table class="season-leaders-table">
       <thead class="season-leaders-head">
         <tr>
-          <th class="rk">RK</th>
-          <th class="player">Player</th>
-          <th class="team">Team</th>
-          <th class="stat">Yds</th>
+          <th>RK</th><th>Player</th><th>Team</th><th>Yds</th>
         </tr>
       </thead>
       <tbody class="season-leaders-body">
         {% for name, query in receivers %}
           {% for receiver in query %}
           <tr>
-            <td class="rk">{{ c3 }}</td>
+            <td>{{ c3 }}</td>
             {% if receiver.team_short == None %}
               <td><a class="player-link" href="/retiredprofile/?player={{ receiver.player_id }}">{{ name }}</a></td>
             {% else %}
@@ -139,7 +141,7 @@
             {% else %}
               <td><a class="team-link" href="/teams/{{ receiver.team_short }}">{{ receiver.team_short }}</a></td>
             {% endif %}
-            <td class="stat">{{ receiver.yards }}</td>
+            <td>{{ receiver.yards }}</td>
           </tr>
           {% endfor %}
         {% endfor %}
@@ -159,17 +161,14 @@
     <table class="season-leaders-table">
       <thead class="season-leaders-head">
         <tr>
-          <th class="rk">RK</th>
-          <th class="player">Player</th>
-          <th class="team">Team</th>
-          <th class="stat">Tkl</th>
+          <th>RK</th><th>Player</th><th>Team</th><th>Tkl</th>
         </tr>
       </thead>
       <tbody class="season-leaders-body">
         {% for name, query in tacklers %}
           {% for tackler in query %}
           <tr>
-            <td class="rk">{{ c4 }}</td>
+            <td>{{ c4 }}</td>
             {% if tackler.team_short == None %}
               <td><a class="player-link" href="/retiredprofile/?player={{ tackler.player_id }}">{{ name }}</a></td>
             {% else %}
@@ -184,7 +183,7 @@
             {% else %}
               <td><a class="team-link" href="/teams/{{ tackler.team_short }}">{{ tackler.team_short }}</a></td>
             {% endif %}
-            <td class="stat">{{ tackler.total_tkl }}</td>
+            <td>{{ tackler.total_tkl }}</td>
           </tr>
           {% endfor %}
         {% endfor %}
@@ -204,17 +203,14 @@
     <table class="season-leaders-table">
       <thead class="season-leaders-head">
         <tr>
-          <th class="rk">RK</th>
-          <th class="player">Player</th>
-          <th class="team">Team</th>
-          <th class="stat">Sck</th>
+          <th>RK</th><th>Player</th><th>Team</th><th>Sck</th>
         </tr>
       </thead>
       <tbody class="season-leaders-body">
         {% for name, query in sackers %}
           {% for sacker in query %}
           <tr>
-            <td class="rk">{{ c5 }}</td>
+            <td>{{ c5 }}</td>
             {% if sacker.team_short == None %}
               <td><a class="player-link" href="/retiredprofile/?player={{ sacker.player_id }}">{{ name }}</a></td>
             {% else %}
@@ -229,7 +225,7 @@
             {% else %}
               <td><a class="team-link" href="/teams/{{ sacker.team_short }}">{{ sacker.team_short }}</a></td>
             {% endif %}
-            <td class="stat">{{ sacker.sck }}</td>
+            <td>{{ sacker.sck }}</td>
           </tr>
           {% endfor %}
         {% endfor %}
@@ -249,17 +245,14 @@
     <table class="season-leaders-table">
       <thead class="season-leaders-head">
         <tr>
-          <th class="rk">RK</th>
-          <th class="player">Player</th>
-          <th class="team">Team</th>
-          <th class="stat">Int</th>
+          <th>RK</th><th>Player</th><th>Team</th><th>Int</th>
         </tr>
       </thead>
       <tbody class="season-leaders-body">
         {% for name, query in interceptors %}
           {% for interceptor in query %}
             <tr>
-              <td class="rk">{{ c6 }}</td>
+              <td>{{ c6 }}</td>
               {% if interceptor.team_short == None %}
                 <td><a class="player-link" href="/retiredprofile/?player={{ interceptor.player_id }}">{{ name }}</a></td>
               {% else %}
@@ -274,7 +267,7 @@
               {% else %}
                 <td><a class="team-link" href="/teams/{{ interceptor.team_short }}">{{ interceptor.team_short }}</a></td>
               {% endif %}
-              <td class="stat">{{ interceptor.ints }}</td>
+              <td>{{ interceptor.ints }}</td>
             </tr>
           {% endfor %}
         {% endfor %}
