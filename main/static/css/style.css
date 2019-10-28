@@ -59,7 +59,8 @@ body {
 	display: block;
 	text-align: center;
 	list-style-type: none;
-	margin: 0; padding: 0;
+	margin: 0;
+	padding: 0;
 }
 #masthead .nav-main .menu .menu-item {
 	font-size: 16px;
@@ -139,7 +140,10 @@ body {
 
 /* Season Leaders Tables */
 
-#main .six-tables-container { margin: 3% 0 3% 3%; display: grid; grid-template-columns: 30% 30% 30%; grid-gap: 3%; }
+#main .six-tables-container { margin: 3% 0 3% 3%;
+															display: grid;
+															grid-template-columns: 30% 30% 30%;
+															grid-gap: 3%; }
 #main .six-tables-container .season-leaders-table-container { padding-bottom: 50px; }
 #main .six-tables-container .season-leaders-table-container .season-leaders-titles {	display: flex;
 																																										  color: #F5F5F5;
@@ -169,6 +173,52 @@ body {
 #main .season-leaders-table .season-leaders-body tr td { padding-top: 3%; padding-bottom: 3%; text-align: center; }
 #main .season-leaders-table .season-leaders-body tr:nth-child(even) { background-color: #E8E8E8; }
 
+/* ---------------------------------------------------
+Team Page
+-----------------------------------------------------*/
+
+/* Containers and links */
+
+#main .teams-page-container {
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+  margin: 3%;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#main .teams-page-container .afc-container { text-align: center; margin-top: 10%; }
+#main .teams-page-container .teams-page-separator {
+  display: flex;
+  justify-content: center;
+  margin-top: 50%;
+  margin-bottom: 50%;
+}
+#main .teams-page-container .teams-page-separator div { height: 100%; border-right: 2px dotted lightgrey; }
+#main .teams-page-container .nfc-container { text-align: center; margin-top: 10%; margin-bottom: 10%; }
+
+#main .teams-page-container .division { padding-top: 8%; display: inline-block; }
+#main .teams-page-container .division h2 { color: grey; }
+#main .teams-page-container .division .two-team-division { display: grid; grid-template-columns: 55% 55%; justify-content: center; align-items: center; }
+#main .teams-page-container .division .team-in-div {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 45px 20px 30px;
+}
+
+#main .teams-page-container .teams-page-link { font-size: 16px; text-decoration: none; color: #1100F9; }
+#main .teams-page-container .teams-page-link:hover { text-decoration: none; color:#C50505; }
+#main .teams-page-container .teams-page-link:active { text-decoration: underline; }
+
+/* Images */
+
+#main .teams-page-container .afc-container .afc { height: 100px; width: 120px; }
+#main .teams-page-container .nfc-container .nfc { height: 100px; width: 120px; }
+#main .teams-page-container .normal { height: 90px; width: 145px; margin-bottom: 10px; }
+#main .teams-page-container .less-width { height: 85px; width: 105px; margin-bottom: 10px; }
+#main .teams-page-container .short-wide { height: 85px; width: 150px; margin-bottom: 10px; }
+
 /*	--------------------------------------------------
 		MAIN Content: Footer Elemets
 *	----------------------------------------------- */
@@ -178,6 +228,7 @@ body {
   justify-content: flex-end;
   text-align: center;
   margin-right: 4%;
+	margin-bottom: 3%;
   padding-top: 1%;
   font-size: 17px;
   font-weight: bold;
@@ -313,7 +364,9 @@ form select:active {
 .button.dark:hover, .button.dark:active,
 .button.light:hover, .button.light:active { color: #fff; background-color: #000; }
 
-/* Responsiveness to Screen Sizes */
+/* ----------------------------------------
+Responsiveness to Screen Sizes
+-------------------------------------------*/
 
 @media screen and (max-width: 1125px) {
 	body { overflow-x: hidden; }
@@ -342,6 +395,8 @@ form select:active {
 	#masthead .nav-main .menu .menu-item { border: none; }
 	#masthead .code { display: none; }
 	#masthead .col.middle.approved { transform: translateX(0%); }
+
+	#main .teams-page-container .division .two-team-division { display: inline-table; }
 }
 
 @media screen and (max-width: 995px) {
@@ -361,11 +416,15 @@ form select:active {
 	#main .six-tables-container { grid-template-columns: 100%; }
 	#main .six-tables-container .season-leaders-table-container { padding-bottom: 25px; }
 
+	#main .teams-page-container { display: inline-table; }
+		#main .teams-page-container .teams-page-separator div { display: none; }
+
 @media screen and (max-width: 500px) {
 	#masthead .logo img { height: 40px; width: 190px;}
 	#masthead .col.middle { width: 50%;}
 
 	#main .six-tables-container .season-leaders-table-container .season-leaders-titles h1 { font-size: 15px; }
+
 }
 
 
@@ -1027,113 +1086,6 @@ font-weight: lighter;
 
 .step-links {
   padding-bottom: 20px;
-}
-
-/* Teams search page */
-
-.teams-page-container {
-  display: grid;
-  grid-template-columns: 45% 10% 45%;
-  margin: 6%;
-  font-weight: bold;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-.afc-container {
-  text-align: center;
-  margin-top: 10%;
-}
-
-.nfc-container {
-  text-align: center;
-  margin-top: 10%;
-  margin-bottom: 10%;
-}
-
-.afc {
-  height: 80px;
-  width: 100px;
-}
-
-.nfc {
-  height: 80px;
-  width: 100px;
-}
-
-.division {
-  padding-top: 8%;
-  display: inline-block;
-}
-
-.division h2 {
-  font-size: 18px;
-  color: grey;
-}
-
-.normal {
-  height: 90px;
-  width: 145px;
-  margin-bottom: 10px;
-}
-
-.less-width {
-  height: 90px;
-  width: 105px;
-  margin-bottom: 10px;
-}
-
-.short-wide {
-  height: 75px;
-  width: 150px;
-  margin-bottom: 10px;
-}
-
-.two-team-division {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-}
-
-.team-in-div {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 45px 20px 30px;
-}
-
-.teams-page-link {
-  text-decoration: none;
-  color: #1100F9;
-}
-
-.teams-page-link-NO-TB {
-  text-decoration: none;
-  color: #1100F9;
-  font-size: 14px;
-}
-
-.teams-page-link:hover {
-  text-decoration: none;
-  color:#C50505;
-}
-
-.teams-page-link-NO-TB:hover {
-  text-decoration: none;
-  color:#C50505;
-}
-
-.teams-page-separator {
-  display: flex;
-  justify-content: center;
-  margin-top: 50%;
-  margin-bottom: 50%;
-  margin-right: 10%;
-}
-
-.teams-page-separator div {
-  height: 100%;
-  border-right: 2px dotted lightgrey;
 }
 
 /* Teams player pages */
