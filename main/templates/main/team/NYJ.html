@@ -6,7 +6,7 @@
 <div class="team-page-container">
   <div class="team-page-trio">
     <div class="team-page-img">
-      <img class="NYJ-team" src="{% static 'images/teams/NYJ.png' %}">
+      <img class="NYJ-team" src="{% static 'images/NYJ.PNG' %}">
     </div>
     <div class="team-page-info">
       <h2 class="team-name">New York Jets</h2>
@@ -191,8 +191,8 @@
     <div class="NYJ-team-titles">
       <h1>Defense</h1>
     </div>
-    <table class="profile-stats-table" border="0">
-      <thead class="profile-stats-head">
+    <table class="team-table" border="0">
+      <thead class="team-head">
         <tr>
           <th class="season">Name</th>
           <th class="team">Num</th>
@@ -204,7 +204,7 @@
           <th class="att-g">College</th>
         </tr>
       </thead>
-      <tbody class="profile-stats-body">
+      <tbody class="team-body">
         {% for name, d in nts %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
@@ -412,8 +412,8 @@
     <div class="NYJ-team-titles">
       <h1>Special Teams</h1>
     </div>
-    <table class="profile-stats-table" border="0">
-      <thead class="profile-stats-head">
+    <table class="team-table" border="0">
+      <thead class="team-head">
         <tr>
           <th class="season">Name</th>
           <th class="team">Num</th>
@@ -425,7 +425,7 @@
           <th class="att-g">College</th>
         </tr>
       </thead>
-      <tbody class="profile-stats-body">
+      <tbody class="team-body">
         {% for name, s in ks %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ s.player_id }}">{{ name }}</a></td>

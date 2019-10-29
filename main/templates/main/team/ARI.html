@@ -6,7 +6,7 @@
 <div class="team-page-container">
   <div class="team-page-trio">
     <div class="team-page-img">
-      <img class="ARI-team" src="{% static 'images/teams/ARI.png' %}">
+      <img class="ARI-team" src="{% static 'images/ARI.PNG' %}">
     </div>
     <div class="team-page-info">
       <h2 class="team-name">Arizona Cardinals</h2>
@@ -21,31 +21,25 @@
     <table class="team-table" border="0">
       <thead class="team-head">
         <tr>
-          <th class="season">Name</th>
-          <th class="team">Num</th>
-          <th class="games">Pos</th>
-          <th class="comp">Age</th>
-          <th class="att">Ht</th>
-          <th class="att">Wt</th>
-          <th class="pct">Exp</th>
-          <th class="att-g">College</th>
+          <th>Name</th><th>Num</th><th>Pos</th><th>Age</th>
+          <th>Ht</th><th>Wt</th><th>Exp</th><th>College</th>
         </tr>
       </thead>
       <tbody class="team-body">
         {% for name, o in qbs %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ o.player_id }}">{{ name }}</a></td>
-            <td class="pass-pos">{{ o.number }}</td>
-            <td class="comp">{{ o.position }}</td>
+            <td>{{ o.number }}</td>
+            <td>{{ o.position }}</td>
             {% if o.age == "" %}
-              <td class="att">--</td>
+              <td>--</td>
             {% else %}
-              <td class="att">{{ o.age }}</td>
+              <td>{{ o.age }}</td>
             {% endif %}
-            <td class="pct">{{ o.height }} in</td>
-            <td class="att-g">{{ o.weight }} lbs</td>
-            <td class="pass-yds">{{ o.experience }}</td>
-            <td class="avg">{{ o.college }}</td>
+            <td>{{ o.height }} in</td>
+            <td>{{ o.weight }} lbs</td>
+            <td>{{ o.experience }}</td>
+            <td>{{ o.college }}</td>
           </tr>
         {% endfor %}
         {% for name, o in rbs %}
@@ -168,11 +162,11 @@
   <br>
   <br>
   <div class="team-table-container">
-    <div class="profile-stats-titles"> <!--1-->
-      <h1>Defense</h1>
-    </div>
-    <table class="profile-stats-table" border="0">
-      <thead class="profile-stats-head">
+      <div class="team-titles">
+        <h1>Defense</h1>
+      </div>
+      <table class="team-table" border="0">
+        <thead class="team-head">
         <tr>
           <th class="season">Name</th>
           <th class="team">Num</th>
@@ -184,7 +178,7 @@
           <th class="att-g">College</th>
         </tr>
       </thead>
-      <tbody class="profile-stats-body">
+      <tbody class="team-body">
         {% for name, d in nts %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
@@ -369,11 +363,11 @@
   <br>
   <br>
   <div class="team-table-container">
-    <div class="profile-stats-titles"> <!--1-->
+    <div class="team-titles">
       <h1>Special Teams</h1>
     </div>
-    <table class="profile-stats-table" border="0">
-      <thead class="profile-stats-head">
+    <table class="team-table" border="0">
+      <thead class="team-head">
         <tr>
           <th class="season">Name</th>
           <th class="team">Num</th>
@@ -385,7 +379,7 @@
           <th class="att-g">College</th>
         </tr>
       </thead>
-      <tbody class="profile-stats-body">
+      <tbody class="team-body">
         {% for name, s in ks %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ s.player_id }}">{{ name }}</a></td>

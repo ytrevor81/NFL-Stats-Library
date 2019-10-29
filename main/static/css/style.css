@@ -219,6 +219,207 @@ Team Page
 #main .teams-page-container .less-width { height: 85px; width: 105px; margin-bottom: 10px; }
 #main .teams-page-container .short-wide { height: 85px; width: 150px; margin-bottom: 10px; }
 
+/* 	------------------------------------------------
+		Individual Team Pages
+* ------------------------------------------------*/
+
+/* Teams player pages */
+
+#main .team-page-container { margin: 3%; }
+
+#main .team-page-container .team-page-trio {
+	  padding-top: 5%;
+	  padding-left: 5%;
+	  padding-bottom: 3%;
+	  display: flex;
+	  justify-content: flex-start;
+	  align-items: center;
+	  text-transform: uppercase;
+	  font-size: 18px;
+	}
+#main .team-page-container .team-page-trio .team-page-info { padding-left: 2%; margin-right: -5%; }
+#main .team-page-container .team-page-trio .team-page-info .team-name { font-size: 18px; margin-bottom: 3px; }
+#main .team-page-container .team-page-trio .team-page-info .division-name { font-size: 18px; color: grey; }
+
+#main .team-page-container .team-table-container { width: 90%; display: inline-block; box-sizing: border-box; margin-left: 5%; }
+#main .team-page-container .team-table-container .team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #C50505;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .BAL-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #3E005D;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .CAR-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #0054C2;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .CHI-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #C23500;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .CIN-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #FF5700;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .CLE-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #EC4100;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .DAL-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #00005D;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .DEN-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #0B0044;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .GB-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #002A03;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .IND-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #05159C;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .JAX-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #018BA1;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .NO-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #B48B39;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .NYJ-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #005B34;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .OAK-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: black;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .PHI-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #026046;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container .PIT-team-titles {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  color: #F5F5F5;
+	  background-color: #D6BA00;
+	  height: 35px;
+	  width: 100%;
+	  text-transform: uppercase;
+	}
+#main .team-page-container .team-table-container div h1 { font-size: 20px; }
+#main .team-page-container .team-table-container .team-table { width: 100%; font-size: 18px; }
+#main .team-page-container .team-table-container .team-table .team-head { text-transform: uppercase; }
+#main .team-page-container .team-table-container .team-table .team-head tr th { padding-top: 1%; }
+#main .team-page-container .team-table-container .team-table .team-body tr td { padding-top: 1%; padding-bottom: 1%; text-align: center; }
+#main .team-page-container .team-table-container .team-table .team-body tr:nth-child(even) { background-color: #E8E8E8; }
+
+	/* Images */
+
+#main .team-page-container .team-page-trio .team-page-img .ARI-team { height: 90px; width: 125px; }
+#main .team-page-container .team-page-trio .team-page-img .ATL-team { height: 100px; width: 110px; }
+#main .team-page-container .team-page-trio .team-page-img .BAL-team { height: 80px; width: 155px; }
+#main .team-page-container .team-page-trio .team-page-img .CAR-team { height: 90px; width: 140px; }
+#main .team-page-container .team-page-trio .team-page-img .IND-team { height: 90px; width: 90px; }
+#main .team-page-container .team-page-trio .team-page-img .NO-team { height: 100px; width: 85px; }
+#main .team-page-container .team-page-trio .team-page-img .NYJ-team { height: 85px; width: 150px; }
+#main .team-page-container .team-page-trio .team-page-img .SEA-team { height: 75px; width: 160px; }
+
 /*	--------------------------------------------------
 		MAIN Content: Footer Elemets
 *	----------------------------------------------- */
@@ -407,6 +608,7 @@ Responsiveness to Screen Sizes
 
 	#main .six-tables-container { margin: 3% 3% 3% 3%; grid-template-columns: 50% 50%; }
 
+	#main .team-page-container .team-table-container { display: table; padding-right: 3%; }
 }
 
 @media screen and (max-width: 780px) {
@@ -417,13 +619,19 @@ Responsiveness to Screen Sizes
 	#main .six-tables-container .season-leaders-table-container { padding-bottom: 25px; }
 
 	#main .teams-page-container { display: inline-table; }
-		#main .teams-page-container .teams-page-separator div { display: none; }
+	#main .teams-page-container .teams-page-separator div { display: none; }
+	#main .teams-page-container .nfc-container { margin-top: 0; margin-bottom: 0;}
 
 @media screen and (max-width: 500px) {
 	#masthead .logo img { height: 40px; width: 190px;}
 	#masthead .col.middle { width: 50%;}
 
 	#main .six-tables-container .season-leaders-table-container .season-leaders-titles h1 { font-size: 15px; }
+
+	#main .team-page-container .team-page-trio .team-page-info { padding-left: 5%; }
+	#main .team-page-container .team-page-trio .team-page-info .team-name { font-size: 16px; }
+	#main .team-page-container .team-page-trio .team-page-info .division-name { font-size: 16px; }
+
 
 }
 
@@ -1088,348 +1296,6 @@ font-weight: lighter;
   padding-bottom: 20px;
 }
 
-/* Teams player pages */
-
-.team-page-container {
-  margin: 6%;
-}
-
-.team-page-trio {
-  padding-top: 5%;
-  padding-left: 5%;
-  padding-bottom: 3%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  text-transform: uppercase;
-  font-size: 18px;
-}
-
-.ARI-team {
-  height: 90px;
-  width: 125px;
-}
-
-.ATL-team {
-  height: 100px;
-  width: 110px;
-}
-
-.BAL-team {
-  height: 80px;
-  width: 155px;
-}
-
-.CAR-team {
-  height: 90px;
-  width: 140px;
-}
-
-.IND-team {
-  height: 90px;
-  width: 90px;
-}
-
-.NO-team {
-  height: 100px;
-  width: 85px;
-}
-
-.NYJ-team {
-  height: 85px;
-  width: 150px;
-}
-
-.SEA-team {
-  height: 75px;
-  width: 160px;
-}
-
-
-.team-page-info {
-  padding-left: 2%;
-  margin-right: -5%;
-}
-
-.team-name {
-  font-size: 18px;
-  margin-bottom: 3px;
-}
-
-.division-name {
-  font-size: 18px;
-  color: grey;
-}
-
-.team-table-container {
-  width: 90%;
-  display: inline-block;
-  box-sizing: border-box;
-  margin-left: 5%;
-}
-
-.team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #C50505;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.team-titles h1 {
-  font-size: 20px;
-}
-
-.BAL-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #3E005D;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.BAL-team-titles h1 {
-  font-size: 20px;
-}
-
-.CAR-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #0054C2;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.CAR-team-titles h1 {
-  font-size: 20px;
-}
-
-.CHI-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #C23500;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.CHI-team-titles h1 {
-  font-size: 20px;
-}
-
-.CIN-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #FF5700;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.CIN-team-titles h1 {
-  font-size: 20px;
-}
-
-.CLE-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #EC4100;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.CLE-team-titles h1 {
-  font-size: 20px;
-}
-
-.DAL-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #00005D;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.DAL-team-titles h1 {
-  font-size: 20px;
-}
-
-.DEN-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #0B0044;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.DEN-team-titles h1 {
-  font-size: 20px;
-}
-
-.GB-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #002A03;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.GB-team-titles h1 {
-  font-size: 20px;
-}
-
-.IND-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #05159C;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.IND-team-titles h1 {
-  font-size: 20px;
-}
-
-.JAX-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #018BA1;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.JAX-team-titles h1 {
-  font-size: 20px;
-}
-
-.NO-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #B48B39;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.NO-team-titles h1 {
-  font-size: 20px;
-}
-
-.NYJ-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #005B34;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.NYJ-team-titles h1 {
-  font-size: 20px;
-}
-
-.OAK-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: black;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.OAK-team-titles h1 {
-  font-size: 20px;
-}
-
-.PHI-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #026046;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.PHI-team-titles h1 {
-  font-size: 20px;
-}
-
-.PIT-team-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #D6BA00;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.PIT-team-titles h1 {
-  font-size: 20px;
-}
-
-.team-table {
-  width: 100%;
-  font-size: 23px;
-}
-
-.team-head {
-  text-transform: uppercase;
-}
-
-.team-head tr th {
-  padding-top: 1%;
-}
-
-.team-body tr td {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  text-align: center;
-}
-
-.team-body tr:nth-child(even) {
-  background-color: #E8E8E8;
-}
 
 /* HOF page */
 

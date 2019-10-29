@@ -6,7 +6,7 @@
 <div class="team-page-container">
   <div class="team-page-trio">
     <div class="team-page-img">
-      <img class="ARI-team" src="{% static 'images/teams/HOU.png' %}">
+      <img class="ARI-team" src="{% static 'images/HOU.PNG' %}">
     </div>
     <div class="team-page-info">
       <h2 class="team-name">Houston Texans</h2>
@@ -172,11 +172,11 @@
   <br>
   <br>
   <div class="team-table-container">
-    <div class="profile-stats-titles"> <!--1-->
+    <div class="team-titles">
       <h1>Defense</h1>
     </div>
-    <table class="profile-stats-table" border="0">
-      <thead class="profile-stats-head">
+    <table class="team-table" border="0">
+      <thead class="team-head">
         <tr>
           <th class="season">Name</th>
           <th class="team">Num</th>
@@ -188,7 +188,7 @@
           <th class="att-g">College</th>
         </tr>
       </thead>
-      <tbody class="profile-stats-body">
+      <tbody class="team-body">
         {% for name, d in nts %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ d.player_id }}">{{ name }}</a></td>
@@ -373,11 +373,11 @@
   <br>
   <br>
   <div class="team-table-container">
-    <div class="profile-stats-titles"> <!--1-->
+    <div class="team-titles">
       <h1>Special Teams</h1>
     </div>
-    <table class="profile-stats-table" border="0">
-      <thead class="profile-stats-head">
+    <table class="team-table" border="0">
+      <thead class="team-head">
         <tr>
           <th class="season">Name</th>
           <th class="team">Num</th>
@@ -389,7 +389,7 @@
           <th class="att-g">College</th>
         </tr>
       </thead>
-      <tbody class="profile-stats-body">
+      <tbody class="team-body">
         {% for name, s in ks %}
           <tr>
             <td><a class="team-link" href="/profile/?player={{ s.player_id }}">{{ name }}</a></td>
