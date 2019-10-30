@@ -421,6 +421,54 @@ Team Page
 #main .team-page-container .team-page-trio .team-page-img .SEA-team { height: 75px; width: 160px; }
 
 /*	--------------------------------------------------
+		Player Search Page
+		--------------------------------------------------*/
+#main .search-players {
+		  border: 1px solid grey;
+		  font-size: 80%;
+		  border-radius: 5px;
+		  padding: 0.1em 0.5em;
+		  background: lightgrey;
+		  height: 35px;
+		  width: 125px;
+			margin-right: 2%;
+		}
+
+#main .playersearch-container {
+		  display: grid;
+		  grid-template-columns: 20% 20% 20% 20% 20%;
+		  margin-top: 3%;
+		  margin-right: 3%;
+		  margin-left: 3%;
+		  font-size: 18px;
+		}
+
+#main .playersearch-container .playersearch-box { padding-bottom: 20%; display: inline-block; text-align: center; }
+#main .playersearch-container .playersearch-box h5 { font-size: 18px; margin-bottom: -8%; }
+#main .playersearch-container .playersearch-box .info-box .search-pos-team { display: flex; justify-content: center; align-items: baseline; margin-bottom: -12%; }
+#main .playersearch-container .playersearch-box .info-box .search-pos-team .playersearch-pos::after {
+		content: "|";
+		font-size: 18px;
+		padding-right: 4px;
+		padding-left: 4px;
+		font-weight: lighter;
+		}
+#main .playersearch-container .playersearch-box .info-box .search-stats { display: grid; grid-template-rows: 15% 15% 15%; margin-bottom: -36%; }
+#main .playersearch-container .playersearch-box .info-box .retired-search { display: grid; grid-template-rows: 25% 25%; margin-bottom: -20%; }
+
+/* Links */
+#main .team-search-link {
+			text-decoration: none;
+			color: #1100F9;
+			cursor: pointer;
+			margin-top: 7.5px;
+		}
+#main .team-search-link:hover { text-decoration: none; color: #C50505; cursor: pointer; }
+#main .view-profile-link { text-decoration: none; color: #C50505; cursor: pointer; font-weight: bold; }
+#main .view-profile-link:hover { text-decoration: none; color: #1100F9; cursor: pointer; }
+#main .team-search-link:active, .view-profile-link:active { text-decoration: underline; }
+
+/*	--------------------------------------------------
 		MAIN Content: Footer Elemets
 *	----------------------------------------------- */
 /* Pagination */
@@ -544,6 +592,7 @@ form select:active {
 	border-radius: 5px;
 	border: 1px solid #a0a0a0;
 	background-color: #900;
+	cursor: pointer;
 }
 .button:hover,
 .button:active {
@@ -609,6 +658,8 @@ Responsiveness to Screen Sizes
 	#main .six-tables-container { margin: 3% 3% 3% 3%; grid-template-columns: 50% 50%; }
 
 	#main .team-page-container .team-table-container { display: table; padding-right: 3%; }
+
+	#main .playersearch-container { grid-template-columns: 25% 25% 25% 25%; }
 }
 
 @media screen and (max-width: 780px) {
@@ -622,6 +673,8 @@ Responsiveness to Screen Sizes
 	#main .teams-page-container .teams-page-separator div { display: none; }
 	#main .teams-page-container .nfc-container { margin-top: 0; margin-bottom: 0;}
 
+	#main .playersearch-container { grid-template-columns: 33% 33% 33%; }
+
 @media screen and (max-width: 500px) {
 	#masthead .logo img { height: 40px; width: 190px;}
 	#masthead .col.middle { width: 50%;}
@@ -631,6 +684,10 @@ Responsiveness to Screen Sizes
 	#main .team-page-container .team-page-trio .team-page-info { padding-left: 5%; }
 	#main .team-page-container .team-page-trio .team-page-info .team-name { font-size: 16px; }
 	#main .team-page-container .team-page-trio .team-page-info .division-name { font-size: 16px; }
+
+	#main .search-players { margin-bottom: 3%; }
+	#main .playersearch-container { grid-template-columns: 50% 50%; font-size: 14px; }
+
 
 
 }
@@ -1183,120 +1240,6 @@ Responsiveness to Screen Sizes
 .retired-hof h5 {
   font-size: 15px;
 }
-
-/* Player search page */
-
-.players-tools {
-  display: inline-block;
-  margin-top: 3%;
-  margin-left: 6%;
-}
-
-.players-tools h1 {
-  font-size: 28px;
-  text-transform: uppercase;
-  padding-bottom: 20px;
-}
-
-.players-tools form {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-gap: 5%;
-}
-
-.search-players {
-  border: 1px solid grey;
-  font-size: 100%;
-  border-radius: 5px;
-  padding: 0.1em 0.5em;
-  background: lightgrey;
-  height: 35px;
-  width: 125px;
-}
-
-.playersearch-container {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  margin-top: 6%;
-  margin-right: 3%;
-  margin-left: 3%;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.playersearch-box {
-  padding-bottom: 20%;
-  display: inline-block;
-  text-align: center;
-}
-
-.playersearch-box h5 {
-  font-size: 15px;
-  margin-bottom: -2%;
-}
-
-.search-pos-team {
-  display: flex;
-  justify-content: center;
-}
-
-.playersearch-pos::after {
-content: "|";
-font-size: 22px;
-padding-right: 4px;
-padding-left: 4px;
-font-weight: lighter;
-}
-
-.view-profile-link {
-  text-decoration: none;
-  color: #C50505;
-  cursor: pointer;
-}
-
-.view-profile-link:hover {
-  text-decoration: none;
-  color: #1100F9;
-  cursor: pointer;
-}
-
-.team-search-link {
-  text-decoration: none;
-  color: #1100F9;
-  cursor: pointer;
-  margin-top: 7.5px;
-}
-
-.team-search-link:hover {
-  text-decoration: none;
-  color: #C50505;
-  cursor: pointer;
-}
-
-.search-stats-grid {
-  display: grid;
-  grid-template-columns: 26% 26%;
-  justify-content: center;
-}
-
-.search-stats-nogrid {
-  justify-content: center;
-}
-
-.pagination-playersearch {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 6%;
-  margin-bottom: 20px;
-  font-size: 23px;
-  font-weight: bold;
-}
-
-.step-links {
-  padding-bottom: 20px;
-}
-
-
 /* HOF page */
 
 .hof-container {
