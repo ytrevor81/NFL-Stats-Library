@@ -3,575 +3,461 @@
 
 {% block content %}
 <div class="hof-container">
-  <div class="image"><img src="{% static 'images/icons/HOF.png'%}"/></div>
+  <div class="image"><img src="{% static 'images/HOF.PNG'%}"/></div>
   <div class="class-container">
     <h5>Class of 1963</h5>
     <div class="hof-player">
       {% for name, player in sixtythree %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
+        <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
       {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1964</h5>
-    <div class="hof-player">
+      <div class="hof-player">
       {% for name, player in sixtyfour %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
+        <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
       {% endfor %}
-    </div>
+      </div>
   </div>
   <div class="class-container">
     <h5>Class of 1965</h5>
     <div class="hof-player">
-      {% for name, player in sixtyfive %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in sixtyfive %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1966</h5>
     <div class="hof-player">
-      {% for name, player in sixtysix %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in sixtysix %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1967</h5>
     <div class="hof-player">
-      {% for name, player in sixtyseven %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in sixtyseven %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1968</h5>
     <div class="hof-player">
-      {% for name, player in sixtyeight %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in sixtyeight %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1969</h5>
     <div class="hof-player">
-      {% for name, player in sixtynine %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in sixtynine %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1970</h5>
     <div class="hof-player">
-      {% for name, player in seventy %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventy %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1971</h5>
     <div class="hof-player">
-      {% for name, player in seventyone %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventyone %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1972</h5>
     <div class="hof-player">
-      {% for name, player in seventytwo %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventytwo %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1973</h5>
     <div class="hof-player">
-      {% for name, player in seventythree %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventythree %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1974</h5>
     <div class="hof-player">
-      {% for name, player in seventyfour %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventyfour %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1975</h5>
     <div class="hof-player">
-      {% for name, player in seventyfive %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventyfive %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1976</h5>
     <div class="hof-player">
-      {% for name, player in seventysix %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventysix %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1977</h5>
     <div class="hof-player">
-      {% for name, player in seventyseven %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventyseven %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1978</h5>
     <div class="hof-player">
-      {% for name, player in seventyeight %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventyeight %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1979</h5>
     <div class="hof-player">
-      {% for name, player in seventynine %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in seventynine %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1980</h5>
     <div class="hof-player">
-      {% for name, player in eighty %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eighty %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1981</h5>
     <div class="hof-player">
-      {% for name, player in eightyone %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightyone %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1982</h5>
     <div class="hof-player">
-      {% for name, player in eightytwo %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightytwo %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1983</h5>
     <div class="hof-player">
-      {% for name, player in eightythree %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightythree %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1984</h5>
     <div class="hof-player">
-      {% for name, player in eightyfour %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightyfour %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1985</h5>
     <div class="hof-player">
-      {% for name, player in eightyfive %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightyfive %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1986</h5>
     <div class="hof-player">
-      {% for name, player in eightysix %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightysix %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1987</h5>
     <div class="hof-player">
-      {% for name, player in eightyseven %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightyseven %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1988</h5>
     <div class="hof-player">
-      {% for name, player in eightyeight %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightyeight %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1989</h5>
     <div class="hof-player">
-      {% for name, player in eightynine %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in eightynine %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1990</h5>
     <div class="hof-player">
-      {% for name, player in ninety %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninety %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1991</h5>
     <div class="hof-player">
-      {% for name, player in ninetyone %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetyone %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1992</h5>
     <div class="hof-player">
-      {% for name, player in ninetytwo %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetytwo %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1993</h5>
     <div class="hof-player">
-      {% for name, player in ninetythree %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetythree %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1994</h5>
     <div class="hof-player">
-      {% for name, player in ninetyfour %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetyfour %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1995</h5>
     <div class="hof-player">
-      {% for name, player in ninetyfive %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetyfive %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1996</h5>
     <div class="hof-player">
-      {% for name, player in ninetysix %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetysix %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1997</h5>
     <div class="hof-player">
-      {% for name, player in ninetyseven %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetyseven %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1998</h5>
     <div class="hof-player">
-      {% for name, player in ninetyeight %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetyeight %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 1999</h5>
     <div class="hof-player">
-      {% for name, player in ninetynine %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in ninetynine %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2000</h5>
     <div class="hof-player">
-      {% for name, player in two %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in two %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2001</h5>
     <div class="hof-player">
-      {% for name, player in twoone %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twoone %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2002</h5>
     <div class="hof-player">
-      {% for name, player in twotwo %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twotwo %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2003</h5>
     <div class="hof-player">
-      {% for name, player in twothree %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twothree %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2004</h5>
     <div class="hof-player">
-      {% for name, player in twofour %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twofour %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2005</h5>
     <div class="hof-player">
-      {% for name, player in twofive %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twofive %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2006</h5>
     <div class="hof-player">
-      {% for name, player in twosix %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twosix %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2007</h5>
     <div class="hof-player">
-      {% for name, player in twoseven %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twoseven %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2008</h5>
     <div class="hof-player">
-      {% for name, player in twoeight %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twoeight %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2009</h5>
     <div class="hof-player">
-      {% for name, player in twonine %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twonine %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2010</h5>
     <div class="hof-player">
-      {% for name, player in twoten %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twoten %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2011</h5>
     <div class="hof-player">
-      {% for name, player in twoeleven %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twoeleven %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2012</h5>
     <div class="hof-player">
-      {% for name, player in twotwelve %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twotwelve %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2013</h5>
     <div class="hof-player">
-      {% for name, player in twothirteen %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twothirteen %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2014</h5>
     <div class="hof-player">
-      {% for name, player in twofourteen %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twofourteen %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2015</h5>
     <div class="hof-player">
-      {% for name, player in twofifteen %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twofifteen %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2016</h5>
     <div class="hof-player">
-      {% for name, player in twosixteen %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twosixteen %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2017</h5>
     <div class="hof-player">
-      {% for name, player in twoseventeen %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twoseventeen %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2018</h5>
     <div class="hof-player">
-      {% for name, player in twoeighteen %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twoeighteen %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
   <div class="class-container">
     <h5>Class of 2019</h5>
     <div class="hof-player">
-      {% for name, player in twonineteen %}
-        <div class="hof-player">
-          <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
-        </div>
-      {% endfor %}
+    {% for name, player in twonineteen %}
+      <a href="/retiredprofile/?player={{ player.player_id }}">{{ name }}</a>
+    {% endfor %}
     </div>
   </div>
 

@@ -468,6 +468,296 @@ Team Page
 #main .view-profile-link:hover { text-decoration: none; color: #1100F9; cursor: pointer; }
 #main .team-search-link:active, .view-profile-link:active { text-decoration: underline; }
 
+/* --------------------------------
+	Hall of Fame Page
+	---------------------------------*/
+
+#main .hof-container { display: grid; margin: 3%; text-align: center; justify-content: center; }
+
+#main .hof-container .image { margin-top: 3%; }
+#main .hof-container img { height: 200px; width: 200px; }
+
+#main .hof-container .class-container { display: inline-block; justify-content: center; }
+#main .hof-container .class-container h5 { font-size: 18px; }
+
+#main .hof-container .class-container .hof-player { display: flex; justify-content: center; padding: 15px 25px 15px 25px; }
+#main .hof-container .class-container .hof-player a { text-decoration: none; font-size: 15px; color: #1100F9; padding: 15px; }
+#main .hof-container .class-container .hof-player a:hover { text-decoration: none; color: #C50505; }
+#main .hof-container .class-container .hof-player a:active { text-decoration: underline; }
+
+/* ---------------------------------
+	Profile Page
+	----------------------------------*/
+
+#main .profile-container {
+	display: grid;
+  grid-template-columns: 52% 28%;
+  margin: 3%;
+  align-items: center;
+  border-bottom: 1px solid lightgrey;
+}
+
+#main .profile-container .pic-id-team { display: grid; grid-template-columns: 33% 33% 33%; justify-content: center; }
+#main .profile-container .pic-id-team .profile-pic img { height: 135px; width: 135px; }
+#main .profile-container .pic-id-team .name-posnum { display: grid; grid-template-rows: 16% 62%; font-size: 18px; text-transform: uppercase; }
+#main .profile-container .pic-id-team .name-posnum .lastname { font-weight: bold; }
+#main .profile-container .pic-id-team .name-posnum .pos-num { display: flex; align-items: baseline; }
+#main .profile-container .pic-id-team .name-posnum .pos-num .pos { padding-left: 3px; }
+#main .profile-container .pic-id-team .name-posnum .pos-num .num::after { content: "|"; font-size: 22px; color: lightgrey; }
+
+#main .profile-container .pic-id-team .profile-wide-short { display: inline-block; text-align: center; }
+#main .profile-container .pic-id-team .profile-wide-short .pic-wide-short { height: 60px; width: 130px; }
+#main .profile-container .pic-id-team .profile-medium { display: inline-block; text-align: center; }
+#main .profile-container .pic-id-team .profile-medium .pic-medium { height: 80px; width: 125px; }
+#main .profile-container .pic-id-team .profile-long-thin { display: inline-block; text-align: center; }
+#main .profile-container .pic-id-team .profile-long-thin .pic-long-thin { height: 85px; width: 95px; }
+
+#main .profile-container .details-statsbox { display: grid; grid-template-columns: 80% 20%; align-items: center; }
+#main .profile-container .details-statsbox  .details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 14px;
+	border-left: 2px dotted lightgrey;
+}
+#main .profile-container .details-statsbox  .details .detail-titles { list-style-type: none; color: dimgrey; padding-inline-start: 15px; }
+#main .profile-container .details-statsbox  .details .detail-info { list-style-type: none; padding-inline-start: 15px; }
+#main .profile-container .details-statsbox  .details .detail-titles li { padding-bottom: 10px; }
+#main .profile-container .details-statsbox .details .detail-info li { padding-bottom: 10px; }
+#main .profile-container .details-statsbox .recent-season-box {
+  display: block;
+  height: 105px;
+  width: 320px;
+  border: 1px solid grey;
+  border-radius: 2%;
+  background-color: #F1F1F1;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,.4);
+}
+#main .profile-container .details-statsbox .recent-season-box h5 { font-size: 15px; margin-block-start: 15px; margin-block-end: 10px; }
+#main .profile-container .details-statsbox .recent-season-box .season-box-container { display: inline-block; }
+#main .profile-container .details-statsbox .recent-season-box .season-box-container ul { display: table-row; list-style: none; }
+#main .profile-container .details-statsbox .recent-season-box .season-box-container li {
+  display: table-cell;
+  text-align: center;
+  padding: 0 20px;
+}
+#main .profile-container .details-statsbox .recent-season-box .season-box-container .season-box-heads { color: dimgrey; font-size: 15px; }
+#main .profile-container .details-statsbox .recent-season-box .season-box-container .season-box-data { font-size: 16px; }
+
+#main .profile-options {
+  display: flex;
+  align-items: center;
+  margin-left: 9%;
+  margin-top: -2%;
+  margin-bottom: 3%;
+}
+#main .profile-options .radio-form {
+  display: grid;
+  grid-template-columns: 67% 50%;
+  grid-gap: 15px;
+  align-items: center;
+}
+#main .profile-options .radio-form ul { display: flex; }
+#main .profile-options .radio-form li { list-style-type: none; }
+#main .profile-options .radio-form ul li label { display: flex; align-items: center; margin-left: 12px; }
+#main .profile-options .radio-form ul li label input { width: 14px; height: 16px; margin-right: 6px; }
+#main .profile-options .radio-form .BAL-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #3E005D;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .CAR-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #0054C2;
+  color: #F5F5F5;
+  cursor: pointer;
+  }
+#main .profile-options .radio-form .CHI-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #C23500;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .CIN-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #FF5700;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .CLE-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #EC4100;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .DAL-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #00005D;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .DEN-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #0B0044;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .GB-btn {
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid gray;
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #002A03;
+    color: #F5F5F5;
+    cursor: pointer;
+}
+#main .profile-options .radio-form .IND-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #05159C;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .JAX-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #018BA1;
+  color: #F5F5F5;
+  cursor: pointer;
+  }
+#main .profile-options .radio-form .NO-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #B48B39;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .NYJ-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #005B34;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .OAK-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: black;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .PHI-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #026046;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form .PIT-btn {
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid gray;
+  height: 35px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #D6BA00;
+  color: #F5F5F5;
+  cursor: pointer;
+}
+#main .profile-options .radio-form button:hover {
+  background-color: #4B4B4B;
+  color: #F5F5F5;
+  transition: 0.5s ease;
+}
+
+#main .profile-stats-table-container {
+  width: 80.5%;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-left: 10%;
+}
+#main .profile-stats-table-container h1 { font-size: 30px; }
+#main .profile-stats-table-container .profile-stats-titles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F5F5F5;
+  background-color: #C50505;
+  height: 35px;
+  width: 100%;
+  text-transform: uppercase;
+}
+#main .profile-stats-table-container .profile-stats-table { width: 100%; font-size: 22px; }
+#main .profile-stats-table-container .profile-stats-table .profile-stats-head tr th { text-transform: uppercase; padding-top: 1%; }
+#main .profile-stats-table-container .profile-stats-table .profile-stats-body tr:nth-child(even) { background-color: #E8E8E8; }
+#main .profile-stats-table-container .profile-stats-table .profile-stats-body tr td { padding-top: 1%; padding-bottom: 1%; text-align: center; }
+#main .profile-stats-table-container .profile-stats-table .careers { font-weight: bold; text-transform: uppercase; }
+
 /*	--------------------------------------------------
 		MAIN Content: Footer Elemets
 *	----------------------------------------------- */
@@ -660,6 +950,8 @@ Responsiveness to Screen Sizes
 	#main .team-page-container .team-table-container { display: table; padding-right: 3%; }
 
 	#main .playersearch-container { grid-template-columns: 25% 25% 25% 25%; }
+
+	#main .hof-container .class-container .hof-player { display: grid; }
 }
 
 @media screen and (max-width: 780px) {
@@ -688,505 +980,18 @@ Responsiveness to Screen Sizes
 	#main .search-players { margin-bottom: 3%; }
 	#main .playersearch-container { grid-template-columns: 50% 50%; font-size: 14px; }
 
-
+	#main .hof-container img { height: 100px; width: 100px; }
 
 }
 
 
 /* -------------------- OLD STYLE SHEET ----------------------*/
 
-/* Profile pages */
-
-.profile-container {
-  display: grid;
-  grid-template-columns: 48% 1% 35%;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%;
-  padding-top: 5%;
-  border-bottom: 1px solid lightgrey;
-
-}
-
-.pic-id-team {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  justify-content: center;
-}
-
-.profile-pic {
-  padding-bottom: 3%;
-}
-
-.profile-pic img {
-  height: 135px;
-  width: 135px;
-}
-
-.id-info {
-  display: grid;
-  grid-template-rows: 123%;
-  font-size: 26px;
-  margin-left: -5px;
-}
-
-.name-posnum {
-  display: grid;
-  grid-template-rows: 15% 10% 83%;
-}
-
-.firstname {
-  text-transform: uppercase;
-  font-size: 17px;
-}
-
-.lastname {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 17px;
-}
-
-.pos-num {
-  display: flex;
-  align-items: center;
-}
-
-.pos-num .num {
-  font-size: 15px;
-}
-
-.pos-num .pos {
-  padding-top: 4px;
-  padding-left: 3px;
-  font-size: 17px;
-}
-
-.pos-num .title {
-  font-size: 15px;
-}
-
-.pos-num .years {
-  font-size: 15px;
-}
-
-.id-info .num::after {
-  content: "|";
-  font-size: 20px;
-  color: lightgrey;
-}
-
-.profile-wide-short {
-  display: inline-block;
-  text-align: center;
-  margin-top: 25px;
-  margin-left: -45px;
-}
-
-/*.profile-wide-short h5 {
-  font-size: 18px;
-}*/
-
-.pic-wide-short {
-  height: 60px;
-  width: 130px;
-}
-
-.profile-medium {
-  display: inline-block;
-  text-align: center;
-  margin-top: 16px;
-  margin-left: -45px;
-}
-
-/*.profile-medium h5 {
-  font-size: 18px;
-}*/
-
-.pic-medium {
-  height: 80px;
-  width: 125px;
-}
-
-.profile-long-thin {
-  display: inline-block;
-  text-align: center;
-  margin-top: 5%;
-  margin-left: -35px;
-}
-/*
-.profile-long-thin h5 {
-  font-size: 20px;
-}*/
-
-.pic-long-thin {
-  height: 85px;
-  width: 95px;
-}
-
-.short-dotted-line {
-  display: grid;
-  justify-content: center;
-  border-left: 2px dotted lightgrey;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  margin-left: -20px;
-}
-
-.details-statsbox {
-  display: grid;
-  grid-template-columns: 80% 20%;
-  align-items: center;
-  margin-left: -75px;
-}
-
-.details {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-  margin-left: -50px;
-  margin-top: 8px;
-}
-
-.details .detail-titles {
-  list-style-type: none;
-  color: dimgrey;
-}
-
-.details .detail-info {
-  list-style-type: none;
-  padding-left: 8px;
-}
-
-.details .detail-titles li {
-  padding-bottom: 10px;
-}
-
-.details .detail-info li {
-  padding-bottom: 10px;
-}
-
-.recent-season-box {
-  display: block;
-  height: 105px;
-  width: 320px;
-  border: 1px solid grey;
-  border-radius: 2%;
-  background-color: #F1F1F1;
-  text-align: center;
-  vertical-align: middle;
-  margin-left: -85px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,.4);
-}
-
-.recent-season-box h5 {
-  padding-top: 10px;
-  font-size: 16px;
-}
-
-.season-box-container {
-  display: inline-block;
-  padding-top: 15px;
-}
-
-.season-box-container ul {
-  display: table-row;
-  list-style: none;
-}
-
-.season-box-container li {
-  display: table-cell;
-  text-align: center;
-  padding: 0 20px;
-  padding-bottom: 5px;
-}
-
-.season-box-heads {
-  color: dimgrey;
-  font-size: 18px;
-}
-
-.season-box-data {
-  font-size: 25px;
-}
-
-.profile-options {
-  display: flex;
-  align-items: center;
-  margin-left: 9%;
-  margin-top: -2%;
-  margin-bottom: 3%;
-}
-
-.radio-form {
-  display: grid;
-  grid-template-columns: 67% 50%;
-  grid-gap: 15px;
-  align-items: center;
-}
-
-.radio-form ul {
-  display: flex;
-}
-
-.radio-form li {
-  list-style-type: none;
-}
-
-.radio-form ul li label {
-  display: flex;
-  align-items: center;
-  margin-left: 12px;
-}
-
-.radio-form ul li label input {
-  width: 14px;
-  height: 16px;
-  margin-right: 6px;
-}
-
-.BAL-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #3E005D;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.CAR-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #0054C2;
-  color: #F5F5F5;
-  cursor: pointer;
-  }
-
-.CHI-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #C23500;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.CIN-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #FF5700;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.CLE-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #EC4100;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.DAL-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #00005D;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.DEN-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #0B0044;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.GB-btn {
-    font-size: 15px;
-    font-weight: bold;
-    border: 1px solid gray;
-    height: 35px;
-    width: 100px;
-    border-radius: 5px;
-    background-color: #002A03;
-    color: #F5F5F5;
-    cursor: pointer;
-}
-
-.IND-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #05159C;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.JAX-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #018BA1;
-  color: #F5F5F5;
-  cursor: pointer;
-  }
-
-.NO-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #B48B39;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.NYJ-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #005B34;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.OAK-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: black;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.PHI-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #026046;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.PIT-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #D6BA00;
-  color: #F5F5F5;
-  cursor: pointer;
-}
-
-.profile-options button:hover {
-  background-color: #4B4B4B;
-  color: #F5F5F5;
-  transition: 0.5s ease;
-}
-
-.profile-stats-table-container {
-  width: 80.5%;
-  display: inline-block;
-  box-sizing: border-box;
-  margin-left: 10%;
-}
-
-.profile-stats-table-container h1 {
-  font-size: 30px;
-}
-
-.profile-stats-titles {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #F5F5F5;
-  background-color: #C50505;
-  height: 35px;
-  width: 100%;
-  text-transform: uppercase;
-}
-
-.profile-stats-titles h1 {
-  font-size: 20px;
-}
-
-.profile-stats-table {
-  width: 100%;
-  font-size: 22px;
-}
-
-.profile-stats-head {
-  text-transform: uppercase;
-}
-
-.profile-stats-head tr th {
-  padding-top: 1%;
-}
-
-.profile-stats-body tr:nth-child(even) {
-  background-color: #E8E8E8;
-}
-
-.profile-stats-body tr td {
-  padding-top: 1%;
-  padding-bottom: 1%;
-  text-align: center;
-}
-
-.careers {
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
 /* Retired Profiles */
+#main .pos-num .title { font-size: 15px; }
+#main .pos-num .years { font-size: 15px; }
+
+
 
 .retired-dotted-line {
   display: grid;
@@ -1239,50 +1044,6 @@ Responsiveness to Screen Sizes
 
 .retired-hof h5 {
   font-size: 15px;
-}
-/* HOF page */
-
-.hof-container {
-  display: grid;
-  margin: 3%;
-  text-align: center;
-  justify-content: center;
-}
-
-.image {
-  margin-top: 3%;
-}
-
-.hof-container img {
-  height: 200px;
-  width: 200px;
-}
-
-.class-container {
-  display: inline-block;
-  justify-content: center;
-  margin-top: 3%;
-}
-
-.class-container h5 {
-  font-size: 18px;
-}
-
-.hof-player {
-  display: flex;
-  justify-content: center;
-  padding: 15px 25px 15px 25px;
-}
-
-.hof-player a {
-  text-decoration: none;
-  font-size: 15px;
-  color: #1100F9;
-}
-
-.hof-player a:hover{
-  text-decoration: none;
-  color: #C50505;
 }
 
 /* 404 */
