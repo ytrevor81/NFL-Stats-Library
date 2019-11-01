@@ -242,7 +242,7 @@ Team Page
 #main .team-page-container .team-page-trio .team-page-info .division-name { font-size: 18px; color: grey; }
 
 #main .team-page-container .team-table-container { width: 90%; display: inline-block; box-sizing: border-box; margin-left: 5%; }
-#main .team-page-container .team-table-container .team-titles {
+#main .team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -252,7 +252,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .BAL-team-titles {
+#main .BAL-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -262,7 +262,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .CAR-team-titles {
+#main .CAR-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -272,7 +272,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .CHI-team-titles {
+#main .CHI-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -282,7 +282,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .CIN-team-titles {
+#main .CIN-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -292,7 +292,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .CLE-team-titles {
+#main .CLE-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -302,7 +302,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .DAL-team-titles {
+#main .DAL-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -312,7 +312,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .DEN-team-titles {
+#main .DEN-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -322,7 +322,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .GB-team-titles {
+#main .GB-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -332,7 +332,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .IND-team-titles {
+#main .IND-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -342,7 +342,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .JAX-team-titles {
+#main .JAX-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -352,7 +352,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .NO-team-titles {
+#main .NO-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -362,7 +362,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .NYJ-team-titles {
+#main .NYJ-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -372,7 +372,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .OAK-team-titles {
+#main .OAK-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -382,7 +382,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .PHI-team-titles {
+#main .PHI-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -392,7 +392,7 @@ Team Page
 	  width: 100%;
 	  text-transform: uppercase;
 	}
-#main .team-page-container .team-table-container .PIT-team-titles {
+#main .PIT-team-titles {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
@@ -497,14 +497,15 @@ Team Page
   border-bottom: 1px solid lightgrey;
 }
 
-#main .profile-container .pic-id-team { display: grid; grid-template-columns: 33% 33% 33%; justify-content: center; }
+#main .profile-container .pic-id-team { display: grid; grid-template-columns: 30% 25% 33%; justify-content: center; }
 #main .profile-container .pic-id-team .profile-pic img { height: 135px; width: 135px; }
-#main .profile-container .pic-id-team .name-posnum { display: grid; grid-template-rows: 16% 62%; font-size: 18px; text-transform: uppercase; }
+#main .profile-container .pic-id-team .name-posnum { display: grid; grid-template-rows: 16% 58%; font-size: 18px; text-transform: uppercase; }
 #main .profile-container .pic-id-team .name-posnum .lastname { font-weight: bold; }
 #main .profile-container .pic-id-team .name-posnum .pos-num { display: flex; align-items: baseline; }
 #main .profile-container .pic-id-team .name-posnum .pos-num .pos { padding-left: 3px; }
 #main .profile-container .pic-id-team .name-posnum .pos-num .num::after { content: "|"; font-size: 22px; color: lightgrey; }
 
+#main .profile-container .pic-id-team h5 { text-transform: uppercase; }
 #main .profile-container .pic-id-team .profile-wide-short { display: inline-block; text-align: center; }
 #main .profile-container .pic-id-team .profile-wide-short .pic-wide-short { height: 60px; width: 130px; }
 #main .profile-container .pic-id-team .profile-medium { display: inline-block; text-align: center; }
@@ -512,7 +513,11 @@ Team Page
 #main .profile-container .pic-id-team .profile-long-thin { display: inline-block; text-align: center; }
 #main .profile-container .pic-id-team .profile-long-thin .pic-long-thin { height: 85px; width: 95px; }
 
-#main .profile-container .details-statsbox { display: grid; grid-template-columns: 80% 20%; align-items: center; }
+#main .profile-container .details-statsbox { display: grid;
+																						 grid-template-columns: 70% 20%;
+																						 margin-left: -10%;
+																						 padding-bottom: 10px;
+																						 align-items: center; }
 #main .profile-container .details-statsbox  .details {
   display: flex;
   justify-content: flex-start;
@@ -547,16 +552,10 @@ Team Page
 #main .profile-container .details-statsbox .recent-season-box .season-box-container .season-box-heads { color: dimgrey; font-size: 15px; }
 #main .profile-container .details-statsbox .recent-season-box .season-box-container .season-box-data { font-size: 16px; }
 
-#main .profile-options {
-  display: flex;
-  align-items: center;
-  margin-left: 9%;
-  margin-top: -2%;
-  margin-bottom: 3%;
-}
+#main .profile-options { display: flex; }
 #main .profile-options .radio-form {
   display: grid;
-  grid-template-columns: 67% 50%;
+  grid-template-columns: 72% 0%;
   grid-gap: 15px;
   align-items: center;
 }
@@ -565,183 +564,195 @@ Team Page
 #main .profile-options .radio-form ul li label { display: flex; align-items: center; margin-left: 12px; }
 #main .profile-options .radio-form ul li label input { width: 14px; height: 16px; margin-right: 6px; }
 #main .profile-options .radio-form .BAL-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #3E005D;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #3E005D;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .CAR-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #0054C2;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #0054C2;
+	cursor: pointer;
   }
 #main .profile-options .radio-form .CHI-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #C23500;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #C23500;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .CIN-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #FF5700;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #FF5700;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .CLE-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #EC4100;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #EC4100;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .DAL-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #00005D;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #00005D;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .DEN-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #0B0044;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #0B0044;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .GB-btn {
-    font-size: 15px;
-    font-weight: bold;
-    border: 1px solid gray;
-    height: 35px;
-    width: 100px;
-    border-radius: 5px;
-    background-color: #002A03;
-    color: #F5F5F5;
-    cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #002A03;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .IND-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #05159C;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #05159C;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .JAX-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #018BA1;
-  color: #F5F5F5;
-  cursor: pointer;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
+	width: 100px;
+	border: 1px solid #a0a0a0;
+	background-color: #018BA1;
+	cursor: pointer;
   }
 #main .profile-options .radio-form .NO-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
   width: 100px;
-  border-radius: 5px;
-  background-color: #B48B39;
-  color: #F5F5F5;
-  cursor: pointer;
+	border: 1px solid #a0a0a0;
+	background-color: #B48B39;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .NYJ-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
   width: 100px;
-  border-radius: 5px;
-  background-color: #005B34;
-  color: #F5F5F5;
-  cursor: pointer;
+	border: 1px solid #a0a0a0;
+	background-color: #005B34;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .OAK-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
   width: 100px;
-  border-radius: 5px;
-  background-color: black;
-  color: #F5F5F5;
-  cursor: pointer;
+	border: 1px solid #a0a0a0;
+	background-color: black;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .PHI-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
   width: 100px;
-  border-radius: 5px;
-  background-color: #026046;
-  color: #F5F5F5;
-  cursor: pointer;
+	border: 1px solid #a0a0a0;
+	background-color: #026046;
+	cursor: pointer;
 }
 #main .profile-options .radio-form .PIT-btn {
-  font-size: 15px;
-  font-weight: bold;
-  border: 1px solid gray;
-  height: 35px;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	height: 35px;
   width: 100px;
-  border-radius: 5px;
-  background-color: #D6BA00;
-  color: #F5F5F5;
-  cursor: pointer;
+	border: 1px solid #a0a0a0;
+	background-color: #D6BA00;
+	cursor: pointer;
+}
+#main .profile-options .radio-form .red-btn {
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 5px;
+	border: 1px solid #a0a0a0;
+	background-color: #900;
+	cursor: pointer;
+	height: 35px;
+	width: 100px;
 }
 #main .profile-options .radio-form button:hover {
-  background-color: #4B4B4B;
-  color: #F5F5F5;
-  transition: 0.5s ease;
+	border-color: #000;
+	background-color: #c00;
+	box-shadow: 0px 0px 5px #000;
+  transition: 0.3s ease;
 }
 
 #main .profile-stats-table-container {
-  width: 80.5%;
+  width: 94%;
   display: inline-block;
   box-sizing: border-box;
-  margin-left: 10%;
+  margin: 3%;
 }
-#main .profile-stats-table-container h1 { font-size: 30px; }
+#main .profile-stats-table-container h1 { font-size: 20px; }
 #main .profile-stats-table-container .profile-stats-titles {
   display: flex;
   justify-content: center;
@@ -752,7 +763,7 @@ Team Page
   width: 100%;
   text-transform: uppercase;
 }
-#main .profile-stats-table-container .profile-stats-table { width: 100%; font-size: 22px; }
+#main .profile-stats-table-container .profile-stats-table { width: 100%; font-size: 16px; }
 #main .profile-stats-table-container .profile-stats-table .profile-stats-head tr th { text-transform: uppercase; padding-top: 1%; }
 #main .profile-stats-table-container .profile-stats-table .profile-stats-body tr:nth-child(even) { background-color: #E8E8E8; }
 #main .profile-stats-table-container .profile-stats-table .profile-stats-body tr td { padding-top: 1%; padding-bottom: 1%; text-align: center; }
@@ -923,7 +934,6 @@ Responsiveness to Screen Sizes
 													width: 25%;
 													transform: translateX(100%);
 													transition: transform 0.5s ease-in;
-
 													}
 	#masthead .nav-main .menu { display: grid;
 														  grid-template-rows: 10% 10% 10% 10% 10%;
@@ -937,6 +947,23 @@ Responsiveness to Screen Sizes
 	#masthead .col.middle.approved { transform: translateX(0%); }
 
 	#main .teams-page-container .division .two-team-division { display: inline-table; }
+
+	#main .profile-container { display: flex; }
+	#main .profile-container .pic-id-team { display: grid; grid-template-columns: 30% 25% 33%; justify-content: center; }
+	#main .profile-container .pic-id-team .name-posnum { font-size: 18px; }
+	#main .profile-container .details-statsbox { display: flex; margin-left: 0; }
+	#main .profile-container .details-statsbox  .details {
+	  display: flex;
+	  justify-content: flex-start;
+	  align-items: center;
+	  font-size: 14px;
+		border-left: 2px dotted lightgrey;
+	}
+	#main .profile-container .details-statsbox  .details .detail-titles { list-style-type: none; color: dimgrey; padding-inline-start: 15px; }
+	#main .profile-container .details-statsbox  .details .detail-info { list-style-type: none; padding-inline-start: 15px; }
+	#main .profile-container .details-statsbox  .details .detail-titles li { padding-bottom: 10px; }
+	#main .profile-container .details-statsbox .details .detail-info li { padding-bottom: 10px; }
+	#main .profile-container .details-statsbox .recent-season-box { display: none; }
 }
 
 @media screen and (max-width: 995px) {
