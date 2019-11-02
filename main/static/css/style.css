@@ -948,21 +948,10 @@ Responsiveness to Screen Sizes
 
 	#main .teams-page-container .division .two-team-division { display: inline-table; }
 
-	#main .profile-container { display: flex; }
-	#main .profile-container .pic-id-team { display: grid; grid-template-columns: 30% 25% 33%; justify-content: center; }
-	#main .profile-container .pic-id-team .name-posnum { font-size: 18px; }
+	#main .profile-container { display: block; }
+	#main .profile-container .pic-id-team { display: grid; grid-template-columns: 18% 0% 48%; margin-left: -17%; }
 	#main .profile-container .details-statsbox { display: flex; margin-left: 0; }
-	#main .profile-container .details-statsbox  .details {
-	  display: flex;
-	  justify-content: flex-start;
-	  align-items: center;
-	  font-size: 14px;
-		border-left: 2px dotted lightgrey;
-	}
-	#main .profile-container .details-statsbox  .details .detail-titles { list-style-type: none; color: dimgrey; padding-inline-start: 15px; }
-	#main .profile-container .details-statsbox  .details .detail-info { list-style-type: none; padding-inline-start: 15px; }
-	#main .profile-container .details-statsbox  .details .detail-titles li { padding-bottom: 10px; }
-	#main .profile-container .details-statsbox .details .detail-info li { padding-bottom: 10px; }
+	#main .profile-container .details-statsbox  .details { border-left: none; }
 	#main .profile-container .details-statsbox .recent-season-box { display: none; }
 }
 
@@ -979,6 +968,8 @@ Responsiveness to Screen Sizes
 	#main .playersearch-container { grid-template-columns: 25% 25% 25% 25%; }
 
 	#main .hof-container .class-container .hof-player { display: grid; }
+
+	#main .profile-stats-table-container { display: table; padding-right: 3%; }
 }
 
 @media screen and (max-width: 780px) {
@@ -994,6 +985,13 @@ Responsiveness to Screen Sizes
 
 	#main .playersearch-container { grid-template-columns: 33% 33% 33%; }
 
+	#main .profile-container .pic-id-team { display: block; margin-left: 0; text-align: center; }
+	#main .profile-container .pic-id-team .profile-pic { padding-bottom: 10px; }
+	#main .profile-container .pic-id-team .name-posnum { grid-template-rows: 40% 0%; }
+	#main .profile-container .pic-id-team .name-posnum .pos-num { display: none; }
+	#main .profile-container .details-statsbox { display: block; text-align: center; }
+	#main .profile-container .details-statsbox .details { justify-content: center; }
+
 @media screen and (max-width: 500px) {
 	#masthead .logo img { height: 40px; width: 190px;}
 	#masthead .col.middle { width: 50%;}
@@ -1008,6 +1006,11 @@ Responsiveness to Screen Sizes
 	#main .playersearch-container { grid-template-columns: 50% 50%; font-size: 14px; }
 
 	#main .hof-container img { height: 100px; width: 100px; }
+
+	#main .profile-options { display: flex; justify-content: center; text-align: center; }
+	#main .profile-options .radio-form { display: block; }
+	#main .profile-options .radio-form ul { display: block }
+	#main .profile-options .radio-form ul li label { margin-left: 0; padding-bottom: 5px; }
 
 }
 
