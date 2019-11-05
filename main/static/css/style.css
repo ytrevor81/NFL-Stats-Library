@@ -769,6 +769,22 @@ Team Page
 #main .profile-stats-table-container .profile-stats-table .profile-stats-body tr td { padding-top: 1%; padding-bottom: 1%; text-align: center; }
 #main .profile-stats-table-container .profile-stats-table .careers { font-weight: bold; text-transform: uppercase; }
 
+/* Retired Profiles */
+#main .retired-title { font-size: 15px; }
+#main .retired-years { font-size: 15px; }
+#main .name-yearsactive { display: grid; grid-template-rows: 16% 48% 0%; }
+#main .ret-firstname { text-transform: uppercase; }
+#main .ret-lastname { text-transform: uppercase; font-weight: bold; }
+#main .name-yearsactive .years-active { font-size: 16px; }
+#main .name-yearsactive .years-active .retired-years { margin-block-start: -14px; }
+
+#main .retired-teams { text-align: center; font-size: 16px; }
+#main .retired-teams .team { text-transform: uppercase; margin-block-start: -20px; }
+#main .retired-hof { text-align: center; margin-bottom: -3%; }
+#main .retired-hof img { height: 105px; width: 95px; }
+#main .retired-hof h5 { font-size: 16px; margin-block-start: 15px; }
+
+
 /*	--------------------------------------------------
 		MAIN Content: Footer Elemets
 *	----------------------------------------------- */
@@ -952,7 +968,9 @@ Responsiveness to Screen Sizes
 	#main .profile-container .pic-id-team { display: grid; grid-template-columns: 18% 0% 48%; margin-left: -17%; }
 	#main .profile-container .details-statsbox { display: flex; margin-left: 0; }
 	#main .profile-container .details-statsbox  .details { border-left: none; }
-	#main .profile-container .details-statsbox .recent-season-box { display: none; }
+	#main .profile-container .details-statsbox .recent-season-box { margin-left: 11%; }
+
+	#main .name-yearsactive { grid-template-rows: 15% 12% 0%; }
 }
 
 @media screen and (max-width: 995px) {
@@ -991,6 +1009,9 @@ Responsiveness to Screen Sizes
 	#main .profile-container .pic-id-team .name-posnum .pos-num { display: none; }
 	#main .profile-container .details-statsbox { display: block; text-align: center; }
 	#main .profile-container .details-statsbox .details { justify-content: center; }
+	#main .profile-container .details-statsbox .recent-season-box { display: none; }
+
+	#main .retired-teams { margin-top: 15px; }
 
 @media screen and (max-width: 500px) {
 	#masthead .logo img { height: 40px; width: 190px;}
@@ -1009,73 +1030,13 @@ Responsiveness to Screen Sizes
 
 	#main .profile-options { display: flex; justify-content: center; text-align: center; }
 	#main .profile-options .radio-form { display: block; }
-	#main .profile-options .radio-form ul { display: block }
+	#main .profile-options .radio-form ul { display: block; }
 	#main .profile-options .radio-form ul li label { margin-left: 0; padding-bottom: 5px; }
 
 }
 
 
 /* -------------------- OLD STYLE SHEET ----------------------*/
-
-/* Retired Profiles */
-#main .pos-num .title { font-size: 15px; }
-#main .pos-num .years { font-size: 15px; }
-
-
-
-.retired-dotted-line {
-  display: grid;
-  justify-content: center;
-  border-left: 2px dotted lightgrey;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  margin-left: -26px;
-}
-
-.retired-box-h5 {
-  padding-top: 5px;
-  font-size: 20px;
-}
-
-.retired-season-box-heads {
-  color: dimgrey;
-  font-size: 18px;
-}
-
-.retired-season-box-data {
-  font-size: 22px;
-}
-
-.name-yearsactive {
-  display: grid;
-  grid-template-rows: 13% 10% 86%;
-}
-
-.retired-teams {
-  display: inline-block;
-  text-align: center;
-  margin-top: 5%;
-  margin-left: -45px;
-  font-size: 22px;
-}
-
-.retired-hof {
-  margin-top: -3%;
-  margin-bottom: 2%;
-  display: grid;
-  text-align: center;
-  justify-content: center;
-}
-
-.retired-hof img {
-  height: 105px;
-  width: 95px;
-}
-
-.retired-hof h5 {
-  font-size: 15px;
-}
-
 /* 404 */
 
 .error-page {

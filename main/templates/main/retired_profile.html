@@ -13,27 +13,24 @@
     </div>
     <div class="id-info">
       <div class="name-yearsactive">
-        <div class="firstname">
+        <div class="ret-firstname">
           {{ firstname }}
         </div>
-        <div class="lastname">
+        <div class="ret-lastname">
           {{ lastname }}
         </div>
-        <div class="pos-num">
-          <div class="years-active">
-            <p class="title">Years Active:</p>
-            <p class="years">{{ start }} - {{ finished }}</p>
-          </div>
+        <div class="years-active">
+          <p class="retired-title">Years Active:</p>
+          <p class="retired-years">{{ start }} - {{ finished }}</p>
         </div>
       </div>
     </div>
       <div class="retired-teams">
         {% for team in teams %}
-          <h5>{{ team }}</h5>
+          <h5 class="team">{{ team }}</h5>
         {% endfor %}
       </div>
     </div>
-  <div class="retired-dotted-line"></div>
   <div class="details-statsbox">
     <div class="details">
       <ul class="detail-titles">
@@ -180,7 +177,7 @@
 {% if hof != None %}
   {% for player in hof %}
     <div class="retired-hof">
-      <img src="{% static 'images/icons/HOF.png'%}"/>
+      <img src="{% static 'images/HOF.PNG'%}"/>
       <h5>Class of {{ player.year }}</h5>
     </div>
   {% endfor %}
