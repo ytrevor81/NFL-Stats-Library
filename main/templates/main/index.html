@@ -24,38 +24,12 @@
 
     <!-- HTML5 Boilerplate & Custom Stylesheets -->
     <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-      <div class="navcontainer container">
-        <div class="navbar-header navbar-left">
-          <a class="logo navbar-brand" href="/">
-            <img src="{% static 'images/logo.PNG' %}" alt="Logo | NFL Stats Library">
-          </a>
-          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="/teams">Teams</a></li>
-            <li><a href="/playersearch">Players</a></li>
-            <li><a href="/seasonleaders">Season Leaders</a></li>
-            <li><a href="/HOF">HOF</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!--
     <header id="masthead">
       <div class="grid row contain">
 
@@ -86,7 +60,6 @@
       </div>
 
     </header>
-  -->
 
     <main id="main" class="contain">
       {% block content %}
@@ -112,7 +85,7 @@
     <!-- JS/jQuery Scripts -->
     <script src="{% static 'js/modernizr-3.7.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
 
   </body>
