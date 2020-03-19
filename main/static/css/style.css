@@ -42,12 +42,16 @@ body {
 		HEADER: Areas & Main Elements
 *	----------------------------------------------- */
 #masthead .col { margin: 0; padding-top: 3px; }
-#masthead .col.first { margin-right: 25px; display: grid; grid-template-columns: 28% 71%; align-items: center;}
-#masthead .col.middle {display: grid; align-items: center; grid-template-columns: 60% 44%;}
-#masthead .col.last { display: flex; justify-content: flex-end;}
+#masthead .col.first {
+		margin-right: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	}
+#masthead .col.middle { display: flex; align-items: center; justify-content: space-between; }
 #masthead .code { display: inline-block; margin-bottom: 10px;}
 #masthead .logo > img { display: block; width: 270px; height: 60px; }
-#masthead .nav-main { padding: 20px 0; }
+#masthead .nav-main { padding: 20px 0; margin-right: 35px; }
 #masthead .burger {display: none; cursor: pointer;}
 #masthead .burger div {float: right; background-color: #fff; height: 3px; width: 25px; margin: 5px;}
 
@@ -182,12 +186,12 @@ Team Page
 #main .teams-page-container {
   display: grid;
   grid-template-columns: 45% 10% 45%;
-  margin: 3%;
+  margin: 8%;
   font-weight: bold;
   font-size: 18px;
   text-transform: uppercase;
 }
-#main .teams-page-container .afc-container { text-align: center; margin-top: 10%; }
+#main .teams-page-container .afc-container { text-align: center; }
 #main .teams-page-container .teams-page-separator {
   display: flex;
   justify-content: center;
@@ -195,7 +199,7 @@ Team Page
   margin-bottom: 50%;
 }
 #main .teams-page-container .teams-page-separator div { height: 100%; border-right: 2px dotted lightgrey; }
-#main .teams-page-container .nfc-container { text-align: center; margin-top: 10%; margin-bottom: 10%; }
+#main .teams-page-container .nfc-container { text-align: center; margin-bottom: 10%; }
 
 #main .teams-page-container .division { padding-top: 8%; display: inline-block; }
 #main .teams-page-container .division h2 { color: grey; }
@@ -453,8 +457,8 @@ Team Page
 		padding-left: 4px;
 		font-weight: lighter;
 		}
-#main .playersearch-container .playersearch-box .info-box .search-stats { display: grid; grid-template-rows: 15% 15% 15%; margin-bottom: -36%; }
-#main .playersearch-container .playersearch-box .info-box .retired-search { display: grid; grid-template-rows: 25% 25%; margin-bottom: -20%; }
+#main .playersearch-container .playersearch-box .info-box .search-stats { display: grid; grid-template-rows: 15% 15% 15%; margin-bottom: -30%; }
+#main .playersearch-container .playersearch-box .info-box .retired-search { display: grid; grid-template-rows: 25% 25%; margin-bottom: -15%; }
 
 /* Links */
 #main .team-search-link {
@@ -934,6 +938,11 @@ form select:active {
 /* ----------------------------------------
 Responsiveness to Screen Sizes
 -------------------------------------------*/
+
+@media screen and (max-width: 1600px) {
+	#main .playersearch-container .playersearch-box .info-box .search-stats { margin-bottom: -36%; }
+	#main .playersearch-container .playersearch-box .info-box .retired-search { margin-bottom: -20%; }
+}
 
 @media screen and (max-width: 1125px) {
 	body { overflow-x: hidden; }
