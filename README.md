@@ -13,7 +13,6 @@ profile picture urls of each player from NFL.com (https://github.com/ytrevor81/P
 - A library was created to utilize reusable code in data_functions.py. These functions handle most of the data processing when extracted
 from the MySQL database.
 - Deployed on a Linode VPS server, using Apache2 and Ubuntu.
-- Website is www.nfl-stats-library.com
 
 # Home/Full Season Stats
 Users can view season stats of players, ranked from greatest to least, from a variety of categories in any given year and/or for any
